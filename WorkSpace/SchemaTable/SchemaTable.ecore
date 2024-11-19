@@ -2,22 +2,51 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SchemaTable" nsURI="http://schematable" nsPrefix="schematable">
   <eClassifiers xsi:type="ecore:EClass" name="Schema">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
         eType="#//Colonne" containment="true" eOpposite="#//Colonne/schema"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneIdentifiants" lowerBound="1"
+        eType="#//Colonne"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Colonne">
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
-        eType="#//Schema" eOpposite="#//Schema/colonne"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeColonne" eType="#//TypeDonnee"
-        defaultValueLiteral=""/>
+        eType="#//Schema" eOpposite="#//Schema/colonnes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiant" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="donnees" eType="#//Donnees"
+        containment="true" eOpposite="#//Donnees/colonne"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDonnees" lowerBound="1"
+        eType="#//TypeDonnee" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
+        eType="#//Contrainte" eOpposite="#//Contrainte/colonnes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColonneSimple" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Donnees" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" lowerBound="1"
+        eType="#//Colonne" eOpposite="#//Colonne/donnees"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnee">
     <eLiterals name="Entier" literal="Entier"/>
     <eLiterals name="Flottant" value="1"/>
     <eLiterals name="Texte" value="2"/>
     <eLiterals name="Booleen" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneesBrutes" eSuperTypes="#//Donnees"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneesCalculees" eSuperTypes="#//Donnees">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        eType="#//Algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantsColonnesEntree"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneesEtrangeres" eSuperTypes="#//Donnees">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantColonneEtrangere"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Algorithme"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Contrainte">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
+        eType="#//Colonne" eOpposite="#//Colonne/contraintes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        eType="#//Algorithme"/>
   </eClassifiers>
 </ecore:EPackage>
