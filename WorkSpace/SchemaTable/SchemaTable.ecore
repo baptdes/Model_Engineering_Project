@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SchemaTable" nsURI="http://schematable" nsPrefix="schematable">
+  <eClassifiers xsi:type="ecore:EClass" name="Schema">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" upperBound="-1"
+        eType="#//Colonne" containment="true" eOpposite="#//Colonne/schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colonne">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="#//Schema" eOpposite="#//Schema/colonne"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeColonne" eType="#//TypeDonnee"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneSimple" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnee">
+    <eLiterals name="Entier" literal="Entier"/>
+    <eLiterals name="Flottant" value="1"/>
+    <eLiterals name="Texte" value="2"/>
+    <eLiterals name="Booleen" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>
