@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="script" nsURI="http://www.example.org/script" nsPrefix="script">
+  <eClassifiers xsi:type="ecore:EClass" name="Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
+        eType="#//Entree" eOpposite="#//Bloc/script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultat" lowerBound="1"
+        eType="#//Resultat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocs" upperBound="-1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resultat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+        eType="#//Script" eOpposite="#//Script/entrees"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocAvecSortie" interface="true" eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocSansEntree" abstract="true" interface="true"
+      eSuperTypes="#//BlocAvecSortie"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree" eSuperTypes="#//BlocSansEntree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constante" eSuperTypes="#//BlocSansEntree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FonctionUnaire" eSuperTypes="#//BlocAvecSortie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fonction" lowerBound="1"
+        eType="#//TypeFonctionUnaire"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        eType="#//BlocAvecSortie"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" eSuperTypes="#//BlocAvecSortie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//TypeOperationBinaire"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" lowerBound="2"
+        upperBound="2" eType="#//BlocAvecSortie"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeFonctionUnaire">
+    <eLiterals name="Exponentielle"/>
+    <eLiterals name="Cosinus"/>
+    <eLiterals name="Sinus"/>
+    <eLiterals name="RacineCaree"/>
+    <eLiterals name="Inverse"/>
+    <eLiterals name="Oppose"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeOperationBinaire">
+    <eLiterals name="Addition"/>
+    <eLiterals name="Soustraction"/>
+    <eLiterals name="Multiplication"/>
+    <eLiterals name="Division"/>
+    <eLiterals name="Maximum"/>
+    <eLiterals name="Minimum"/>
+  </eClassifiers>
+</ecore:EPackage>
