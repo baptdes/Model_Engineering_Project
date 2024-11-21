@@ -4,18 +4,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="Script">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
-        eType="#//Entree" eOpposite="#//Bloc/script"/>
+        eType="#//Entree"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultat" lowerBound="1"
         eType="#//Resultat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocs" upperBound="-1"
-        eType="#//Bloc"/>
+        eType="#//Bloc" containment="true" eOpposite="#//Bloc/script"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resultat"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Bloc" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Resultat" eSuperTypes="#//Bloc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
-        eType="#//Script" eOpposite="#//Script/entrees"/>
+        eType="#//Script" eOpposite="#//Script/blocs"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BlocAvecSortie" interface="true" eSuperTypes="#//Bloc">
+  <eClassifiers xsi:type="ecore:EClass" name="BlocAvecSortie" abstract="true" interface="true"
+      eSuperTypes="#//Bloc">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
         eType="#//Bloc"/>
   </eClassifiers>
@@ -35,7 +36,8 @@
         eType="#//BlocAvecSortie"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" eSuperTypes="#//BlocAvecSortie">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//TypeOperationBinaire"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
+        eType="#//TypeOperationBinaire"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" lowerBound="2"
         upperBound="2" eType="#//BlocAvecSortie"/>
   </eClassifiers>
