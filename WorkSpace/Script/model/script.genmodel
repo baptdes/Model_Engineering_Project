@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Script/src-gen" creationIcons="false" editDirectory="/Script.edit/src-gen"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Script/src-gen" creationIcons="false" editDirectory="/Script.edit/src-gen"
     editorDirectory="/Script.editor/src-gen" modelPluginID="Script" modelName="Script"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>script.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Script" disposableProviderFactory="true" ecorePackage="script.ecore#/"/>
+  <genPackages prefix="Script" disposableProviderFactory="true" ecorePackage="script.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="script.ecore#//TypeFonctionUnaire">
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/Exponentielle"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/Cosinus"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/Sinus"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/RacineCaree"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/Inverse"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeFonctionUnaire/Oppose"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="script.ecore#//TypeOperationBinaire">
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Addition"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Soustraction"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Multiplication"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Division"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Maximum"/>
+      <genEnumLiterals ecoreEnumLiteral="script.ecore#//TypeOperationBinaire/Minimum"/>
+    </genEnums>
+    <genClasses ecoreClass="script.ecore#//Script">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//Script/nom"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Script/arguments"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Script/resultat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference script.ecore#//Script/blocs"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//Resultat">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Resultat/entree"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Resultat/script"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="script.ecore#//Bloc">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference script.ecore#//Bloc/script"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="script.ecore#//Sortie">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Sortie/entree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//Sortie/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//Argument/nom"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Argument/sortie"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Argument/script"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//Constante">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//Constante/valeur"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Constante/sortie"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//FonctionUnaire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//FonctionUnaire/fonction"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//FonctionUnaire/entree"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//FonctionUnaire/sortie"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//OperationBinaire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//OperationBinaire/operation"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//OperationBinaire/entree"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//OperationBinaire/sortie"/>
+    </genClasses>
+    <genClasses ecoreClass="script.ecore#//Entree">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Entree/sortie"/>
+    </genClasses>
+  </genPackages>
 </genmodel:GenModel>
