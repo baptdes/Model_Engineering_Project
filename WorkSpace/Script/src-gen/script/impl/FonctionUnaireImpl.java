@@ -12,12 +12,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import script.Bloc;
-import script.BlocAvecSortie;
+import script.Entree;
 import script.FonctionUnaire;
 import script.Script;
 import script.ScriptPackage;
+import script.Sortie;
 import script.TypeFonctionUnaire;
 
 /**
@@ -29,24 +28,14 @@ import script.TypeFonctionUnaire;
  * </p>
  * <ul>
  *   <li>{@link script.impl.FonctionUnaireImpl#getScript <em>Script</em>}</li>
- *   <li>{@link script.impl.FonctionUnaireImpl#getSortie <em>Sortie</em>}</li>
  *   <li>{@link script.impl.FonctionUnaireImpl#getFonction <em>Fonction</em>}</li>
  *   <li>{@link script.impl.FonctionUnaireImpl#getEntree <em>Entree</em>}</li>
+ *   <li>{@link script.impl.FonctionUnaireImpl#getSortie <em>Sortie</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements FonctionUnaire {
-	/**
-	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSortie()
-	 * @generated
-	 * @ordered
-	 */
-	protected Bloc sortie;
-
 	/**
 	 * The default value of the '{@link #getFonction() <em>Fonction</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,14 +57,24 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	protected TypeFonctionUnaire fonction = FONCTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEntree() <em>Entree</em>}' reference.
+	 * The cached value of the '{@link #getEntree() <em>Entree</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEntree()
 	 * @generated
 	 * @ordered
 	 */
-	protected BlocAvecSortie entree;
+	protected Entree entree;
+
+	/**
+	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortie()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sortie sortie;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,16 +147,7 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public Bloc getSortie() {
-		if (sortie != null && sortie.eIsProxy()) {
-			InternalEObject oldSortie = (InternalEObject) sortie;
-			sortie = (Bloc) eResolveProxy(oldSortie);
-			if (sortie != oldSortie) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScriptPackage.FONCTION_UNAIRE__SORTIE,
-							oldSortie, sortie));
-			}
-		}
+	public Sortie getSortie() {
 		return sortie;
 	}
 
@@ -166,8 +156,18 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bloc basicGetSortie() {
-		return sortie;
+	public NotificationChain basicSetSortie(Sortie newSortie, NotificationChain msgs) {
+		Sortie oldSortie = sortie;
+		sortie = newSortie;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ScriptPackage.FONCTION_UNAIRE__SORTIE, oldSortie, newSortie);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -176,12 +176,21 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public void setSortie(Bloc newSortie) {
-		Bloc oldSortie = sortie;
-		sortie = newSortie;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.FONCTION_UNAIRE__SORTIE, oldSortie,
-					sortie));
+	public void setSortie(Sortie newSortie) {
+		if (newSortie != sortie) {
+			NotificationChain msgs = null;
+			if (sortie != null)
+				msgs = ((InternalEObject) sortie).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.FONCTION_UNAIRE__SORTIE, null, msgs);
+			if (newSortie != null)
+				msgs = ((InternalEObject) newSortie).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.FONCTION_UNAIRE__SORTIE, null, msgs);
+			msgs = basicSetSortie(newSortie, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.FONCTION_UNAIRE__SORTIE, newSortie,
+					newSortie));
 	}
 
 	/**
@@ -214,16 +223,7 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public BlocAvecSortie getEntree() {
-		if (entree != null && entree.eIsProxy()) {
-			InternalEObject oldEntree = (InternalEObject) entree;
-			entree = (BlocAvecSortie) eResolveProxy(oldEntree);
-			if (entree != oldEntree) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScriptPackage.FONCTION_UNAIRE__ENTREE,
-							oldEntree, entree));
-			}
-		}
+	public Entree getEntree() {
 		return entree;
 	}
 
@@ -232,8 +232,18 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BlocAvecSortie basicGetEntree() {
-		return entree;
+	public NotificationChain basicSetEntree(Entree newEntree, NotificationChain msgs) {
+		Entree oldEntree = entree;
+		entree = newEntree;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ScriptPackage.FONCTION_UNAIRE__ENTREE, oldEntree, newEntree);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -242,12 +252,21 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public void setEntree(BlocAvecSortie newEntree) {
-		BlocAvecSortie oldEntree = entree;
-		entree = newEntree;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.FONCTION_UNAIRE__ENTREE, oldEntree,
-					entree));
+	public void setEntree(Entree newEntree) {
+		if (newEntree != entree) {
+			NotificationChain msgs = null;
+			if (entree != null)
+				msgs = ((InternalEObject) entree).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.FONCTION_UNAIRE__ENTREE, null, msgs);
+			if (newEntree != null)
+				msgs = ((InternalEObject) newEntree).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.FONCTION_UNAIRE__ENTREE, null, msgs);
+			msgs = basicSetEntree(newEntree, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.FONCTION_UNAIRE__ENTREE, newEntree,
+					newEntree));
 	}
 
 	/**
@@ -276,6 +295,10 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 		case ScriptPackage.FONCTION_UNAIRE__SCRIPT:
 			return basicSetScript(null, msgs);
+		case ScriptPackage.FONCTION_UNAIRE__ENTREE:
+			return basicSetEntree(null, msgs);
+		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
+			return basicSetSortie(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -304,16 +327,12 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 		case ScriptPackage.FONCTION_UNAIRE__SCRIPT:
 			return getScript();
-		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
-			if (resolve)
-				return getSortie();
-			return basicGetSortie();
 		case ScriptPackage.FONCTION_UNAIRE__FONCTION:
 			return getFonction();
 		case ScriptPackage.FONCTION_UNAIRE__ENTREE:
-			if (resolve)
-				return getEntree();
-			return basicGetEntree();
+			return getEntree();
+		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
+			return getSortie();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,14 +348,14 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 		case ScriptPackage.FONCTION_UNAIRE__SCRIPT:
 			setScript((Script) newValue);
 			return;
-		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
-			setSortie((Bloc) newValue);
-			return;
 		case ScriptPackage.FONCTION_UNAIRE__FONCTION:
 			setFonction((TypeFonctionUnaire) newValue);
 			return;
 		case ScriptPackage.FONCTION_UNAIRE__ENTREE:
-			setEntree((BlocAvecSortie) newValue);
+			setEntree((Entree) newValue);
+			return;
+		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
+			setSortie((Sortie) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,14 +372,14 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 		case ScriptPackage.FONCTION_UNAIRE__SCRIPT:
 			setScript((Script) null);
 			return;
-		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
-			setSortie((Bloc) null);
-			return;
 		case ScriptPackage.FONCTION_UNAIRE__FONCTION:
 			setFonction(FONCTION_EDEFAULT);
 			return;
 		case ScriptPackage.FONCTION_UNAIRE__ENTREE:
-			setEntree((BlocAvecSortie) null);
+			setEntree((Entree) null);
+			return;
+		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
+			setSortie((Sortie) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -376,12 +395,12 @@ public class FonctionUnaireImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 		case ScriptPackage.FONCTION_UNAIRE__SCRIPT:
 			return getScript() != null;
-		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
-			return sortie != null;
 		case ScriptPackage.FONCTION_UNAIRE__FONCTION:
 			return fonction != FONCTION_EDEFAULT;
 		case ScriptPackage.FONCTION_UNAIRE__ENTREE:
 			return entree != null;
+		case ScriptPackage.FONCTION_UNAIRE__SORTIE:
+			return sortie != null;
 		}
 		return super.eIsSet(featureID);
 	}

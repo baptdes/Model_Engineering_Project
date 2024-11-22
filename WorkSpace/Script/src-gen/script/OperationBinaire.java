@@ -14,14 +14,15 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link script.OperationBinaire#getOperation <em>Operation</em>}</li>
- *   <li>{@link script.OperationBinaire#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link script.OperationBinaire#getEntree <em>Entree</em>}</li>
+ *   <li>{@link script.OperationBinaire#getSortie <em>Sortie</em>}</li>
  * </ul>
  *
  * @see script.ScriptPackage#getOperationBinaire()
  * @model
  * @generated
  */
-public interface OperationBinaire extends BlocAvecSortie {
+public interface OperationBinaire extends Bloc {
 	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' attribute.
 	 * The literals are from the enumeration {@link script.TypeOperationBinaire}.
@@ -48,15 +49,37 @@ public interface OperationBinaire extends BlocAvecSortie {
 	void setOperation(TypeOperationBinaire value);
 
 	/**
-	 * Returns the value of the '<em><b>Entrees</b></em>' reference list.
-	 * The list contents are of type {@link script.BlocAvecSortie}.
+	 * Returns the value of the '<em><b>Entree</b></em>' containment reference list.
+	 * The list contents are of type {@link script.Entree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entrees</em>' reference list.
-	 * @see script.ScriptPackage#getOperationBinaire_Entrees()
-	 * @model lower="2" upper="2"
+	 * @return the value of the '<em>Entree</em>' containment reference list.
+	 * @see script.ScriptPackage#getOperationBinaire_Entree()
+	 * @model containment="true" lower="2" upper="2"
 	 * @generated
 	 */
-	EList<BlocAvecSortie> getEntrees();
+	EList<Entree> getEntree();
+
+	/**
+	 * Returns the value of the '<em><b>Sortie</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sortie</em>' containment reference.
+	 * @see #setSortie(Sortie)
+	 * @see script.ScriptPackage#getOperationBinaire_Sortie()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	Sortie getSortie();
+
+	/**
+	 * Sets the value of the '{@link script.OperationBinaire#getSortie <em>Sortie</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sortie</em>' containment reference.
+	 * @see #getSortie()
+	 * @generated
+	 */
+	void setSortie(Sortie value);
 
 } // OperationBinaire

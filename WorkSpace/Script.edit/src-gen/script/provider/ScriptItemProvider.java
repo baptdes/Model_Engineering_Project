@@ -57,7 +57,7 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
 			super.getPropertyDescriptors(object);
 
 			addNomPropertyDescriptor(object);
-			addEntreesPropertyDescriptor(object);
+			addArgumentsPropertyDescriptor(object);
 			addResultatPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -79,18 +79,18 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
 	}
 
 	/**
-	 * This adds a property descriptor for the Entrees feature.
+	 * This adds a property descriptor for the Arguments feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEntreesPropertyDescriptor(Object object) {
+	protected void addArgumentsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Script_entrees_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Script_entrees_feature",
+						getResourceLocator(), getString("_UI_Script_arguments_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Script_arguments_feature",
 								"_UI_Script_type"),
-						ScriptPackage.Literals.SCRIPT__ENTREES, true, false, true, null, null, null));
+						ScriptPackage.Literals.SCRIPT__ARGUMENTS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -120,6 +120,8 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ScriptPackage.Literals.SCRIPT__ARGUMENTS);
+			childrenFeatures.add(ScriptPackage.Literals.SCRIPT__RESULTAT);
 			childrenFeatures.add(ScriptPackage.Literals.SCRIPT__BLOCS);
 		}
 		return childrenFeatures;
@@ -187,6 +189,8 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
 		case ScriptPackage.SCRIPT__NOM:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+		case ScriptPackage.SCRIPT__RESULTAT:
 		case ScriptPackage.SCRIPT__BLOCS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
@@ -205,11 +209,11 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-				createChildParameter(ScriptPackage.Literals.SCRIPT__BLOCS, ScriptFactory.eINSTANCE.createResultat()));
+		newChildDescriptors.add(createChildParameter(ScriptPackage.Literals.SCRIPT__ARGUMENTS,
+				ScriptFactory.eINSTANCE.createArgument()));
 
-		newChildDescriptors.add(
-				createChildParameter(ScriptPackage.Literals.SCRIPT__BLOCS, ScriptFactory.eINSTANCE.createEntree()));
+		newChildDescriptors.add(createChildParameter(ScriptPackage.Literals.SCRIPT__RESULTAT,
+				ScriptFactory.eINSTANCE.createResultat()));
 
 		newChildDescriptors.add(
 				createChildParameter(ScriptPackage.Literals.SCRIPT__BLOCS, ScriptFactory.eINSTANCE.createConstante()));

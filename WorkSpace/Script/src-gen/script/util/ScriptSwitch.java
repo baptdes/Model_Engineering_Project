@@ -77,8 +77,6 @@ public class ScriptSwitch<T> extends Switch<T> {
 			Resultat resultat = (Resultat) theEObject;
 			T result = caseResultat(resultat);
 			if (result == null)
-				result = caseBloc(resultat);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -89,35 +87,16 @@ public class ScriptSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ScriptPackage.BLOC_AVEC_SORTIE: {
-			BlocAvecSortie blocAvecSortie = (BlocAvecSortie) theEObject;
-			T result = caseBlocAvecSortie(blocAvecSortie);
-			if (result == null)
-				result = caseBloc(blocAvecSortie);
+		case ScriptPackage.SORTIE: {
+			Sortie sortie = (Sortie) theEObject;
+			T result = caseSortie(sortie);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ScriptPackage.BLOC_SANS_ENTREE: {
-			BlocSansEntree blocSansEntree = (BlocSansEntree) theEObject;
-			T result = caseBlocSansEntree(blocSansEntree);
-			if (result == null)
-				result = caseBlocAvecSortie(blocSansEntree);
-			if (result == null)
-				result = caseBloc(blocSansEntree);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ScriptPackage.ENTREE: {
-			Entree entree = (Entree) theEObject;
-			T result = caseEntree(entree);
-			if (result == null)
-				result = caseBlocSansEntree(entree);
-			if (result == null)
-				result = caseBlocAvecSortie(entree);
-			if (result == null)
-				result = caseBloc(entree);
+		case ScriptPackage.ARGUMENT: {
+			Argument argument = (Argument) theEObject;
+			T result = caseArgument(argument);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -125,10 +104,6 @@ public class ScriptSwitch<T> extends Switch<T> {
 		case ScriptPackage.CONSTANTE: {
 			Constante constante = (Constante) theEObject;
 			T result = caseConstante(constante);
-			if (result == null)
-				result = caseBlocSansEntree(constante);
-			if (result == null)
-				result = caseBlocAvecSortie(constante);
 			if (result == null)
 				result = caseBloc(constante);
 			if (result == null)
@@ -139,8 +114,6 @@ public class ScriptSwitch<T> extends Switch<T> {
 			FonctionUnaire fonctionUnaire = (FonctionUnaire) theEObject;
 			T result = caseFonctionUnaire(fonctionUnaire);
 			if (result == null)
-				result = caseBlocAvecSortie(fonctionUnaire);
-			if (result == null)
 				result = caseBloc(fonctionUnaire);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -150,9 +123,14 @@ public class ScriptSwitch<T> extends Switch<T> {
 			OperationBinaire operationBinaire = (OperationBinaire) theEObject;
 			T result = caseOperationBinaire(operationBinaire);
 			if (result == null)
-				result = caseBlocAvecSortie(operationBinaire);
-			if (result == null)
 				result = caseBloc(operationBinaire);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ScriptPackage.ENTREE: {
+			Entree entree = (Entree) theEObject;
+			T result = caseEntree(entree);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -208,32 +186,32 @@ public class ScriptSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bloc Avec Sortie</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sortie</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bloc Avec Sortie</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sortie</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBlocAvecSortie(BlocAvecSortie object) {
+	public T caseSortie(Sortie object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bloc Sans Entree</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Argument</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bloc Sans Entree</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Argument</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBlocSansEntree(BlocSansEntree object) {
+	public T caseArgument(Argument object) {
 		return null;
 	}
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,18 +23,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import script.OperationBinaire;
+import script.Argument;
 import script.ScriptFactory;
 import script.ScriptPackage;
-import script.TypeOperationBinaire;
 
 /**
- * This is the item provider adapter for a {@link script.OperationBinaire} object.
+ * This is the item provider adapter for a {@link script.Argument} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationBinaireItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class ArgumentItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -41,7 +41,7 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationBinaireItemProvider(AdapterFactory adapterFactory) {
+	public ArgumentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,11 +56,27 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOperationPropertyDescriptor(object);
-			addEntreePropertyDescriptor(object);
+			addNomPropertyDescriptor(object);
 			addSortiePropertyDescriptor(object);
+			addScriptPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Nom feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNomPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Argument_nom_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Argument_nom_feature",
+								"_UI_Argument_type"),
+						ScriptPackage.Literals.ARGUMENT__NOM, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -72,10 +88,25 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	protected void addSortiePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_OperationBinaire_sortie_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_OperationBinaire_sortie_feature",
-								"_UI_OperationBinaire_type"),
-						ScriptPackage.Literals.OPERATION_BINAIRE__SORTIE, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_Argument_sortie_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Argument_sortie_feature",
+								"_UI_Argument_type"),
+						ScriptPackage.Literals.ARGUMENT__SORTIE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Script feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Argument_script_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Argument_script_feature",
+								"_UI_Argument_type"),
+						ScriptPackage.Literals.ARGUMENT__SCRIPT, true, false, true, null, null, null));
 	}
 
 	/**
@@ -90,8 +121,7 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ScriptPackage.Literals.OPERATION_BINAIRE__ENTREE);
-			childrenFeatures.add(ScriptPackage.Literals.OPERATION_BINAIRE__SORTIE);
+			childrenFeatures.add(ScriptPackage.Literals.ARGUMENT__SORTIE);
 		}
 		return childrenFeatures;
 	}
@@ -110,45 +140,14 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This adds a property descriptor for the Operation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOperationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_OperationBinaire_operation_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_OperationBinaire_operation_feature",
-								"_UI_OperationBinaire_type"),
-						ScriptPackage.Literals.OPERATION_BINAIRE__OPERATION, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Entree feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEntreePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_OperationBinaire_entree_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_OperationBinaire_entree_feature",
-								"_UI_OperationBinaire_type"),
-						ScriptPackage.Literals.OPERATION_BINAIRE__ENTREE, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This returns OperationBinaire.gif.
+	 * This returns Argument.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationBinaire"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Argument"));
 	}
 
 	/**
@@ -169,10 +168,9 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		TypeOperationBinaire labelValue = ((OperationBinaire) object).getOperation();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_OperationBinaire_type")
-				: getString("_UI_OperationBinaire_type") + " " + label;
+		String label = ((Argument) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Argument_type")
+				: getString("_UI_Argument_type") + " " + label;
 	}
 
 	/**
@@ -186,12 +184,11 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(OperationBinaire.class)) {
-		case ScriptPackage.OPERATION_BINAIRE__OPERATION:
+		switch (notification.getFeatureID(Argument.class)) {
+		case ScriptPackage.ARGUMENT__NOM:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
-		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+		case ScriptPackage.ARGUMENT__SORTIE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -209,11 +206,8 @@ public class OperationBinaireItemProvider extends ItemProviderAdapter implements
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ScriptPackage.Literals.OPERATION_BINAIRE__ENTREE,
-				ScriptFactory.eINSTANCE.createEntree()));
-
-		newChildDescriptors.add(createChildParameter(ScriptPackage.Literals.OPERATION_BINAIRE__SORTIE,
-				ScriptFactory.eINSTANCE.createSortie()));
+		newChildDescriptors.add(
+				createChildParameter(ScriptPackage.Literals.ARGUMENT__SORTIE, ScriptFactory.eINSTANCE.createSortie()));
 	}
 
 	/**

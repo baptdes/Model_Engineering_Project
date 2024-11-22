@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import script.Argument;
 import script.Bloc;
-import script.BlocAvecSortie;
-import script.BlocSansEntree;
 import script.Constante;
 import script.Entree;
 import script.FonctionUnaire;
@@ -21,6 +20,7 @@ import script.Resultat;
 import script.Script;
 import script.ScriptFactory;
 import script.ScriptPackage;
+import script.Sortie;
 import script.TypeFonctionUnaire;
 import script.TypeOperationBinaire;
 
@@ -57,14 +57,14 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass blocAvecSortieEClass = null;
+	private EClass sortieEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass blocSansEntreeEClass = null;
+	private EClass argumentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,7 +198,7 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getScript_Entrees() {
+	public EReference getScript_Arguments() {
 		return (EReference) scriptEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -238,6 +238,26 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getResultat_Entree() {
+		return (EReference) resultatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResultat_Script() {
+		return (EReference) resultatEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBloc() {
 		return blocEClass;
 	}
@@ -258,8 +278,8 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getBlocAvecSortie() {
-		return blocAvecSortieEClass;
+	public EClass getSortie() {
+		return sortieEClass;
 	}
 
 	/**
@@ -268,8 +288,8 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getBlocAvecSortie_Sortie() {
-		return (EReference) blocAvecSortieEClass.getEStructuralFeatures().get(0);
+	public EReference getSortie_Entree() {
+		return (EReference) sortieEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -278,8 +298,48 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getBlocSansEntree() {
-		return blocSansEntreeEClass;
+	public EAttribute getSortie_Nom() {
+		return (EAttribute) sortieEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getArgument() {
+		return argumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgument_Nom() {
+		return (EAttribute) argumentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getArgument_Sortie() {
+		return (EReference) argumentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getArgument_Script() {
+		return (EReference) argumentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -298,8 +358,8 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getEntree_Nom() {
-		return (EAttribute) entreeEClass.getEStructuralFeatures().get(0);
+	public EReference getEntree_Sortie() {
+		return (EReference) entreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,6 +380,16 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	@Override
 	public EAttribute getConstante_Valeur() {
 		return (EAttribute) constanteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getConstante_Sortie() {
+		return (EReference) constanteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -358,6 +428,16 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getFonctionUnaire_Sortie() {
+		return (EReference) fonctionUnaireEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperationBinaire() {
 		return operationBinaireEClass;
 	}
@@ -378,8 +458,18 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOperationBinaire_Entrees() {
+	public EReference getOperationBinaire_Entree() {
 		return (EReference) operationBinaireEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOperationBinaire_Sortie() {
+		return (EReference) operationBinaireEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -434,33 +524,42 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 		// Create classes and their features
 		scriptEClass = createEClass(SCRIPT);
 		createEAttribute(scriptEClass, SCRIPT__NOM);
-		createEReference(scriptEClass, SCRIPT__ENTREES);
+		createEReference(scriptEClass, SCRIPT__ARGUMENTS);
 		createEReference(scriptEClass, SCRIPT__RESULTAT);
 		createEReference(scriptEClass, SCRIPT__BLOCS);
 
 		resultatEClass = createEClass(RESULTAT);
+		createEReference(resultatEClass, RESULTAT__ENTREE);
+		createEReference(resultatEClass, RESULTAT__SCRIPT);
 
 		blocEClass = createEClass(BLOC);
 		createEReference(blocEClass, BLOC__SCRIPT);
 
-		blocAvecSortieEClass = createEClass(BLOC_AVEC_SORTIE);
-		createEReference(blocAvecSortieEClass, BLOC_AVEC_SORTIE__SORTIE);
+		sortieEClass = createEClass(SORTIE);
+		createEReference(sortieEClass, SORTIE__ENTREE);
+		createEAttribute(sortieEClass, SORTIE__NOM);
 
-		blocSansEntreeEClass = createEClass(BLOC_SANS_ENTREE);
-
-		entreeEClass = createEClass(ENTREE);
-		createEAttribute(entreeEClass, ENTREE__NOM);
+		argumentEClass = createEClass(ARGUMENT);
+		createEAttribute(argumentEClass, ARGUMENT__NOM);
+		createEReference(argumentEClass, ARGUMENT__SORTIE);
+		createEReference(argumentEClass, ARGUMENT__SCRIPT);
 
 		constanteEClass = createEClass(CONSTANTE);
 		createEAttribute(constanteEClass, CONSTANTE__VALEUR);
+		createEReference(constanteEClass, CONSTANTE__SORTIE);
 
 		fonctionUnaireEClass = createEClass(FONCTION_UNAIRE);
 		createEAttribute(fonctionUnaireEClass, FONCTION_UNAIRE__FONCTION);
 		createEReference(fonctionUnaireEClass, FONCTION_UNAIRE__ENTREE);
+		createEReference(fonctionUnaireEClass, FONCTION_UNAIRE__SORTIE);
 
 		operationBinaireEClass = createEClass(OPERATION_BINAIRE);
 		createEAttribute(operationBinaireEClass, OPERATION_BINAIRE__OPERATION);
-		createEReference(operationBinaireEClass, OPERATION_BINAIRE__ENTREES);
+		createEReference(operationBinaireEClass, OPERATION_BINAIRE__ENTREE);
+		createEReference(operationBinaireEClass, OPERATION_BINAIRE__SORTIE);
+
+		entreeEClass = createEClass(ENTREE);
+		createEReference(entreeEClass, ENTREE__SORTIE);
 
 		// Create enums
 		typeFonctionUnaireEEnum = createEEnum(TYPE_FONCTION_UNAIRE);
@@ -496,70 +595,91 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		resultatEClass.getESuperTypes().add(this.getBloc());
-		blocAvecSortieEClass.getESuperTypes().add(this.getBloc());
-		blocSansEntreeEClass.getESuperTypes().add(this.getBlocAvecSortie());
-		entreeEClass.getESuperTypes().add(this.getBlocSansEntree());
-		constanteEClass.getESuperTypes().add(this.getBlocSansEntree());
-		fonctionUnaireEClass.getESuperTypes().add(this.getBlocAvecSortie());
-		operationBinaireEClass.getESuperTypes().add(this.getBlocAvecSortie());
+		constanteEClass.getESuperTypes().add(this.getBloc());
+		fonctionUnaireEClass.getESuperTypes().add(this.getBloc());
+		operationBinaireEClass.getESuperTypes().add(this.getBloc());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScript_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, Script.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScript_Entrees(), this.getEntree(), null, "entrees", null, 0, -1, Script.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getScript_Resultat(), this.getResultat(), null, "resultat", null, 1, 1, Script.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScript_Arguments(), this.getArgument(), this.getArgument_Script(), "arguments", null, 0, -1,
+				Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScript_Resultat(), this.getResultat(), this.getResultat_Script(), "resultat", null, 1, 1,
+				Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScript_Blocs(), this.getBloc(), this.getBloc_Script(), "blocs", null, 0, -1, Script.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultatEClass, Resultat.class, "Resultat", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResultat_Entree(), this.getEntree(), null, "entree", null, 1, 1, Resultat.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResultat_Script(), this.getScript(), this.getScript_Resultat(), "script", null, 1, 1,
+				Resultat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blocEClass, Bloc.class, "Bloc", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBloc_Script(), this.getScript(), this.getScript_Blocs(), "script", null, 1, 1, Bloc.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(blocAvecSortieEClass, BlocAvecSortie.class, "BlocAvecSortie", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBlocAvecSortie_Sortie(), this.getBloc(), null, "sortie", null, 1, 1, BlocAvecSortie.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(blocSansEntreeEClass, BlocSansEntree.class, "BlocSansEntree", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(entreeEClass, Entree.class, "Entree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEntree_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, Entree.class, !IS_TRANSIENT,
+		initEClass(sortieEClass, Sortie.class, "Sortie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSortie_Entree(), this.getEntree(), this.getEntree_Sortie(), "entree", null, 1, -1,
+				Sortie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSortie_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Sortie.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getArgument_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, Argument.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArgument_Sortie(), this.getSortie(), null, "sortie", null, 1, 1, Argument.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArgument_Script(), this.getScript(), this.getScript_Arguments(), "script", null, 1, 1,
+				Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constanteEClass, Constante.class, "Constante", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConstante_Valeur(), ecorePackage.getEFloat(), "valeur", null, 1, 1, Constante.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstante_Sortie(), this.getSortie(), null, "sortie", null, 1, 1, Constante.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fonctionUnaireEClass, FonctionUnaire.class, "FonctionUnaire", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFonctionUnaire_Fonction(), this.getTypeFonctionUnaire(), "fonction", null, 1, 1,
 				FonctionUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getFonctionUnaire_Entree(), this.getBlocAvecSortie(), null, "entree", null, 1, 1,
-				FonctionUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFonctionUnaire_Entree(), this.getEntree(), null, "entree", null, 1, 1, FonctionUnaire.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFonctionUnaire_Sortie(), this.getSortie(), null, "sortie", null, 1, 1, FonctionUnaire.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationBinaireEClass, OperationBinaire.class, "OperationBinaire", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperationBinaire_Operation(), this.getTypeOperationBinaire(), "operation", null, 1, 1,
 				OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationBinaire_Entrees(), this.getBlocAvecSortie(), null, "entrees", null, 2, 2,
-				OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getOperationBinaire_Entree(), this.getEntree(), null, "entree", null, 2, 2,
+				OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationBinaire_Sortie(), this.getSortie(), null, "sortie", null, 1, 1,
+				OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entreeEClass, Entree.class, "Entree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntree_Sortie(), this.getSortie(), this.getSortie_Entree(), "sortie", null, 1, 1,
+				Entree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

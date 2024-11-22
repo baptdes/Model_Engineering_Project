@@ -12,11 +12,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import script.Bloc;
 import script.Constante;
 import script.Script;
 import script.ScriptPackage;
+import script.Sortie;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,23 +26,13 @@ import script.ScriptPackage;
  * </p>
  * <ul>
  *   <li>{@link script.impl.ConstanteImpl#getScript <em>Script</em>}</li>
- *   <li>{@link script.impl.ConstanteImpl#getSortie <em>Sortie</em>}</li>
  *   <li>{@link script.impl.ConstanteImpl#getValeur <em>Valeur</em>}</li>
+ *   <li>{@link script.impl.ConstanteImpl#getSortie <em>Sortie</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ConstanteImpl extends MinimalEObjectImpl.Container implements Constante {
-	/**
-	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSortie()
-	 * @generated
-	 * @ordered
-	 */
-	protected Bloc sortie;
-
 	/**
 	 * The default value of the '{@link #getValeur() <em>Valeur</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,6 +52,16 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 	 * @ordered
 	 */
 	protected float valeur = VALEUR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortie()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sortie sortie;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,16 +134,7 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 	 * @generated
 	 */
 	@Override
-	public Bloc getSortie() {
-		if (sortie != null && sortie.eIsProxy()) {
-			InternalEObject oldSortie = (InternalEObject) sortie;
-			sortie = (Bloc) eResolveProxy(oldSortie);
-			if (sortie != oldSortie) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScriptPackage.CONSTANTE__SORTIE,
-							oldSortie, sortie));
-			}
-		}
+	public Sortie getSortie() {
 		return sortie;
 	}
 
@@ -153,8 +143,18 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bloc basicGetSortie() {
-		return sortie;
+	public NotificationChain basicSetSortie(Sortie newSortie, NotificationChain msgs) {
+		Sortie oldSortie = sortie;
+		sortie = newSortie;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ScriptPackage.CONSTANTE__SORTIE, oldSortie, newSortie);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -163,11 +163,21 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 	 * @generated
 	 */
 	@Override
-	public void setSortie(Bloc newSortie) {
-		Bloc oldSortie = sortie;
-		sortie = newSortie;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.CONSTANTE__SORTIE, oldSortie, sortie));
+	public void setSortie(Sortie newSortie) {
+		if (newSortie != sortie) {
+			NotificationChain msgs = null;
+			if (sortie != null)
+				msgs = ((InternalEObject) sortie).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.CONSTANTE__SORTIE, null, msgs);
+			if (newSortie != null)
+				msgs = ((InternalEObject) newSortie).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.CONSTANTE__SORTIE, null, msgs);
+			msgs = basicSetSortie(newSortie, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.CONSTANTE__SORTIE, newSortie,
+					newSortie));
 	}
 
 	/**
@@ -219,6 +229,8 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 		switch (featureID) {
 		case ScriptPackage.CONSTANTE__SCRIPT:
 			return basicSetScript(null, msgs);
+		case ScriptPackage.CONSTANTE__SORTIE:
+			return basicSetSortie(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,12 +259,10 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 		switch (featureID) {
 		case ScriptPackage.CONSTANTE__SCRIPT:
 			return getScript();
-		case ScriptPackage.CONSTANTE__SORTIE:
-			if (resolve)
-				return getSortie();
-			return basicGetSortie();
 		case ScriptPackage.CONSTANTE__VALEUR:
 			return getValeur();
+		case ScriptPackage.CONSTANTE__SORTIE:
+			return getSortie();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,11 +278,11 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 		case ScriptPackage.CONSTANTE__SCRIPT:
 			setScript((Script) newValue);
 			return;
-		case ScriptPackage.CONSTANTE__SORTIE:
-			setSortie((Bloc) newValue);
-			return;
 		case ScriptPackage.CONSTANTE__VALEUR:
 			setValeur((Float) newValue);
+			return;
+		case ScriptPackage.CONSTANTE__SORTIE:
+			setSortie((Sortie) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,11 +299,11 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 		case ScriptPackage.CONSTANTE__SCRIPT:
 			setScript((Script) null);
 			return;
-		case ScriptPackage.CONSTANTE__SORTIE:
-			setSortie((Bloc) null);
-			return;
 		case ScriptPackage.CONSTANTE__VALEUR:
 			setValeur(VALEUR_EDEFAULT);
+			return;
+		case ScriptPackage.CONSTANTE__SORTIE:
+			setSortie((Sortie) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -309,10 +319,10 @@ public class ConstanteImpl extends MinimalEObjectImpl.Container implements Const
 		switch (featureID) {
 		case ScriptPackage.CONSTANTE__SCRIPT:
 			return getScript() != null;
-		case ScriptPackage.CONSTANTE__SORTIE:
-			return sortie != null;
 		case ScriptPackage.CONSTANTE__VALEUR:
 			return valeur != VALEUR_EDEFAULT;
+		case ScriptPackage.CONSTANTE__SORTIE:
+			return sortie != null;
 		}
 		return super.eIsSet(featureID);
 	}

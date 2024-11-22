@@ -119,6 +119,52 @@ public class ScriptItemProviderAdapterFactory extends ScriptAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link script.Sortie} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SortieItemProvider sortieItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link script.Sortie}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSortieAdapter() {
+		if (sortieItemProvider == null) {
+			sortieItemProvider = new SortieItemProvider(this);
+		}
+
+		return sortieItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link script.Argument} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArgumentItemProvider argumentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link script.Argument}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArgumentAdapter() {
+		if (argumentItemProvider == null) {
+			argumentItemProvider = new ArgumentItemProvider(this);
+		}
+
+		return argumentItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link script.Entree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,14 +365,18 @@ public class ScriptItemProviderAdapterFactory extends ScriptAdapterFactory
 			scriptItemProvider.dispose();
 		if (resultatItemProvider != null)
 			resultatItemProvider.dispose();
-		if (entreeItemProvider != null)
-			entreeItemProvider.dispose();
+		if (sortieItemProvider != null)
+			sortieItemProvider.dispose();
+		if (argumentItemProvider != null)
+			argumentItemProvider.dispose();
 		if (constanteItemProvider != null)
 			constanteItemProvider.dispose();
 		if (fonctionUnaireItemProvider != null)
 			fonctionUnaireItemProvider.dispose();
 		if (operationBinaireItemProvider != null)
 			operationBinaireItemProvider.dispose();
+		if (entreeItemProvider != null)
+			entreeItemProvider.dispose();
 	}
 
 }

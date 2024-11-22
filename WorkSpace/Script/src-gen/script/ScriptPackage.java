@@ -77,16 +77,16 @@ public interface ScriptPackage extends EPackage {
 	int SCRIPT__NOM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Entrees</b></em>' reference list.
+	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPT__ENTREES = 1;
+	int SCRIPT__ARGUMENTS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Resultat</b></em>' reference.
+	 * The feature id for the '<em><b>Resultat</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,6 +132,72 @@ public interface ScriptPackage extends EPackage {
 	int BLOC = 2;
 
 	/**
+	 * The meta object id for the '{@link script.impl.SortieImpl <em>Sortie</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see script.impl.SortieImpl
+	 * @see script.impl.ScriptPackageImpl#getSortie()
+	 * @generated
+	 */
+	int SORTIE = 3;
+
+	/**
+	 * The meta object id for the '{@link script.impl.ArgumentImpl <em>Argument</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see script.impl.ArgumentImpl
+	 * @see script.impl.ScriptPackageImpl#getArgument()
+	 * @generated
+	 */
+	int ARGUMENT = 4;
+
+	/**
+	 * The meta object id for the '{@link script.impl.ResultatImpl <em>Resultat</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see script.impl.ResultatImpl
+	 * @see script.impl.ScriptPackageImpl#getResultat()
+	 * @generated
+	 */
+	int RESULTAT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Entree</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT__ENTREE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT__SCRIPT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Resultat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Resultat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Script</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,14 +225,58 @@ public interface ScriptPackage extends EPackage {
 	int BLOC_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link script.impl.ResultatImpl <em>Resultat</em>}' class.
+	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see script.impl.ResultatImpl
-	 * @see script.impl.ScriptPackageImpl#getResultat()
 	 * @generated
+	 * @ordered
 	 */
-	int RESULTAT = 1;
+	int SORTIE__ENTREE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Nom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SORTIE__NOM = 1;
+
+	/**
+	 * The number of structural features of the '<em>Sortie</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SORTIE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Sortie</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SORTIE_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Nom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT__NOM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Sortie</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT__SORTIE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' container reference.
@@ -175,117 +285,25 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT__SCRIPT = BLOC__SCRIPT;
+	int ARGUMENT__SCRIPT = 2;
 
 	/**
-	 * The number of structural features of the '<em>Resultat</em>' class.
+	 * The number of structural features of the '<em>Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT_FEATURE_COUNT = BLOC_FEATURE_COUNT + 0;
+	int ARGUMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Resultat</em>' class.
+	 * The number of operations of the '<em>Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT_OPERATION_COUNT = BLOC_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link script.BlocAvecSortie <em>Bloc Avec Sortie</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see script.BlocAvecSortie
-	 * @see script.impl.ScriptPackageImpl#getBlocAvecSortie()
-	 * @generated
-	 */
-	int BLOC_AVEC_SORTIE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Script</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_AVEC_SORTIE__SCRIPT = BLOC__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_AVEC_SORTIE__SORTIE = BLOC_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Bloc Avec Sortie</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_AVEC_SORTIE_FEATURE_COUNT = BLOC_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Bloc Avec Sortie</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_AVEC_SORTIE_OPERATION_COUNT = BLOC_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link script.BlocSansEntree <em>Bloc Sans Entree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see script.BlocSansEntree
-	 * @see script.impl.ScriptPackageImpl#getBlocSansEntree()
-	 * @generated
-	 */
-	int BLOC_SANS_ENTREE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Script</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_SANS_ENTREE__SCRIPT = BLOC_AVEC_SORTIE__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_SANS_ENTREE__SORTIE = BLOC_AVEC_SORTIE__SORTIE;
-
-	/**
-	 * The number of structural features of the '<em>Bloc Sans Entree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_SANS_ENTREE_FEATURE_COUNT = BLOC_AVEC_SORTIE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Bloc Sans Entree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_SANS_ENTREE_OPERATION_COUNT = BLOC_AVEC_SORTIE_OPERATION_COUNT + 0;
+	int ARGUMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link script.impl.EntreeImpl <em>Entree</em>}' class.
@@ -295,52 +313,7 @@ public interface ScriptPackage extends EPackage {
 	 * @see script.impl.ScriptPackageImpl#getEntree()
 	 * @generated
 	 */
-	int ENTREE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Script</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE__SCRIPT = BLOC_SANS_ENTREE__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE__SORTIE = BLOC_SANS_ENTREE__SORTIE;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE__NOM = BLOC_SANS_ENTREE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Entree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE_FEATURE_COUNT = BLOC_SANS_ENTREE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Entree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE_OPERATION_COUNT = BLOC_SANS_ENTREE_OPERATION_COUNT + 0;
+	int ENTREE = 8;
 
 	/**
 	 * The meta object id for the '{@link script.impl.ConstanteImpl <em>Constante</em>}' class.
@@ -350,7 +323,7 @@ public interface ScriptPackage extends EPackage {
 	 * @see script.impl.ScriptPackageImpl#getConstante()
 	 * @generated
 	 */
-	int CONSTANTE = 6;
+	int CONSTANTE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' container reference.
@@ -359,16 +332,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANTE__SCRIPT = BLOC_SANS_ENTREE__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANTE__SORTIE = BLOC_SANS_ENTREE__SORTIE;
+	int CONSTANTE__SCRIPT = BLOC__SCRIPT;
 
 	/**
 	 * The feature id for the '<em><b>Valeur</b></em>' attribute.
@@ -377,7 +341,16 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANTE__VALEUR = BLOC_SANS_ENTREE_FEATURE_COUNT + 0;
+	int CONSTANTE__VALEUR = BLOC_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sortie</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANTE__SORTIE = BLOC_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Constante</em>' class.
@@ -386,7 +359,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANTE_FEATURE_COUNT = BLOC_SANS_ENTREE_FEATURE_COUNT + 1;
+	int CONSTANTE_FEATURE_COUNT = BLOC_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Constante</em>' class.
@@ -395,7 +368,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANTE_OPERATION_COUNT = BLOC_SANS_ENTREE_OPERATION_COUNT + 0;
+	int CONSTANTE_OPERATION_COUNT = BLOC_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link script.impl.FonctionUnaireImpl <em>Fonction Unaire</em>}' class.
@@ -405,7 +378,7 @@ public interface ScriptPackage extends EPackage {
 	 * @see script.impl.ScriptPackageImpl#getFonctionUnaire()
 	 * @generated
 	 */
-	int FONCTION_UNAIRE = 7;
+	int FONCTION_UNAIRE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' container reference.
@@ -414,16 +387,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_UNAIRE__SCRIPT = BLOC_AVEC_SORTIE__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONCTION_UNAIRE__SORTIE = BLOC_AVEC_SORTIE__SORTIE;
+	int FONCTION_UNAIRE__SCRIPT = BLOC__SCRIPT;
 
 	/**
 	 * The feature id for the '<em><b>Fonction</b></em>' attribute.
@@ -432,16 +396,25 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_UNAIRE__FONCTION = BLOC_AVEC_SORTIE_FEATURE_COUNT + 0;
+	int FONCTION_UNAIRE__FONCTION = BLOC_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entree</b></em>' reference.
+	 * The feature id for the '<em><b>Entree</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_UNAIRE__ENTREE = BLOC_AVEC_SORTIE_FEATURE_COUNT + 1;
+	int FONCTION_UNAIRE__ENTREE = BLOC_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sortie</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FONCTION_UNAIRE__SORTIE = BLOC_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Fonction Unaire</em>' class.
@@ -450,7 +423,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_UNAIRE_FEATURE_COUNT = BLOC_AVEC_SORTIE_FEATURE_COUNT + 2;
+	int FONCTION_UNAIRE_FEATURE_COUNT = BLOC_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Fonction Unaire</em>' class.
@@ -459,7 +432,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_UNAIRE_OPERATION_COUNT = BLOC_AVEC_SORTIE_OPERATION_COUNT + 0;
+	int FONCTION_UNAIRE_OPERATION_COUNT = BLOC_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link script.impl.OperationBinaireImpl <em>Operation Binaire</em>}' class.
@@ -469,7 +442,7 @@ public interface ScriptPackage extends EPackage {
 	 * @see script.impl.ScriptPackageImpl#getOperationBinaire()
 	 * @generated
 	 */
-	int OPERATION_BINAIRE = 8;
+	int OPERATION_BINAIRE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' container reference.
@@ -478,16 +451,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_BINAIRE__SCRIPT = BLOC_AVEC_SORTIE__SCRIPT;
-
-	/**
-	 * The feature id for the '<em><b>Sortie</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION_BINAIRE__SORTIE = BLOC_AVEC_SORTIE__SORTIE;
+	int OPERATION_BINAIRE__SCRIPT = BLOC__SCRIPT;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' attribute.
@@ -496,16 +460,25 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_BINAIRE__OPERATION = BLOC_AVEC_SORTIE_FEATURE_COUNT + 0;
+	int OPERATION_BINAIRE__OPERATION = BLOC_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entrees</b></em>' reference list.
+	 * The feature id for the '<em><b>Entree</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_BINAIRE__ENTREES = BLOC_AVEC_SORTIE_FEATURE_COUNT + 1;
+	int OPERATION_BINAIRE__ENTREE = BLOC_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sortie</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_BINAIRE__SORTIE = BLOC_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Operation Binaire</em>' class.
@@ -514,7 +487,7 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_BINAIRE_FEATURE_COUNT = BLOC_AVEC_SORTIE_FEATURE_COUNT + 2;
+	int OPERATION_BINAIRE_FEATURE_COUNT = BLOC_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Operation Binaire</em>' class.
@@ -523,7 +496,34 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_BINAIRE_OPERATION_COUNT = BLOC_AVEC_SORTIE_OPERATION_COUNT + 0;
+	int OPERATION_BINAIRE_OPERATION_COUNT = BLOC_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sortie</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTREE__SORTIE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Entree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTREE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Entree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTREE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link script.TypeFonctionUnaire <em>Type Fonction Unaire</em>}' enum.
@@ -567,21 +567,21 @@ public interface ScriptPackage extends EPackage {
 	EAttribute getScript_Nom();
 
 	/**
-	 * Returns the meta object for the reference list '{@link script.Script#getEntrees <em>Entrees</em>}'.
+	 * Returns the meta object for the containment reference list '{@link script.Script#getArguments <em>Arguments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entrees</em>'.
-	 * @see script.Script#getEntrees()
+	 * @return the meta object for the containment reference list '<em>Arguments</em>'.
+	 * @see script.Script#getArguments()
 	 * @see #getScript()
 	 * @generated
 	 */
-	EReference getScript_Entrees();
+	EReference getScript_Arguments();
 
 	/**
-	 * Returns the meta object for the reference '{@link script.Script#getResultat <em>Resultat</em>}'.
+	 * Returns the meta object for the containment reference '{@link script.Script#getResultat <em>Resultat</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resultat</em>'.
+	 * @return the meta object for the containment reference '<em>Resultat</em>'.
 	 * @see script.Script#getResultat()
 	 * @see #getScript()
 	 * @generated
@@ -610,6 +610,28 @@ public interface ScriptPackage extends EPackage {
 	EClass getResultat();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link script.Resultat#getEntree <em>Entree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Entree</em>'.
+	 * @see script.Resultat#getEntree()
+	 * @see #getResultat()
+	 * @generated
+	 */
+	EReference getResultat_Entree();
+
+	/**
+	 * Returns the meta object for the container reference '{@link script.Resultat#getScript <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Script</em>'.
+	 * @see script.Resultat#getScript()
+	 * @see #getResultat()
+	 * @generated
+	 */
+	EReference getResultat_Script();
+
+	/**
 	 * Returns the meta object for class '{@link script.Bloc <em>Bloc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -631,35 +653,79 @@ public interface ScriptPackage extends EPackage {
 	EReference getBloc_Script();
 
 	/**
-	 * Returns the meta object for class '{@link script.BlocAvecSortie <em>Bloc Avec Sortie</em>}'.
+	 * Returns the meta object for class '{@link script.Sortie <em>Sortie</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bloc Avec Sortie</em>'.
-	 * @see script.BlocAvecSortie
+	 * @return the meta object for class '<em>Sortie</em>'.
+	 * @see script.Sortie
 	 * @generated
 	 */
-	EClass getBlocAvecSortie();
+	EClass getSortie();
 
 	/**
-	 * Returns the meta object for the reference '{@link script.BlocAvecSortie#getSortie <em>Sortie</em>}'.
+	 * Returns the meta object for the reference list '{@link script.Sortie#getEntree <em>Entree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sortie</em>'.
-	 * @see script.BlocAvecSortie#getSortie()
-	 * @see #getBlocAvecSortie()
+	 * @return the meta object for the reference list '<em>Entree</em>'.
+	 * @see script.Sortie#getEntree()
+	 * @see #getSortie()
 	 * @generated
 	 */
-	EReference getBlocAvecSortie_Sortie();
+	EReference getSortie_Entree();
 
 	/**
-	 * Returns the meta object for class '{@link script.BlocSansEntree <em>Bloc Sans Entree</em>}'.
+	 * Returns the meta object for the attribute '{@link script.Sortie#getNom <em>Nom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bloc Sans Entree</em>'.
-	 * @see script.BlocSansEntree
+	 * @return the meta object for the attribute '<em>Nom</em>'.
+	 * @see script.Sortie#getNom()
+	 * @see #getSortie()
 	 * @generated
 	 */
-	EClass getBlocSansEntree();
+	EAttribute getSortie_Nom();
+
+	/**
+	 * Returns the meta object for class '{@link script.Argument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Argument</em>'.
+	 * @see script.Argument
+	 * @generated
+	 */
+	EClass getArgument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link script.Argument#getNom <em>Nom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nom</em>'.
+	 * @see script.Argument#getNom()
+	 * @see #getArgument()
+	 * @generated
+	 */
+	EAttribute getArgument_Nom();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link script.Argument#getSortie <em>Sortie</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sortie</em>'.
+	 * @see script.Argument#getSortie()
+	 * @see #getArgument()
+	 * @generated
+	 */
+	EReference getArgument_Sortie();
+
+	/**
+	 * Returns the meta object for the container reference '{@link script.Argument#getScript <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Script</em>'.
+	 * @see script.Argument#getScript()
+	 * @see #getArgument()
+	 * @generated
+	 */
+	EReference getArgument_Script();
 
 	/**
 	 * Returns the meta object for class '{@link script.Entree <em>Entree</em>}'.
@@ -672,15 +738,15 @@ public interface ScriptPackage extends EPackage {
 	EClass getEntree();
 
 	/**
-	 * Returns the meta object for the attribute '{@link script.Entree#getNom <em>Nom</em>}'.
+	 * Returns the meta object for the reference '{@link script.Entree#getSortie <em>Sortie</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nom</em>'.
-	 * @see script.Entree#getNom()
+	 * @return the meta object for the reference '<em>Sortie</em>'.
+	 * @see script.Entree#getSortie()
 	 * @see #getEntree()
 	 * @generated
 	 */
-	EAttribute getEntree_Nom();
+	EReference getEntree_Sortie();
 
 	/**
 	 * Returns the meta object for class '{@link script.Constante <em>Constante</em>}'.
@@ -704,6 +770,17 @@ public interface ScriptPackage extends EPackage {
 	EAttribute getConstante_Valeur();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link script.Constante#getSortie <em>Sortie</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sortie</em>'.
+	 * @see script.Constante#getSortie()
+	 * @see #getConstante()
+	 * @generated
+	 */
+	EReference getConstante_Sortie();
+
+	/**
 	 * Returns the meta object for class '{@link script.FonctionUnaire <em>Fonction Unaire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,15 +802,26 @@ public interface ScriptPackage extends EPackage {
 	EAttribute getFonctionUnaire_Fonction();
 
 	/**
-	 * Returns the meta object for the reference '{@link script.FonctionUnaire#getEntree <em>Entree</em>}'.
+	 * Returns the meta object for the containment reference '{@link script.FonctionUnaire#getEntree <em>Entree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Entree</em>'.
+	 * @return the meta object for the containment reference '<em>Entree</em>'.
 	 * @see script.FonctionUnaire#getEntree()
 	 * @see #getFonctionUnaire()
 	 * @generated
 	 */
 	EReference getFonctionUnaire_Entree();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link script.FonctionUnaire#getSortie <em>Sortie</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sortie</em>'.
+	 * @see script.FonctionUnaire#getSortie()
+	 * @see #getFonctionUnaire()
+	 * @generated
+	 */
+	EReference getFonctionUnaire_Sortie();
 
 	/**
 	 * Returns the meta object for class '{@link script.OperationBinaire <em>Operation Binaire</em>}'.
@@ -757,15 +845,26 @@ public interface ScriptPackage extends EPackage {
 	EAttribute getOperationBinaire_Operation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link script.OperationBinaire#getEntrees <em>Entrees</em>}'.
+	 * Returns the meta object for the containment reference list '{@link script.OperationBinaire#getEntree <em>Entree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entrees</em>'.
-	 * @see script.OperationBinaire#getEntrees()
+	 * @return the meta object for the containment reference list '<em>Entree</em>'.
+	 * @see script.OperationBinaire#getEntree()
 	 * @see #getOperationBinaire()
 	 * @generated
 	 */
-	EReference getOperationBinaire_Entrees();
+	EReference getOperationBinaire_Entree();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link script.OperationBinaire#getSortie <em>Sortie</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sortie</em>'.
+	 * @see script.OperationBinaire#getSortie()
+	 * @see #getOperationBinaire()
+	 * @generated
+	 */
+	EReference getOperationBinaire_Sortie();
 
 	/**
 	 * Returns the meta object for enum '{@link script.TypeFonctionUnaire <em>Type Fonction Unaire</em>}'.
@@ -829,15 +928,15 @@ public interface ScriptPackage extends EPackage {
 		EAttribute SCRIPT__NOM = eINSTANCE.getScript_Nom();
 
 		/**
-		 * The meta object literal for the '<em><b>Entrees</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SCRIPT__ENTREES = eINSTANCE.getScript_Entrees();
+		EReference SCRIPT__ARGUMENTS = eINSTANCE.getScript_Arguments();
 
 		/**
-		 * The meta object literal for the '<em><b>Resultat</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Resultat</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -863,6 +962,22 @@ public interface ScriptPackage extends EPackage {
 		EClass RESULTAT = eINSTANCE.getResultat();
 
 		/**
+		 * The meta object literal for the '<em><b>Entree</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULTAT__ENTREE = eINSTANCE.getResultat_Entree();
+
+		/**
+		 * The meta object literal for the '<em><b>Script</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULTAT__SCRIPT = eINSTANCE.getResultat_Script();
+
+		/**
 		 * The meta object literal for the '{@link script.Bloc <em>Bloc</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -881,32 +996,64 @@ public interface ScriptPackage extends EPackage {
 		EReference BLOC__SCRIPT = eINSTANCE.getBloc_Script();
 
 		/**
-		 * The meta object literal for the '{@link script.BlocAvecSortie <em>Bloc Avec Sortie</em>}' class.
+		 * The meta object literal for the '{@link script.impl.SortieImpl <em>Sortie</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see script.BlocAvecSortie
-		 * @see script.impl.ScriptPackageImpl#getBlocAvecSortie()
+		 * @see script.impl.SortieImpl
+		 * @see script.impl.ScriptPackageImpl#getSortie()
 		 * @generated
 		 */
-		EClass BLOC_AVEC_SORTIE = eINSTANCE.getBlocAvecSortie();
+		EClass SORTIE = eINSTANCE.getSortie();
 
 		/**
-		 * The meta object literal for the '<em><b>Sortie</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entree</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BLOC_AVEC_SORTIE__SORTIE = eINSTANCE.getBlocAvecSortie_Sortie();
+		EReference SORTIE__ENTREE = eINSTANCE.getSortie_Entree();
 
 		/**
-		 * The meta object literal for the '{@link script.BlocSansEntree <em>Bloc Sans Entree</em>}' class.
+		 * The meta object literal for the '<em><b>Nom</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see script.BlocSansEntree
-		 * @see script.impl.ScriptPackageImpl#getBlocSansEntree()
 		 * @generated
 		 */
-		EClass BLOC_SANS_ENTREE = eINSTANCE.getBlocSansEntree();
+		EAttribute SORTIE__NOM = eINSTANCE.getSortie_Nom();
+
+		/**
+		 * The meta object literal for the '{@link script.impl.ArgumentImpl <em>Argument</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see script.impl.ArgumentImpl
+		 * @see script.impl.ScriptPackageImpl#getArgument()
+		 * @generated
+		 */
+		EClass ARGUMENT = eINSTANCE.getArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Nom</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARGUMENT__NOM = eINSTANCE.getArgument_Nom();
+
+		/**
+		 * The meta object literal for the '<em><b>Sortie</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARGUMENT__SORTIE = eINSTANCE.getArgument_Sortie();
+
+		/**
+		 * The meta object literal for the '<em><b>Script</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARGUMENT__SCRIPT = eINSTANCE.getArgument_Script();
 
 		/**
 		 * The meta object literal for the '{@link script.impl.EntreeImpl <em>Entree</em>}' class.
@@ -919,12 +1066,12 @@ public interface ScriptPackage extends EPackage {
 		EClass ENTREE = eINSTANCE.getEntree();
 
 		/**
-		 * The meta object literal for the '<em><b>Nom</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Sortie</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ENTREE__NOM = eINSTANCE.getEntree_Nom();
+		EReference ENTREE__SORTIE = eINSTANCE.getEntree_Sortie();
 
 		/**
 		 * The meta object literal for the '{@link script.impl.ConstanteImpl <em>Constante</em>}' class.
@@ -945,6 +1092,14 @@ public interface ScriptPackage extends EPackage {
 		EAttribute CONSTANTE__VALEUR = eINSTANCE.getConstante_Valeur();
 
 		/**
+		 * The meta object literal for the '<em><b>Sortie</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSTANTE__SORTIE = eINSTANCE.getConstante_Sortie();
+
+		/**
 		 * The meta object literal for the '{@link script.impl.FonctionUnaireImpl <em>Fonction Unaire</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -963,12 +1118,20 @@ public interface ScriptPackage extends EPackage {
 		EAttribute FONCTION_UNAIRE__FONCTION = eINSTANCE.getFonctionUnaire_Fonction();
 
 		/**
-		 * The meta object literal for the '<em><b>Entree</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entree</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference FONCTION_UNAIRE__ENTREE = eINSTANCE.getFonctionUnaire_Entree();
+
+		/**
+		 * The meta object literal for the '<em><b>Sortie</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FONCTION_UNAIRE__SORTIE = eINSTANCE.getFonctionUnaire_Sortie();
 
 		/**
 		 * The meta object literal for the '{@link script.impl.OperationBinaireImpl <em>Operation Binaire</em>}' class.
@@ -989,12 +1152,20 @@ public interface ScriptPackage extends EPackage {
 		EAttribute OPERATION_BINAIRE__OPERATION = eINSTANCE.getOperationBinaire_Operation();
 
 		/**
-		 * The meta object literal for the '<em><b>Entrees</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Entree</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPERATION_BINAIRE__ENTREES = eINSTANCE.getOperationBinaire_Entrees();
+		EReference OPERATION_BINAIRE__ENTREE = eINSTANCE.getOperationBinaire_Entree();
+
+		/**
+		 * The meta object literal for the '<em><b>Sortie</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_BINAIRE__SORTIE = eINSTANCE.getOperationBinaire_Sortie();
 
 		/**
 		 * The meta object literal for the '{@link script.TypeFonctionUnaire <em>Type Fonction Unaire</em>}' enum.

@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -17,6 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import script.ScriptPackage;
 
 /**
  * This is the item provider adapter for a {@link script.Resultat} object.
@@ -47,8 +49,40 @@ public class ResultatItemProvider extends ItemProviderAdapter implements IEditin
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEntreePropertyDescriptor(object);
+			addScriptPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Entree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEntreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Resultat_entree_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Resultat_entree_feature",
+								"_UI_Resultat_type"),
+						ScriptPackage.Literals.RESULTAT__ENTREE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Script feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Resultat_script_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Resultat_script_feature",
+								"_UI_Resultat_type"),
+						ScriptPackage.Literals.RESULTAT__SCRIPT, true, false, true, null, null, null));
 	}
 
 	/**

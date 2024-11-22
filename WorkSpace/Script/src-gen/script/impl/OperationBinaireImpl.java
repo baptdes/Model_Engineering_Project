@@ -15,14 +15,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import script.Bloc;
-import script.BlocAvecSortie;
+import org.eclipse.emf.ecore.util.InternalEList;
+import script.Entree;
 import script.OperationBinaire;
 import script.Script;
 import script.ScriptPackage;
+import script.Sortie;
 import script.TypeOperationBinaire;
 
 /**
@@ -34,24 +35,14 @@ import script.TypeOperationBinaire;
  * </p>
  * <ul>
  *   <li>{@link script.impl.OperationBinaireImpl#getScript <em>Script</em>}</li>
- *   <li>{@link script.impl.OperationBinaireImpl#getSortie <em>Sortie</em>}</li>
  *   <li>{@link script.impl.OperationBinaireImpl#getOperation <em>Operation</em>}</li>
- *   <li>{@link script.impl.OperationBinaireImpl#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link script.impl.OperationBinaireImpl#getEntree <em>Entree</em>}</li>
+ *   <li>{@link script.impl.OperationBinaireImpl#getSortie <em>Sortie</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OperationBinaireImpl extends MinimalEObjectImpl.Container implements OperationBinaire {
-	/**
-	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSortie()
-	 * @generated
-	 * @ordered
-	 */
-	protected Bloc sortie;
-
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,14 +64,24 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 	protected TypeOperationBinaire operation = OPERATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' reference list.
+	 * The cached value of the '{@link #getEntree() <em>Entree</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntrees()
+	 * @see #getEntree()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BlocAvecSortie> entrees;
+	protected EList<Entree> entree;
+
+	/**
+	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortie()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sortie sortie;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,16 +154,7 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public Bloc getSortie() {
-		if (sortie != null && sortie.eIsProxy()) {
-			InternalEObject oldSortie = (InternalEObject) sortie;
-			sortie = (Bloc) eResolveProxy(oldSortie);
-			if (sortie != oldSortie) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScriptPackage.OPERATION_BINAIRE__SORTIE,
-							oldSortie, sortie));
-			}
-		}
+	public Sortie getSortie() {
 		return sortie;
 	}
 
@@ -171,8 +163,18 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bloc basicGetSortie() {
-		return sortie;
+	public NotificationChain basicSetSortie(Sortie newSortie, NotificationChain msgs) {
+		Sortie oldSortie = sortie;
+		sortie = newSortie;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ScriptPackage.OPERATION_BINAIRE__SORTIE, oldSortie, newSortie);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -181,12 +183,21 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public void setSortie(Bloc newSortie) {
-		Bloc oldSortie = sortie;
-		sortie = newSortie;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.OPERATION_BINAIRE__SORTIE, oldSortie,
-					sortie));
+	public void setSortie(Sortie newSortie) {
+		if (newSortie != sortie) {
+			NotificationChain msgs = null;
+			if (sortie != null)
+				msgs = ((InternalEObject) sortie).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.OPERATION_BINAIRE__SORTIE, null, msgs);
+			if (newSortie != null)
+				msgs = ((InternalEObject) newSortie).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.OPERATION_BINAIRE__SORTIE, null, msgs);
+			msgs = basicSetSortie(newSortie, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.OPERATION_BINAIRE__SORTIE, newSortie,
+					newSortie));
 	}
 
 	/**
@@ -219,12 +230,11 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public EList<BlocAvecSortie> getEntrees() {
-		if (entrees == null) {
-			entrees = new EObjectResolvingEList<BlocAvecSortie>(BlocAvecSortie.class, this,
-					ScriptPackage.OPERATION_BINAIRE__ENTREES);
+	public EList<Entree> getEntree() {
+		if (entree == null) {
+			entree = new EObjectContainmentEList<Entree>(Entree.class, this, ScriptPackage.OPERATION_BINAIRE__ENTREE);
 		}
-		return entrees;
+		return entree;
 	}
 
 	/**
@@ -253,6 +263,10 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ScriptPackage.OPERATION_BINAIRE__SCRIPT:
 			return basicSetScript(null, msgs);
+		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
+			return ((InternalEList<?>) getEntree()).basicRemove(otherEnd, msgs);
+		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+			return basicSetSortie(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -281,14 +295,12 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ScriptPackage.OPERATION_BINAIRE__SCRIPT:
 			return getScript();
-		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
-			if (resolve)
-				return getSortie();
-			return basicGetSortie();
 		case ScriptPackage.OPERATION_BINAIRE__OPERATION:
 			return getOperation();
-		case ScriptPackage.OPERATION_BINAIRE__ENTREES:
-			return getEntrees();
+		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
+			return getEntree();
+		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+			return getSortie();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -305,15 +317,15 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 		case ScriptPackage.OPERATION_BINAIRE__SCRIPT:
 			setScript((Script) newValue);
 			return;
-		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
-			setSortie((Bloc) newValue);
-			return;
 		case ScriptPackage.OPERATION_BINAIRE__OPERATION:
 			setOperation((TypeOperationBinaire) newValue);
 			return;
-		case ScriptPackage.OPERATION_BINAIRE__ENTREES:
-			getEntrees().clear();
-			getEntrees().addAll((Collection<? extends BlocAvecSortie>) newValue);
+		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
+			getEntree().clear();
+			getEntree().addAll((Collection<? extends Entree>) newValue);
+			return;
+		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+			setSortie((Sortie) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,14 +342,14 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 		case ScriptPackage.OPERATION_BINAIRE__SCRIPT:
 			setScript((Script) null);
 			return;
-		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
-			setSortie((Bloc) null);
-			return;
 		case ScriptPackage.OPERATION_BINAIRE__OPERATION:
 			setOperation(OPERATION_EDEFAULT);
 			return;
-		case ScriptPackage.OPERATION_BINAIRE__ENTREES:
-			getEntrees().clear();
+		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
+			getEntree().clear();
+			return;
+		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+			setSortie((Sortie) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -353,12 +365,12 @@ public class OperationBinaireImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ScriptPackage.OPERATION_BINAIRE__SCRIPT:
 			return getScript() != null;
-		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
-			return sortie != null;
 		case ScriptPackage.OPERATION_BINAIRE__OPERATION:
 			return operation != OPERATION_EDEFAULT;
-		case ScriptPackage.OPERATION_BINAIRE__ENTREES:
-			return entrees != null && !entrees.isEmpty();
+		case ScriptPackage.OPERATION_BINAIRE__ENTREE:
+			return entree != null && !entree.isEmpty();
+		case ScriptPackage.OPERATION_BINAIRE__SORTIE:
+			return sortie != null;
 		}
 		return super.eIsSet(featureID);
 	}

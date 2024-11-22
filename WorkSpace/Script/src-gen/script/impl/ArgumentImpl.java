@@ -13,42 +13,63 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import script.Entree;
-import script.Resultat;
+import script.Argument;
 import script.Script;
 import script.ScriptPackage;
+import script.Sortie;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Resultat</b></em>'.
+ * An implementation of the model object '<em><b>Argument</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link script.impl.ResultatImpl#getEntree <em>Entree</em>}</li>
- *   <li>{@link script.impl.ResultatImpl#getScript <em>Script</em>}</li>
+ *   <li>{@link script.impl.ArgumentImpl#getNom <em>Nom</em>}</li>
+ *   <li>{@link script.impl.ArgumentImpl#getSortie <em>Sortie</em>}</li>
+ *   <li>{@link script.impl.ArgumentImpl#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ResultatImpl extends MinimalEObjectImpl.Container implements Resultat {
+public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argument {
 	/**
-	 * The cached value of the '{@link #getEntree() <em>Entree</em>}' containment reference.
+	 * The default value of the '{@link #getNom() <em>Nom</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntree()
+	 * @see #getNom()
 	 * @generated
 	 * @ordered
 	 */
-	protected Entree entree;
+	protected static final String NOM_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNom() <em>Nom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNom()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nom = NOM_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSortie() <em>Sortie</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortie()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sortie sortie;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultatImpl() {
+	protected ArgumentImpl() {
 		super();
 	}
 
@@ -59,7 +80,7 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ScriptPackage.Literals.RESULTAT;
+		return ScriptPackage.Literals.ARGUMENT;
 	}
 
 	/**
@@ -68,8 +89,8 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * @generated
 	 */
 	@Override
-	public Entree getEntree() {
-		return entree;
+	public String getNom() {
+		return nom;
 	}
 
 	/**
@@ -77,12 +98,35 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEntree(Entree newEntree, NotificationChain msgs) {
-		Entree oldEntree = entree;
-		entree = newEntree;
+	@Override
+	public void setNom(String newNom) {
+		String oldNom = nom;
+		nom = newNom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.ARGUMENT__NOM, oldNom, nom));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Sortie getSortie() {
+		return sortie;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSortie(Sortie newSortie, NotificationChain msgs) {
+		Sortie oldSortie = sortie;
+		sortie = newSortie;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ScriptPackage.RESULTAT__ENTREE, oldEntree, newEntree);
+					ScriptPackage.ARGUMENT__SORTIE, oldSortie, newSortie);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -97,21 +141,21 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * @generated
 	 */
 	@Override
-	public void setEntree(Entree newEntree) {
-		if (newEntree != entree) {
+	public void setSortie(Sortie newSortie) {
+		if (newSortie != sortie) {
 			NotificationChain msgs = null;
-			if (entree != null)
-				msgs = ((InternalEObject) entree).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ScriptPackage.RESULTAT__ENTREE, null, msgs);
-			if (newEntree != null)
-				msgs = ((InternalEObject) newEntree).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - ScriptPackage.RESULTAT__ENTREE, null, msgs);
-			msgs = basicSetEntree(newEntree, msgs);
+			if (sortie != null)
+				msgs = ((InternalEObject) sortie).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.ARGUMENT__SORTIE, null, msgs);
+			if (newSortie != null)
+				msgs = ((InternalEObject) newSortie).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.ARGUMENT__SORTIE, null, msgs);
+			msgs = basicSetSortie(newSortie, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.RESULTAT__ENTREE, newEntree,
-					newEntree));
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.ARGUMENT__SORTIE, newSortie,
+					newSortie));
 	}
 
 	/**
@@ -121,7 +165,7 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 */
 	@Override
 	public Script getScript() {
-		if (eContainerFeatureID() != ScriptPackage.RESULTAT__SCRIPT)
+		if (eContainerFeatureID() != ScriptPackage.ARGUMENT__SCRIPT)
 			return null;
 		return (Script) eInternalContainer();
 	}
@@ -132,7 +176,7 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * @generated
 	 */
 	public NotificationChain basicSetScript(Script newScript, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newScript, ScriptPackage.RESULTAT__SCRIPT, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newScript, ScriptPackage.ARGUMENT__SCRIPT, msgs);
 		return msgs;
 	}
 
@@ -144,20 +188,20 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public void setScript(Script newScript) {
 		if (newScript != eInternalContainer()
-				|| (eContainerFeatureID() != ScriptPackage.RESULTAT__SCRIPT && newScript != null)) {
+				|| (eContainerFeatureID() != ScriptPackage.ARGUMENT__SCRIPT && newScript != null)) {
 			if (EcoreUtil.isAncestor(this, newScript))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newScript != null)
-				msgs = ((InternalEObject) newScript).eInverseAdd(this, ScriptPackage.SCRIPT__RESULTAT, Script.class,
+				msgs = ((InternalEObject) newScript).eInverseAdd(this, ScriptPackage.SCRIPT__ARGUMENTS, Script.class,
 						msgs);
 			msgs = basicSetScript(newScript, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.RESULTAT__SCRIPT, newScript,
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.ARGUMENT__SCRIPT, newScript,
 					newScript));
 	}
 
@@ -169,7 +213,7 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetScript((Script) otherEnd, msgs);
@@ -185,9 +229,9 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__ENTREE:
-			return basicSetEntree(null, msgs);
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__SORTIE:
+			return basicSetSortie(null, msgs);
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			return basicSetScript(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -201,8 +245,8 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case ScriptPackage.RESULTAT__SCRIPT:
-			return eInternalContainer().eInverseRemove(this, ScriptPackage.SCRIPT__RESULTAT, Script.class, msgs);
+		case ScriptPackage.ARGUMENT__SCRIPT:
+			return eInternalContainer().eInverseRemove(this, ScriptPackage.SCRIPT__ARGUMENTS, Script.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -215,9 +259,11 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__ENTREE:
-			return getEntree();
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__NOM:
+			return getNom();
+		case ScriptPackage.ARGUMENT__SORTIE:
+			return getSortie();
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			return getScript();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -231,10 +277,13 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__ENTREE:
-			setEntree((Entree) newValue);
+		case ScriptPackage.ARGUMENT__NOM:
+			setNom((String) newValue);
 			return;
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__SORTIE:
+			setSortie((Sortie) newValue);
+			return;
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			setScript((Script) newValue);
 			return;
 		}
@@ -249,10 +298,13 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__ENTREE:
-			setEntree((Entree) null);
+		case ScriptPackage.ARGUMENT__NOM:
+			setNom(NOM_EDEFAULT);
 			return;
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__SORTIE:
+			setSortie((Sortie) null);
+			return;
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			setScript((Script) null);
 			return;
 		}
@@ -267,12 +319,31 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ScriptPackage.RESULTAT__ENTREE:
-			return entree != null;
-		case ScriptPackage.RESULTAT__SCRIPT:
+		case ScriptPackage.ARGUMENT__NOM:
+			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
+		case ScriptPackage.ARGUMENT__SORTIE:
+			return sortie != null;
+		case ScriptPackage.ARGUMENT__SCRIPT:
 			return getScript() != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ResultatImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (nom: ");
+		result.append(nom);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ArgumentImpl

@@ -16,11 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import script.Argument;
 import script.Bloc;
-import script.Entree;
 import script.Resultat;
 import script.Script;
 import script.ScriptPackage;
@@ -34,7 +33,7 @@ import script.ScriptPackage;
  * </p>
  * <ul>
  *   <li>{@link script.impl.ScriptImpl#getNom <em>Nom</em>}</li>
- *   <li>{@link script.impl.ScriptImpl#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link script.impl.ScriptImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link script.impl.ScriptImpl#getResultat <em>Resultat</em>}</li>
  *   <li>{@link script.impl.ScriptImpl#getBlocs <em>Blocs</em>}</li>
  * </ul>
@@ -63,17 +62,17 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	protected String nom = NOM_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' reference list.
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntrees()
+	 * @see #getArguments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entree> entrees;
+	protected EList<Argument> arguments;
 
 	/**
-	 * The cached value of the '{@link #getResultat() <em>Resultat</em>}' reference.
+	 * The cached value of the '{@link #getResultat() <em>Resultat</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResultat()
@@ -140,11 +139,12 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	 * @generated
 	 */
 	@Override
-	public EList<Entree> getEntrees() {
-		if (entrees == null) {
-			entrees = new EObjectResolvingEList<Entree>(Entree.class, this, ScriptPackage.SCRIPT__ENTREES);
+	public EList<Argument> getArguments() {
+		if (arguments == null) {
+			arguments = new EObjectContainmentWithInverseEList<Argument>(Argument.class, this,
+					ScriptPackage.SCRIPT__ARGUMENTS, ScriptPackage.ARGUMENT__SCRIPT);
 		}
-		return entrees;
+		return arguments;
 	}
 
 	/**
@@ -154,15 +154,6 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	 */
 	@Override
 	public Resultat getResultat() {
-		if (resultat != null && resultat.eIsProxy()) {
-			InternalEObject oldResultat = (InternalEObject) resultat;
-			resultat = (Resultat) eResolveProxy(oldResultat);
-			if (resultat != oldResultat) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScriptPackage.SCRIPT__RESULTAT,
-							oldResultat, resultat));
-			}
-		}
 		return resultat;
 	}
 
@@ -171,8 +162,18 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Resultat basicGetResultat() {
-		return resultat;
+	public NotificationChain basicSetResultat(Resultat newResultat, NotificationChain msgs) {
+		Resultat oldResultat = resultat;
+		resultat = newResultat;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ScriptPackage.SCRIPT__RESULTAT, oldResultat, newResultat);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -182,11 +183,20 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	 */
 	@Override
 	public void setResultat(Resultat newResultat) {
-		Resultat oldResultat = resultat;
-		resultat = newResultat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.SCRIPT__RESULTAT, oldResultat,
-					resultat));
+		if (newResultat != resultat) {
+			NotificationChain msgs = null;
+			if (resultat != null)
+				msgs = ((InternalEObject) resultat).eInverseRemove(this, ScriptPackage.RESULTAT__SCRIPT, Resultat.class,
+						msgs);
+			if (newResultat != null)
+				msgs = ((InternalEObject) newResultat).eInverseAdd(this, ScriptPackage.RESULTAT__SCRIPT, Resultat.class,
+						msgs);
+			msgs = basicSetResultat(newResultat, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.SCRIPT__RESULTAT, newResultat,
+					newResultat));
 	}
 
 	/**
@@ -212,6 +222,13 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getArguments()).basicAdd(otherEnd, msgs);
+		case ScriptPackage.SCRIPT__RESULTAT:
+			if (resultat != null)
+				msgs = ((InternalEObject) resultat).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ScriptPackage.SCRIPT__RESULTAT, null, msgs);
+			return basicSetResultat((Resultat) otherEnd, msgs);
 		case ScriptPackage.SCRIPT__BLOCS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getBlocs()).basicAdd(otherEnd, msgs);
 		}
@@ -226,6 +243,10 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			return ((InternalEList<?>) getArguments()).basicRemove(otherEnd, msgs);
+		case ScriptPackage.SCRIPT__RESULTAT:
+			return basicSetResultat(null, msgs);
 		case ScriptPackage.SCRIPT__BLOCS:
 			return ((InternalEList<?>) getBlocs()).basicRemove(otherEnd, msgs);
 		}
@@ -242,12 +263,10 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		switch (featureID) {
 		case ScriptPackage.SCRIPT__NOM:
 			return getNom();
-		case ScriptPackage.SCRIPT__ENTREES:
-			return getEntrees();
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			return getArguments();
 		case ScriptPackage.SCRIPT__RESULTAT:
-			if (resolve)
-				return getResultat();
-			return basicGetResultat();
+			return getResultat();
 		case ScriptPackage.SCRIPT__BLOCS:
 			return getBlocs();
 		}
@@ -266,9 +285,9 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		case ScriptPackage.SCRIPT__NOM:
 			setNom((String) newValue);
 			return;
-		case ScriptPackage.SCRIPT__ENTREES:
-			getEntrees().clear();
-			getEntrees().addAll((Collection<? extends Entree>) newValue);
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			getArguments().clear();
+			getArguments().addAll((Collection<? extends Argument>) newValue);
 			return;
 		case ScriptPackage.SCRIPT__RESULTAT:
 			setResultat((Resultat) newValue);
@@ -292,8 +311,8 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		case ScriptPackage.SCRIPT__NOM:
 			setNom(NOM_EDEFAULT);
 			return;
-		case ScriptPackage.SCRIPT__ENTREES:
-			getEntrees().clear();
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			getArguments().clear();
 			return;
 		case ScriptPackage.SCRIPT__RESULTAT:
 			setResultat((Resultat) null);
@@ -315,8 +334,8 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		switch (featureID) {
 		case ScriptPackage.SCRIPT__NOM:
 			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
-		case ScriptPackage.SCRIPT__ENTREES:
-			return entrees != null && !entrees.isEmpty();
+		case ScriptPackage.SCRIPT__ARGUMENTS:
+			return arguments != null && !arguments.isEmpty();
 		case ScriptPackage.SCRIPT__RESULTAT:
 			return resultat != null;
 		case ScriptPackage.SCRIPT__BLOCS:

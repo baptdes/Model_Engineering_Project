@@ -17,11 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import script.Entree;
 import script.ScriptPackage;
 
 /**
@@ -54,7 +50,6 @@ public class EntreeItemProvider extends ItemProviderAdapter implements IEditingD
 			super.getPropertyDescriptors(object);
 
 			addSortiePropertyDescriptor(object);
-			addNomPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,25 +63,9 @@ public class EntreeItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void addSortiePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_BlocAvecSortie_sortie_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_BlocAvecSortie_sortie_feature",
-								"_UI_BlocAvecSortie_type"),
-						ScriptPackage.Literals.BLOC_AVEC_SORTIE__SORTIE, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nom feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNomPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Entree_nom_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Entree_nom_feature", "_UI_Entree_type"),
-						ScriptPackage.Literals.ENTREE__NOM, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Entree_sortie_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Entree_sortie_feature", "_UI_Entree_type"),
+						ScriptPackage.Literals.ENTREE__SORTIE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -118,9 +97,7 @@ public class EntreeItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Entree) object).getNom();
-		return label == null || label.length() == 0 ? getString("_UI_Entree_type")
-				: getString("_UI_Entree_type") + " " + label;
+		return getString("_UI_Entree_type");
 	}
 
 	/**
@@ -133,12 +110,6 @@ public class EntreeItemProvider extends ItemProviderAdapter implements IEditingD
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Entree.class)) {
-		case ScriptPackage.ENTREE__NOM:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -82,18 +82,13 @@ public class ScriptAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBlocAvecSortie(BlocAvecSortie object) {
-			return createBlocAvecSortieAdapter();
+		public Adapter caseSortie(Sortie object) {
+			return createSortieAdapter();
 		}
 
 		@Override
-		public Adapter caseBlocSansEntree(BlocSansEntree object) {
-			return createBlocSansEntreeAdapter();
-		}
-
-		@Override
-		public Adapter caseEntree(Entree object) {
-			return createEntreeAdapter();
+		public Adapter caseArgument(Argument object) {
+			return createArgumentAdapter();
 		}
 
 		@Override
@@ -109,6 +104,11 @@ public class ScriptAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseOperationBinaire(OperationBinaire object) {
 			return createOperationBinaireAdapter();
+		}
+
+		@Override
+		public Adapter caseEntree(Entree object) {
+			return createEntreeAdapter();
 		}
 
 		@Override
@@ -173,30 +173,30 @@ public class ScriptAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link script.BlocAvecSortie <em>Bloc Avec Sortie</em>}'.
+	 * Creates a new adapter for an object of class '{@link script.Sortie <em>Sortie</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see script.BlocAvecSortie
+	 * @see script.Sortie
 	 * @generated
 	 */
-	public Adapter createBlocAvecSortieAdapter() {
+	public Adapter createSortieAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link script.BlocSansEntree <em>Bloc Sans Entree</em>}'.
+	 * Creates a new adapter for an object of class '{@link script.Argument <em>Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see script.BlocSansEntree
+	 * @see script.Argument
 	 * @generated
 	 */
-	public Adapter createBlocSansEntreeAdapter() {
+	public Adapter createArgumentAdapter() {
 		return null;
 	}
 

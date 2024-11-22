@@ -40,6 +40,24 @@ public interface ScriptFactory extends EFactory {
 	Resultat createResultat();
 
 	/**
+	 * Returns a new object of class '<em>Sortie</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sortie</em>'.
+	 * @generated
+	 */
+	Sortie createSortie();
+
+	/**
+	 * Returns a new object of class '<em>Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Argument</em>'.
+	 * @generated
+	 */
+	Argument createArgument();
+
+	/**
 	 * Returns a new object of class '<em>Entree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

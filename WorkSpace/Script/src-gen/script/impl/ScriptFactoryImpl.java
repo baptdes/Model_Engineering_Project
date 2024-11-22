@@ -61,14 +61,18 @@ public class ScriptFactoryImpl extends EFactoryImpl implements ScriptFactory {
 			return createScript();
 		case ScriptPackage.RESULTAT:
 			return createResultat();
-		case ScriptPackage.ENTREE:
-			return createEntree();
+		case ScriptPackage.SORTIE:
+			return createSortie();
+		case ScriptPackage.ARGUMENT:
+			return createArgument();
 		case ScriptPackage.CONSTANTE:
 			return createConstante();
 		case ScriptPackage.FONCTION_UNAIRE:
 			return createFonctionUnaire();
 		case ScriptPackage.OPERATION_BINAIRE:
 			return createOperationBinaire();
+		case ScriptPackage.ENTREE:
+			return createEntree();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -128,6 +132,28 @@ public class ScriptFactoryImpl extends EFactoryImpl implements ScriptFactory {
 	public Resultat createResultat() {
 		ResultatImpl resultat = new ResultatImpl();
 		return resultat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Sortie createSortie() {
+		SortieImpl sortie = new SortieImpl();
+		return sortie;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Argument createArgument() {
+		ArgumentImpl argument = new ArgumentImpl();
+		return argument;
 	}
 
 	/**

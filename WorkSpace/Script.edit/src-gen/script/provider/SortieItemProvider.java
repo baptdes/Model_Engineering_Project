@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,17 +21,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import script.Constante;
-import script.ScriptFactory;
 import script.ScriptPackage;
+import script.Sortie;
 
 /**
- * This is the item provider adapter for a {@link script.Constante} object.
+ * This is the item provider adapter for a {@link script.Sortie} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConstanteItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class SortieItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -40,7 +38,7 @@ public class ConstanteItemProvider extends ItemProviderAdapter implements IEditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConstanteItemProvider(AdapterFactory adapterFactory) {
+	public SortieItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,82 +53,39 @@ public class ConstanteItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValeurPropertyDescriptor(object);
-			addSortiePropertyDescriptor(object);
+			addEntreePropertyDescriptor(object);
+			addNomPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Sortie feature.
+	 * This adds a property descriptor for the Entree feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSortiePropertyDescriptor(Object object) {
+	protected void addEntreePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Constante_sortie_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Constante_sortie_feature",
-								"_UI_Constante_type"),
-						ScriptPackage.Literals.CONSTANTE__SORTIE, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_Sortie_entree_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sortie_entree_feature", "_UI_Sortie_type"),
+						ScriptPackage.Literals.SORTIE__ENTREE, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Nom feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ScriptPackage.Literals.CONSTANTE__SORTIE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This adds a property descriptor for the Valeur feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValeurPropertyDescriptor(Object object) {
+	protected void addNomPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Constante_valeur_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Constante_valeur_feature",
-								"_UI_Constante_type"),
-						ScriptPackage.Literals.CONSTANTE__VALEUR, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This returns Constante.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constante"));
+						getResourceLocator(), getString("_UI_Sortie_nom_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sortie_nom_feature", "_UI_Sortie_type"),
+						ScriptPackage.Literals.SORTIE__NOM, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -151,8 +106,9 @@ public class ConstanteItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		Constante constante = (Constante) object;
-		return getString("_UI_Constante_type") + " " + constante.getValeur();
+		String label = ((Sortie) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Sortie_type")
+				: getString("_UI_Sortie_type") + " " + label;
 	}
 
 	/**
@@ -166,12 +122,9 @@ public class ConstanteItemProvider extends ItemProviderAdapter implements IEditi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Constante.class)) {
-		case ScriptPackage.CONSTANTE__VALEUR:
+		switch (notification.getFeatureID(Sortie.class)) {
+		case ScriptPackage.SORTIE__NOM:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case ScriptPackage.CONSTANTE__SORTIE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -187,9 +140,6 @@ public class ConstanteItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(
-				createChildParameter(ScriptPackage.Literals.CONSTANTE__SORTIE, ScriptFactory.eINSTANCE.createSortie()));
 	}
 
 	/**

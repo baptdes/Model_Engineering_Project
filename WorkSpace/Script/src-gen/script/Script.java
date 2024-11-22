@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link script.Script#getNom <em>Nom</em>}</li>
- *   <li>{@link script.Script#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link script.Script#getArguments <em>Arguments</em>}</li>
  *   <li>{@link script.Script#getResultat <em>Resultat</em>}</li>
  *   <li>{@link script.Script#getBlocs <em>Blocs</em>}</li>
  * </ul>
@@ -49,34 +49,38 @@ public interface Script extends EObject {
 	void setNom(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Entrees</b></em>' reference list.
-	 * The list contents are of type {@link script.Entree}.
+	 * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
+	 * The list contents are of type {@link script.Argument}.
+	 * It is bidirectional and its opposite is '{@link script.Argument#getScript <em>Script</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entrees</em>' reference list.
-	 * @see script.ScriptPackage#getScript_Entrees()
-	 * @model
+	 * @return the value of the '<em>Arguments</em>' containment reference list.
+	 * @see script.ScriptPackage#getScript_Arguments()
+	 * @see script.Argument#getScript
+	 * @model opposite="script" containment="true"
 	 * @generated
 	 */
-	EList<Entree> getEntrees();
+	EList<Argument> getArguments();
 
 	/**
-	 * Returns the value of the '<em><b>Resultat</b></em>' reference.
+	 * Returns the value of the '<em><b>Resultat</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link script.Resultat#getScript <em>Script</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resultat</em>' reference.
+	 * @return the value of the '<em>Resultat</em>' containment reference.
 	 * @see #setResultat(Resultat)
 	 * @see script.ScriptPackage#getScript_Resultat()
-	 * @model required="true"
+	 * @see script.Resultat#getScript
+	 * @model opposite="script" containment="true" required="true"
 	 * @generated
 	 */
 	Resultat getResultat();
 
 	/**
-	 * Sets the value of the '{@link script.Script#getResultat <em>Resultat</em>}' reference.
+	 * Sets the value of the '{@link script.Script#getResultat <em>Resultat</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resultat</em>' reference.
+	 * @param value the new value of the '<em>Resultat</em>' containment reference.
 	 * @see #getResultat()
 	 * @generated
 	 */
