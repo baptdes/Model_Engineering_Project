@@ -76,8 +76,8 @@ def selectionX():
 listeXBouton = Button(Frame3 , text="Selectionner X", command= selectionX)
 listeXBouton.pack()
 
-# Y
-labelY = Label(Frame3, text="Colonnes pour l'axe des ordonnées")
+# X
+labelY = Label(Frame3, text="Colonnes pour l'axe des abscisses")
 labelY.pack()
 listeY = Listbox(Frame3,  selectmode=SINGLE)
 listeY.insert(END, "date")
@@ -93,15 +93,12 @@ listeYBouton.pack()
 
 # bouton de sortie
 def afficherGraph(): 
-    try :
         for ligne in contenue :
             X.append(ligne[colonneX[0]])
             Y.append(ligne[colonneY[0]])
         plt.plot(X[1:],Y[1:])
         plt.show()
-    except Exception :
-        return 0
-
+        fenetre.destroy()
 
 boutonRepGraphique=Button(fenetre, text="Représentation Graphique", command=afficherGraph)
 boutonRepGraphique.pack()
