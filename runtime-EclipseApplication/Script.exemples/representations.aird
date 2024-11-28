@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_-6DqkKgDEe-OHus2k8IU8A" version="15.2.0.202303281325">
+  <semanticResources>exemple-fonction-exp.xmi</semanticResources>
+  <semanticResources>exemple-complet.xmi</semanticResources>
+</viewpoint:DAnalysis>
