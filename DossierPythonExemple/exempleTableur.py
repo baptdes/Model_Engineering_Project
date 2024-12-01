@@ -5,12 +5,43 @@ from tkinter import filedialog
 from tkinter import StringVar
 from matplotlib import pyplot as plt 
 
+#librairie pyton
+# permet de mettre en place la librairie python réutilisable
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 #interface graphique
+# permet de mettre en place l'interface graphique d'un tableur
+# avec utilisation de la librairie ci-dessus
+#
+#
+
+
+#instantiation des objets
+
+
+
+
+#aspects graphiques
 fenetre = Tk()
 
 Frame1 = Frame(fenetre, borderwidth=2, relief=GROOVE)
@@ -58,8 +89,6 @@ def modifier(boutonI) :
     L.pack()
     T.pack()
     b1.pack()
-
-
 
 
 #création des cases du tableau
