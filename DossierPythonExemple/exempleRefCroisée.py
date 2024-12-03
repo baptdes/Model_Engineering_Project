@@ -25,8 +25,8 @@ class industAllemand:
 
     tableau = []
 
-    def __init__(self):
-        self._tableau = [["Date","Open","low","close","adj Close", "Volume"],
+    def __init__(self, tableau):
+        self._tableau = [["Date","Open","Min","Max","Close", "Volume","Moyenne","Variation"],
                           [],
                           [],
                           [],
@@ -43,39 +43,35 @@ class industAllemand:
     # affiche les messages d'avertissements ou d'éreurs 
     def verification(self,contenue):  
         #énumération des types et des contraintes
-        typesColonne = ["str", "float", "float", "float", "float", "float", "int"]
-        contrainteMinMax = Contrainte("min et max inverser","Erreur","<=",["adj Close","Volume"])
+        typesColonne = [str, float, float, float, float, int, float,float]
+        contrainteMinMax = Contrainte("min et max inverser","Erreur","<=",["close","Volume"])
 
         #vérification
         for ligne in range(1,len(contenue)):
             for colonne in range (0,len(contenue[ligne])) :
-                #vérification de type
-                
-                try :
-                    contenue[ligne][colonne]  = eval(typesColonne[colonne] + "(\"" + contenue[ligne][colonne] + "\")")            
-                except Exception as e:
-                    print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
+                #vérification de type 
+                if not(isinstance(contenue[ligne][colonne]),typesColonne[colonne]):
+                    print("mauvais type de données ligne : " + ligne + ", colonne : " + colonne)
                     return False      
             
             #vérification des contraintes
             def chercherElements(listeElement,listeRecherche) :
                 result = []
-                for i in range(0,len(listeElement)):
-                    for j in range(0,len(listeRecherche)):
-                        if listeElement[i]==listeRecherche[j]:
+                for i in listeElement:
+                    for j in listeRecherche:
+                        if i==j:
                             result.append(j)
                 return result       
             #contrainte 1
             colonnes = chercherElements(contrainteMinMax._colonnes,self._tableau[0])
-            if eval("not(" + str(contenue[ligne][colonnes[0]]) + contrainteMinMax._comparatifs + str(contenue[ligne][colonnes[1]]) + ")") :
+            if eval(str(contenue[colonnes[0]]) + contrainteMinMax._comparatifs + str(contenue[colonnes[1]])) :
                 if contrainteMinMax._actionContrainte == "Erreur":
-                    print(str(contrainteMinMax._message) + ", ligne:" + str(ligne) )
+                    print(contrainteMinMax._message + ", ligne:" + ligne )
                     return False
                 elif contrainteMinMax._actionContrainte == "Avertissement":
-                    print(str(contrainteMinMax._message) + ", ligne: " + str(ligne) ) 
+                    print(contrainteMinMax._message + ", ligne: " + ligne ) 
                 else :
                     print("Erreur de transformation")
-        return True
 
 
 
@@ -96,8 +92,8 @@ class industAllemand:
             for i in range(1,len(contenue)):
                 self._tableau[i] = contenue[i]
         else :
-            print("mauvaise importation")
-
+            print("ereur dans l'importation retourner après la vérification")
+            Exception("ereur dans l'importation retourner après la vérification")
 
         
 
@@ -107,7 +103,3 @@ class industAllemand:
     def calcul(fonction, colonne):
         #rien ici
         return 0
-    
-
-a = industAllemand()
-a.importationCSV("test.csv")
