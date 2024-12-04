@@ -1,9 +1,11 @@
 import csv
 
 # importation des autres shémas tables 
-import exempleRefCroisée
+from exemple2 import tableauIndustrie
 
 
+# importation des algo
+from AlgoMoyExp import moy
 
 
 
@@ -101,5 +103,30 @@ class industAllemand:
 
 
     def calcul(fonction, colonne):
-        #rien ici
-        return 0
+        #plusieurs colonne à calculer
+
+
+        #colonne calculer avec un script de x = x sont les colonnes étrangères
+
+        #ajouter une hiérachisation des calcules peut être 
+        #donnée 
+
+        #imaginons une colonne calculée 
+        colonneMoy = []
+        #ici à aller chercher dans industrieAllemande
+        identifiantColonnesEntree = ["low","close"]
+        #importation des colonnes
+        def chercherElements(listeElement,listeRecherche) :
+                result = []
+                for i in listeElement:
+                    for j in listeRecherche:
+                        if i==j:
+                            result.append(j)
+                return result 
+        IDColonnesE = chercherElements(identifiantColonnesEntree,tableauIndustrie._tableau[0])
+        for i in range(1,len(tableauIndustrie._tableau)):
+            colonneMoy = moy(tableauIndustrie._tableau[IDColonnesE[0]], tableauIndustrie._tableau[IDColonnesE[0]])
+        print(colonneMoy)
+               
+        
+        

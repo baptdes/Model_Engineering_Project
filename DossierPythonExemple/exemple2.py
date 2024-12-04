@@ -44,13 +44,12 @@ class industAllemand:
     def verification(self,contenue):  
         #énumération des types et des contraintes
         typesColonne = ["str", "float", "float", "float", "float", "float", "int"]
-        contrainteMinMax = Contrainte("min et max inverser","Erreur","<=",["adj Close","Volume"])
+        
 
         #vérification
         for ligne in range(1,len(contenue)):
             for colonne in range (0,len(contenue[ligne])) :
                 #vérification de type
-                
                 try :
                     contenue[ligne][colonne]  = eval(typesColonne[colonne] + "(\"" + contenue[ligne][colonne] + "\")")            
                 except Exception as e:
@@ -66,6 +65,7 @@ class industAllemand:
                             result.append(j)
                 return result       
             #contrainte 1
+            contrainteMinMax = Contrainte("min et max inverser","Erreur","<=",["adj Close","Volume"])
             colonnes = chercherElements(contrainteMinMax._colonnes,self._tableau[0])
             if eval("not(" + str(contenue[ligne][colonnes[0]]) + contrainteMinMax._comparatifs + str(contenue[ligne][colonnes[1]]) + ")") :
                 if contrainteMinMax._actionContrainte == "Erreur":
@@ -88,15 +88,16 @@ class industAllemand:
             with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
                     fichierCSV = fichier
                     lecteur_csv = csv.reader(fichier)
-                    contenue = [ligne for ligne in lecteur_csv]                                                   
+                    contenue = [ligne for ligne in lecteur_csv]
+                            #verification que la matrice importer est conforme aux contraintes et aux types
+                    if self.verification(contenue):
+                        for i in range(1,len(contenue)):
+                            self._tableau[i] = contenue[i]
+                    else :
+                        print("mauvaise importation")                                                   
         except Exception as e:
             print("Erreur dans l'importation")
-        #verification que la matrice importer est conforme aux contraintes et aux types
-        if self.verification(contenue):
-            for i in range(1,len(contenue)):
-                self._tableau[i] = contenue[i]
-        else :
-            print("mauvaise importation")
+
 
 
         
@@ -109,5 +110,5 @@ class industAllemand:
         return 0
     
 
-a = industAllemand()
-a.importationCSV("test.csv")
+tableauIndustrie = industAllemand()
+tableauIndustrie.importationCSV("C:\Users\flori\Documents\Travail\IDM\Projet-IDM\DossierPythonExemple\test.csv")
