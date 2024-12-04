@@ -1,11 +1,12 @@
 import csv
+import inspect
 
 # importation des autres shémas tables 
 from exemple2 import tableauIndustrie
 
 
 # importation des algo
-from AlgoMoyExp import moy
+import AlgoMoyExp 
 
 
 
@@ -124,8 +125,14 @@ class industAllemand:
                             result.append(j)
                 return result 
         IDColonnesE = chercherElements(identifiantColonnesEntree,tableauIndustrie._tableau[0])
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = inspect.getmembers(AlgoMoyExp, inspect.isfunction)
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise("L'algo " + "AlgoMoyExp" + "a trop de fonction alors que nous en voulons qu'une")
         for i in range(1,len(tableauIndustrie._tableau)):
-            colonneMoy = moy(tableauIndustrie._tableau[IDColonnesE[0]], tableauIndustrie._tableau[IDColonnesE[0]])
+            colonneMoy = eval(str(methodes[0]) + "(tableauIndustrie._tableau[IDColonnesE[0]], tableauIndustrie._tableau[IDColonnesE[0]]")
         print(colonneMoy)
                
         
