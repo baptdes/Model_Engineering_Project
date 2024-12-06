@@ -19,7 +19,7 @@
     <entree
         sortie="//@arguments.0/@sortie"/>
     <sortie
-        entree="//@resultat/@entree"
+        entree="//@resultat.0/@entree"
         nom="Sortie exp"/>
   </blocs>
 </script:Script>

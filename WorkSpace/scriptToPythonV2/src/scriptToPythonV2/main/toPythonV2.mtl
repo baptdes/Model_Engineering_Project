@@ -1,0 +1,90 @@
+[comment encoding = UTF-8 /]
+[module toPythonV2('http://www.example.org/script')]
+
+
+[template public scriptTopython(aScript : Script)]
+[comment @main/]
+[file (aScript.nom + '.py', false, 'UTF-8')]
+def [aScript.nom/](
+		[for (arg : Argument | aScript.arguments) separator(',') ]
+			[arg.nom/]
+		[/for]):
+
+[for (bloc : Bloc | aScript.blocs)]
+[if (bloc.oclIsTypeOf(OperationBinaire))]
+[afficherOperation(bloc.oclAsType(OperationBinaire))/]
+[elseif (bloc.oclIsTypeOf(FonctionUnaire))]
+[afficherFonctionUnaire(bloc.oclAsType(FonctionUnaire))/]
+[elseif (bloc.oclIsTypeOf(Constante))]
+[afficherConstante(bloc.oclAsType(Constante))/]
+[/if]
+
+[/for]
+
+return [for (res : Resultat | aScript.resultat) separator(',')]
+[res.nom/]
+[/for]
+
+[/file]
+[/template]
+
+[template public afficherOperateur(symbole : String, entrees : OrderedSet(Entree))]
+[for (e : Entree | entrees) separator(' ' + symbole) ]
+[e/]
+[/for] 
+[/template] 
+
+[template public afficherFonction(nom : String, entrees : OrderedSet(Entree))]
+nom(
+[for (e : Entree | entrees) separator(',') after(')')]
+[e/]
+[/for] 
+[/template]
+
+[template public afficherOperation(op : OperationBinaire) ]
+[op.sortie.nom/] = 
+[if (op.operation = TypeOperationBinaire::Addition)]
+[afficherOperateur('+',op.entree)/]
+
+[elseif (op.operation = TypeOperationBinaire::Soustraction)]
+[afficherOperateur('-',op.entree)/]
+
+[elseif (op.operation = TypeOperationBinaire::Multiplication)]
+[afficherOperateur('*',op.entree)/]
+
+[elseif (op.operation = TypeOperationBinaire::Division)]
+[afficherOperateur('/',op.entree)/]
+
+[elseif (op.operation = TypeOperationBinaire::Maximum)]
+[afficherFonction('max',op.entree)/]
+
+[elseif (op.operation = TypeOperationBinaire::Minimum)]
+[afficherFonction('min',op.entree)/]
+[/if]
+[/template]
+
+[template public afficherFonctionUnaire(fct : FonctionUnaire) ]
+[fct.sortie.nom/] = 
+[if (fct.fonction = TypeFonctionUnaire::Cosinus)]
+[afficherFonction('cos',fct.entree->asOrderedSet())/]
+
+[elseif (fct.fonction = TypeFonctionUnaire::Sinus)]
+[afficherFonction('sin',fct.entree->asOrderedSet())/]
+ 
+[elseif (fct.fonction = TypeFonctionUnaire::Exponentielle)]
+[afficherFonction('exp',fct.entree->asOrderedSet())/]
+
+[elseif (fct.fonction = TypeFonctionUnaire::RacineCaree)]
+[afficherFonction('sqrt',fct.entree->asOrderedSet())/]
+ 
+[elseif (fct.fonction = TypeFonctionUnaire::Inverse)]
+[afficherFonction('reverse',fct.entree->asOrderedSet())/]
+
+[elseif (fct.fonction = TypeFonctionUnaire::Oppose)]
+[afficherOperateur('-',fct.entree->asOrderedSet())/]
+[/if]
+[/template]
+
+[template public afficherConstante(cste : Constante) ]
+[cste.sortie.nom/] = [cste.valeur/]
+[/template]

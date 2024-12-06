@@ -43,7 +43,7 @@
     <entree
         sortie="//@blocs.1/@sortie"/>
     <sortie
-        entree="//@resultat/@entree"
+        entree="//@resultat.0/@entree"
         nom="resultat"/>
   </blocs>
 </script:Script>
