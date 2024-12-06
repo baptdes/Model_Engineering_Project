@@ -63,28 +63,18 @@ public interface Script extends EObject {
 	EList<Argument> getArguments();
 
 	/**
-	 * Returns the value of the '<em><b>Resultat</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Resultat</b></em>' containment reference list.
+	 * The list contents are of type {@link script.Resultat}.
 	 * It is bidirectional and its opposite is '{@link script.Resultat#getScript <em>Script</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resultat</em>' containment reference.
-	 * @see #setResultat(Resultat)
+	 * @return the value of the '<em>Resultat</em>' containment reference list.
 	 * @see script.ScriptPackage#getScript_Resultat()
 	 * @see script.Resultat#getScript
 	 * @model opposite="script" containment="true" required="true"
 	 * @generated
 	 */
-	Resultat getResultat();
-
-	/**
-	 * Sets the value of the '{@link script.Script#getResultat <em>Resultat</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resultat</em>' containment reference.
-	 * @see #getResultat()
-	 * @generated
-	 */
-	void setResultat(Resultat value);
+	EList<Resultat> getResultat();
 
 	/**
 	 * Returns the value of the '<em><b>Blocs</b></em>' containment reference list.

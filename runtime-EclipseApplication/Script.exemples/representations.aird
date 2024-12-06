@@ -1,5 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_-6DqkKgDEe-OHus2k8IU8A" version="15.2.0.202303281325">
-  <semanticResources>exemple-fonction-exp.xmi</semanticResources>
-  <semanticResources>exemple-complet.xmi</semanticResources>
-</viewpoint:DAnalysis>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:script="http://www.example.org/script" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_YSbG8LJKEe-bstv9bL0qMQ" selectedViews="_aC6NILJKEe-bstv9bL0qMQ" version="15.2.0.202303281325">
+    <semanticResources>exemple-addition.xmi</semanticResources>
+    <semanticResources>exemple-fonction-exp.xmi</semanticResources>
+    <semanticResources>script-complet-design.xmi</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_aC6NILJKEe-bstv9bL0qMQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_jJTw8LJKEe-bstv9bL0qMQ" name="exemple-complet-representation" repPath="#_jJMcMLJKEe-bstv9bL0qMQ" changeId="1733322123784">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']"/>
+        <target xmi:type="script:Script" href="exemple-complet.xmi#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_jJMcMLJKEe-bstv9bL0qMQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_jJfXILJKEe-bstv9bL0qMQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_jJf-MLJKEe-bstv9bL0qMQ" type="Sirius" element="_jJMcMLJKEe-bstv9bL0qMQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_7jtqULJKEe-bstv9bL0qMQ" type="2001" element="_7jkgYLJKEe-bstv9bL0qMQ">
+          <children xmi:type="notation:Node" xmi:id="_7ju4cLJKEe-bstv9bL0qMQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7ju4cbJKEe-bstv9bL0qMQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B6bUwLJLEe-bstv9bL0qMQ" type="3003" element="_B6DhULJLEe-bstv9bL0qMQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_B6bUwbJLEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B6bUwrJLEe-bstv9bL0qMQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7jtqUbJKEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jtqUrJKEe-bstv9bL0qMQ" x="44" y="168" width="116" height="57"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7jvfgLJKEe-bstv9bL0qMQ" type="2001" element="_7jlugLJKEe-bstv9bL0qMQ">
+          <children xmi:type="notation:Node" xmi:id="_7jvfg7JKEe-bstv9bL0qMQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7jvfhLJKEe-bstv9bL0qMQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B6bUw7JLEe-bstv9bL0qMQ" type="3003" element="_B6FWgLJLEe-bstv9bL0qMQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_B6bUxLJLEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B6bUxbJLEe-bstv9bL0qMQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7jvfgbJKEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jvfgrJKEe-bstv9bL0qMQ" x="44" y="52" width="116" height="65"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7jvfhbJKEe-bstv9bL0qMQ" type="2001" element="_7jlugbJKEe-bstv9bL0qMQ">
+          <children xmi:type="notation:Node" xmi:id="_7jwGkLJKEe-bstv9bL0qMQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7jwGkbJKEe-bstv9bL0qMQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B6bUxrJLEe-bstv9bL0qMQ" type="3003" element="_B6F9kLJLEe-bstv9bL0qMQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_B6bUx7JLEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B6bUyLJLEe-bstv9bL0qMQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7jvfhrJKEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jvfh7JKEe-bstv9bL0qMQ" x="44" y="256" width="116" height="49"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7jwGkrJKEe-bstv9bL0qMQ" type="2001" element="_7jlugrJKEe-bstv9bL0qMQ">
+          <children xmi:type="notation:Node" xmi:id="_7jwGlbJKEe-bstv9bL0qMQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7jwGlrJKEe-bstv9bL0qMQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B6bUybJLEe-bstv9bL0qMQ" type="3003" element="_B6GkoLJLEe-bstv9bL0qMQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_B6bUyrJLEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B6bUy7JLEe-bstv9bL0qMQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7jwGk7JKEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jwGlLJKEe-bstv9bL0qMQ" x="44" y="328" width="116" height="53"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7jwGl7JKEe-bstv9bL0qMQ" type="2001" element="_7jlug7JKEe-bstv9bL0qMQ">
+          <children xmi:type="notation:Node" xmi:id="_7jwGmrJKEe-bstv9bL0qMQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7jwGm7JKEe-bstv9bL0qMQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B6b70LJLEe-bstv9bL0qMQ" type="3003" element="_B6HLsLJLEe-bstv9bL0qMQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_B6b70bJLEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B6b70rJLEe-bstv9bL0qMQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7jwGmLJKEe-bstv9bL0qMQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jwGmbJKEe-bstv9bL0qMQ" x="44" y="400" width="116" height="49"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_jJf-MbJKEe-bstv9bL0qMQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_jJiacLJKEe-bstv9bL0qMQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_jJiacbJKEe-bstv9bL0qMQ"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jkgYLJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_B6DhULJLEe-bstv9bL0qMQ" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
+      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugLJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_B6FWgLJLEe-bstv9bL0qMQ" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
+      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugbJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_B6F9kLJLEe-bstv9bL0qMQ" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
+      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugrJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_B6GkoLJLEe-bstv9bL0qMQ" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
+      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlug7JKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_B6HLsLJLEe-bstv9bL0qMQ" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
+      <target xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_jJQGkLJKEe-bstv9bL0qMQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer"/>
+    <target xmi:type="script:Script" href="exemple-complet.xmi#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

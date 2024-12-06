@@ -86,7 +86,7 @@ public interface ScriptPackage extends EPackage {
 	int SCRIPT__ARGUMENTS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Resultat</b></em>' containment reference.
+	 * The feature id for the '<em><b>Resultat</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -180,13 +180,22 @@ public interface ScriptPackage extends EPackage {
 	int RESULTAT__SCRIPT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Nom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT__NOM = 2;
+
+	/**
 	 * The number of structural features of the '<em>Resultat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT_FEATURE_COUNT = 2;
+	int RESULTAT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Resultat</em>' class.
@@ -578,10 +587,10 @@ public interface ScriptPackage extends EPackage {
 	EReference getScript_Arguments();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link script.Script#getResultat <em>Resultat</em>}'.
+	 * Returns the meta object for the containment reference list '{@link script.Script#getResultat <em>Resultat</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Resultat</em>'.
+	 * @return the meta object for the containment reference list '<em>Resultat</em>'.
 	 * @see script.Script#getResultat()
 	 * @see #getScript()
 	 * @generated
@@ -630,6 +639,17 @@ public interface ScriptPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResultat_Script();
+
+	/**
+	 * Returns the meta object for the attribute '{@link script.Resultat#getNom <em>Nom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nom</em>'.
+	 * @see script.Resultat#getNom()
+	 * @see #getResultat()
+	 * @generated
+	 */
+	EAttribute getResultat_Nom();
 
 	/**
 	 * Returns the meta object for class '{@link script.Bloc <em>Bloc</em>}'.
@@ -936,7 +956,7 @@ public interface ScriptPackage extends EPackage {
 		EReference SCRIPT__ARGUMENTS = eINSTANCE.getScript_Arguments();
 
 		/**
-		 * The meta object literal for the '<em><b>Resultat</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Resultat</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -976,6 +996,14 @@ public interface ScriptPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULTAT__SCRIPT = eINSTANCE.getResultat_Script();
+
+		/**
+		 * The meta object literal for the '<em><b>Nom</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULTAT__NOM = eINSTANCE.getResultat_Nom();
 
 		/**
 		 * The meta object literal for the '{@link script.Bloc <em>Bloc</em>}' class.
