@@ -6,7 +6,7 @@ from exemple2 import tableauIndustrie
 
 
 # importation des algo
-import AlgoMoyExp 
+import fichierDeTest.AlgoMoyExp as AlgoMoyExp 
 
 
 

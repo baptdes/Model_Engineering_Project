@@ -3,7 +3,7 @@ import inspect
 from enum import Enum
 
 # importation des autres shémas tables 
-from fichierDeTest.ExempleEssaisColonneRef import RefCroise
+from ExempleEssaisColonneRef import RefCroise
 
 
 # importation des algo
@@ -12,7 +12,7 @@ from fichierDeTest.ExempleEssaisColonneRef import RefCroise
 #         - ...
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
-import AlgoMoyExp 
+import AlgoMoyExp as AlgoMoyExp 
 
 
 
@@ -52,7 +52,7 @@ class ColonneCal:
     def __init__(self):
         self.colonnesImport = [colonne("taille","float"), colonne("contraintes","float")]
         self.colonnesReference = [colonne("Open","float")]
-        self.colonnesCalcule = [colonne("Plus5","float")]
+        self.colonnesCalcule = [colonne("Moy","float")]
 
 
         
@@ -176,10 +176,48 @@ class ColonneCal:
                 else :
                     print("Erreur de transformation")
         return True
+
+
+    def ExmportationCSV(self):
+        # Écriture des données dans le fichier CSV
+        with open("fichierSortie.csv", mode='w', newline='', encoding='utf-8') as fichier_csv: 
+            writer = csv.writer(fichier_csv) 
+            #création de la matrice adéquate :
+            taille = 0
+            if len(self.colonnesReference) != 0:
+                taille = len(self.colonnesReference[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
+            elif len(self.colonnesCalcule) != 0:
+                taille = len(self.colonnesCalcule[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
+            elif len(self.colonnesImport) != 0:
+                taille = len(self.colonnesImport[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
+            else :
+                raise("Le tableau ne contient aucune colonne")
+            #colonne de référence
+            for colonne in self.colonnesReference:
+                donnees[0].append(colonne.nom)
+                for ligne in range (0,taille):
+                    donnees[ligne+1].append(colonne.valeur[ligne])
+            #colonne importe
+            for colonne in self.colonnesImport:
+                donnees[0].append(colonne.nom)
+                for ligne in range(0,taille):
+                    donnees[ligne+1].append(colonne.valeur[ligne])
+            #colonne calculé
+            for colonne in self.colonnesCalcule:
+                donnees[0].append(colonne.nom)
+                for ligne in range(0,taille):
+                    donnees[ligne+1].append(colonne.valeur[ligne])
+
+            writer.writerows(donnees)  # Écrit chaque ligne du dictionnair
+
     
 
 tabCal = ColonneCal()
-tabCal.AjoutColonneReference(["testRef.csv"])
-tabCal.importationCSV("testCal.csv")
+tabCal.AjoutColonneReference(["fichierDeTest/testRef.csv"])
+tabCal.importationCSV("fichierDeTest/testCal.csv")
 tabCal.calcul()
 tabCal.verificationFinal()
+tabCal.ExmportationCSV()
