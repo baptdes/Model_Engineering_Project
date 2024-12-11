@@ -4,7 +4,7 @@
     <semanticResources>script-complet-design.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_XFdIELJLEe-bstv9bL0qMQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-qPxwLPcEe-XK4emMCRY3w" name="representation-design" repPath="#_-qPKsLPcEe-XK4emMCRY3w" changeId="1733909126605">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-qPxwLPcEe-XK4emMCRY3w" name="representation-design" repPath="#_-qPKsLPcEe-XK4emMCRY3w" changeId="1733921087790">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']"/>
         <target xmi:type="script:Script" href="script-complet-design.xmi#/"/>
       </ownedRepresentationDescriptors>
@@ -33,7 +33,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-qebQrPcEe-XK4emMCRY3w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-qYUobPcEe-XK4emMCRY3w" fontName="Ubuntu" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-qYUorPcEe-XK4emMCRY3w" x="56" y="200" width="100" height="40"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-qYUorPcEe-XK4emMCRY3w" x="36" y="200" width="100" height="40"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_-qaJ0LPcEe-XK4emMCRY3w" type="2001" element="_-qVRUbPcEe-XK4emMCRY3w">
           <children xmi:type="notation:Node" xmi:id="_-qaJ07PcEe-XK4emMCRY3w" type="5002">
@@ -156,52 +156,8 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_olU3IbPeEe-XK4emMCRY3w" fontName="Ubuntu" fontHeight="12"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_olU3IrPeEe-XK4emMCRY3w" x="548" y="127" width="140" height="69"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_n0mG0LeZEe-ylLQlqOPcDA" type="2001" element="_n0jqkLeZEe-ylLQlqOPcDA">
-          <children xmi:type="notation:Node" xmi:id="_n0mG07eZEe-ylLQlqOPcDA" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_n0mt4LeZEe-ylLQlqOPcDA" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_n0mt4beZEe-ylLQlqOPcDA" type="3001" element="_n0jqk7eZEe-ylLQlqOPcDA">
-            <children xmi:type="notation:Node" xmi:id="_n0mt5LeZEe-ylLQlqOPcDA" type="5001">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_n0mt5beZEe-ylLQlqOPcDA" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_n0nU8LeZEe-ylLQlqOPcDA" type="3003" element="_n0jqlLeZEe-ylLQlqOPcDA">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_n0nU8beZEe-ylLQlqOPcDA" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0nU8reZEe-ylLQlqOPcDA"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_n0mt4reZEe-ylLQlqOPcDA" fontName="Ubuntu" fontHeight="18"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0mt47eZEe-ylLQlqOPcDA" x="-12" y="8" width="20" height="20"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_n0mt5reZEe-ylLQlqOPcDA" type="3003" element="_n0jqkbeZEe-ylLQlqOPcDA">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_n0mt57eZEe-ylLQlqOPcDA" fontName="Ubuntu"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0mt6LeZEe-ylLQlqOPcDA"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_n0mG0beZEe-ylLQlqOPcDA" fontColor="16777215" fontName="Ubuntu" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0mG0reZEe-ylLQlqOPcDA" x="784" y="340" width="100" height="40"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_3OEyQLeZEe-ylLQlqOPcDA" type="2001" element="_3OBu8LeZEe-ylLQlqOPcDA">
-          <children xmi:type="notation:Node" xmi:id="_3OEyQ7eZEe-ylLQlqOPcDA" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_3OEyRLeZEe-ylLQlqOPcDA" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_3OEyRbeZEe-ylLQlqOPcDA" type="3001" element="_3OBu87eZEe-ylLQlqOPcDA">
-            <children xmi:type="notation:Node" xmi:id="_3OEySLeZEe-ylLQlqOPcDA" type="5001">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_3OEySbeZEe-ylLQlqOPcDA" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_3OFZU7eZEe-ylLQlqOPcDA" type="3003" element="_3OBu9LeZEe-ylLQlqOPcDA">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_3OFZVLeZEe-ylLQlqOPcDA" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3OFZVbeZEe-ylLQlqOPcDA"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_3OEyRreZEe-ylLQlqOPcDA" fontName="Ubuntu" fontHeight="18"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3OEyR7eZEe-ylLQlqOPcDA" x="128" y="12" width="20" height="20"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_3OFZULeZEe-ylLQlqOPcDA" type="3003" element="_3OBu8beZEe-ylLQlqOPcDA">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_3OFZUbeZEe-ylLQlqOPcDA" fontName="Ubuntu"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3OFZUreZEe-ylLQlqOPcDA"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_3OEyQbeZEe-ylLQlqOPcDA" fontName="Ubuntu" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3OEyQreZEe-ylLQlqOPcDA" x="448" y="340" width="136" height="40"/>
-        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_-qTcIrPcEe-XK4emMCRY3w"/>
-        <edges xmi:type="notation:Edge" xmi:id="_RXVJsLPiEe-XK4emMCRY3w" type="4001" element="_RXTUjrPiEe-XK4emMCRY3w" source="_scyQ4LPeEe-XK4emMCRY3w" target="_z0XX4LPdEe-XK4emMCRY3w">
+        <edges xmi:type="notation:Edge" xmi:id="_RXVJsLPiEe-XK4emMCRY3w" visible="false" type="4001" element="_RXTUjrPiEe-XK4emMCRY3w" source="_scyQ4LPeEe-XK4emMCRY3w" target="_z0XX4LPdEe-XK4emMCRY3w">
           <children xmi:type="notation:Node" xmi:id="_RXVJtLPiEe-XK4emMCRY3w" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RXVJtbPiEe-XK4emMCRY3w" x="3" y="-5"/>
           </children>
@@ -217,7 +173,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVJurPiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVJu7PiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RXVJvLPiEe-XK4emMCRY3w" type="4001" element="_RXTUk7PiEe-XK4emMCRY3w" source="_scyQ5bPeEe-XK4emMCRY3w" target="_-qfCWLPcEe-XK4emMCRY3w">
+        <edges xmi:type="notation:Edge" xmi:id="_RXVJvLPiEe-XK4emMCRY3w" visible="false" type="4001" element="_RXTUk7PiEe-XK4emMCRY3w" source="_scyQ5bPeEe-XK4emMCRY3w" target="_-qfCWLPcEe-XK4emMCRY3w">
           <children xmi:type="notation:Node" xmi:id="_RXVJwLPiEe-XK4emMCRY3w" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RXVJwbPiEe-XK4emMCRY3w" x="1" y="-8"/>
           </children>
@@ -233,7 +189,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVJxrPiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVJx7PiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RXVwwLPiEe-XK4emMCRY3w" type="4001" element="_RXTUmLPiEe-XK4emMCRY3w" source="_-qebRrPcEe-XK4emMCRY3w" target="_scxp0LPeEe-XK4emMCRY3w">
+        <edges xmi:type="notation:Edge" xmi:id="_RXVwwLPiEe-XK4emMCRY3w" visible="false" type="4001" element="_RXTUmLPiEe-XK4emMCRY3w" source="_-qebRrPcEe-XK4emMCRY3w" target="_scxp0LPeEe-XK4emMCRY3w">
           <children xmi:type="notation:Node" xmi:id="_RXVwxLPiEe-XK4emMCRY3w" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RXVwxbPiEe-XK4emMCRY3w" x="6" y="-4"/>
           </children>
@@ -249,7 +205,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVwyrPiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXVwy7PiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RXVwzLPiEe-XK4emMCRY3w" type="4001" element="_RXTUnbPiEe-XK4emMCRY3w" source="_qXsCELPdEe-XK4emMCRY3w" target="_-qaJ2rPcEe-XK4emMCRY3w">
+        <edges xmi:type="notation:Edge" xmi:id="_RXVwzLPiEe-XK4emMCRY3w" visible="false" type="4001" element="_RXTUnbPiEe-XK4emMCRY3w" source="_qXsCELPdEe-XK4emMCRY3w" target="_-qaJ2rPcEe-XK4emMCRY3w">
           <children xmi:type="notation:Node" xmi:id="_RXWX0LPiEe-XK4emMCRY3w" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RXWX0bPiEe-XK4emMCRY3w" y="-10"/>
           </children>
@@ -265,15 +221,79 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXWX1rPiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXWX17PiEe-XK4emMCRY3w" id="(0.5,0.5)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Bi1RsLe9Ee-CJP5rwx23dA" type="4001" element="_BiWwkLe9Ee-CJP5rwx23dA" source="_-qaJ2rPcEe-XK4emMCRY3w" target="_qXsCELPdEe-XK4emMCRY3w">
+          <children xmi:type="notation:Node" xmi:id="_Bi14wLe9Ee-CJP5rwx23dA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi14wbe9Ee-CJP5rwx23dA" x="-1" y="-11"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi2f0Le9Ee-CJP5rwx23dA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi2f0be9Ee-CJP5rwx23dA" x="-1" y="9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi2f0re9Ee-CJP5rwx23dA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi2f07e9Ee-CJP5rwx23dA" x="-1" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Bi1Rsbe9Ee-CJP5rwx23dA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Bi1Rsre9Ee-CJP5rwx23dA" fontName="Ubuntu" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Bi1Rs7e9Ee-CJP5rwx23dA" points="[10, -1, -103, 1]$[103, -2, -10, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi3t8Le9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi3t8be9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Bi3t_re9Ee-CJP5rwx23dA" type="4001" element="_BiXXpbe9Ee-CJP5rwx23dA" source="_scxp0LPeEe-XK4emMCRY3w" target="_-qebRrPcEe-XK4emMCRY3w">
+          <children xmi:type="notation:Node" xmi:id="_Bi3uAre9Ee-CJP5rwx23dA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi3uA7e9Ee-CJP5rwx23dA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi3uBLe9Ee-CJP5rwx23dA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi3uBbe9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi3uBre9Ee-CJP5rwx23dA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi3uB7e9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Bi3t_7e9Ee-CJP5rwx23dA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Bi3uALe9Ee-CJP5rwx23dA" fontName="Ubuntu" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Bi3uAbe9Ee-CJP5rwx23dA" points="[10, 0, -74, -2]$[74, 1, -10, -1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi3uCLe9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi3uCbe9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Bi4VALe9Ee-CJP5rwx23dA" type="4001" element="_BiXXqre9Ee-CJP5rwx23dA" source="_-qfCWLPcEe-XK4emMCRY3w" target="_scyQ5bPeEe-XK4emMCRY3w">
+          <children xmi:type="notation:Node" xmi:id="_Bi4VBLe9Ee-CJP5rwx23dA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VBbe9Ee-CJP5rwx23dA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi4VBre9Ee-CJP5rwx23dA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VB7e9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi4VCLe9Ee-CJP5rwx23dA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VCbe9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Bi4VAbe9Ee-CJP5rwx23dA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Bi4VAre9Ee-CJP5rwx23dA" fontName="Ubuntu" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Bi4VA7e9Ee-CJP5rwx23dA" points="[10, 1, -405, -47]$[405, 46, -10, -2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi4VCre9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi4VC7e9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Bi4VDLe9Ee-CJP5rwx23dA" type="4001" element="_BiXXr7e9Ee-CJP5rwx23dA" source="_z0XX4LPdEe-XK4emMCRY3w" target="_scyQ4LPeEe-XK4emMCRY3w">
+          <children xmi:type="notation:Node" xmi:id="_Bi4VELe9Ee-CJP5rwx23dA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VEbe9Ee-CJP5rwx23dA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi4VEre9Ee-CJP5rwx23dA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VE7e9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Bi4VFLe9Ee-CJP5rwx23dA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bi4VFbe9Ee-CJP5rwx23dA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Bi4VDbe9Ee-CJP5rwx23dA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Bi4VDre9Ee-CJP5rwx23dA" fontName="Ubuntu" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Bi4VD7e9Ee-CJP5rwx23dA" points="[10, -4, -104, 38]$[104, -39, -10, 3]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi4VFre9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bi4VF7e9Ee-CJP5rwx23dA" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-qXtk7PcEe-XK4emMCRY3w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_-qXtlLPcEe-XK4emMCRY3w"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-qUDMLPcEe-XK4emMCRY3w" name="dansCos" width="10" height="4" resizeKind="EAST_WEST">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-qUDMLPcEe-XK4emMCRY3w" name="Arg1" width="10" height="4" resizeKind="EAST_WEST">
       <target xmi:type="script:Argument" href="script-complet-design.xmi#//@arguments.0"/>
       <semanticElements xmi:type="script:Argument" href="script-complet-design.xmi#//@arguments.0"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qUqQbPcEe-XK4emMCRY3w" incomingEdges="_RXTUnbPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qUqQbPcEe-XK4emMCRY3w" outgoingEdges="_BiWwkLe9Ee-CJP5rwx23dA" incomingEdges="_RXTUnbPiEe-XK4emMCRY3w" width="2" height="2">
         <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@arguments.0/@sortie"/>
         <semanticElements xmi:type="script:Sortie" href="script-complet-design.xmi#//@arguments.0/@sortie"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -292,32 +312,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_3OBu8LeZEe-ylLQlqOPcDA" name="TestFleche" width="10" height="4" resizeKind="EAST_WEST">
-      <target xmi:type="script:Argument" href="script-complet-design.xmi#//@arguments.1"/>
-      <semanticElements xmi:type="script:Argument" href="script-complet-design.xmi#//@arguments.1"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_3OBu87eZEe-ylLQlqOPcDA" width="2" height="2">
-        <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@arguments.1/@sortie"/>
-        <semanticElements xmi:type="script:Sortie" href="script-complet-design.xmi#//@arguments.1/@sortie"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_3OBu9LeZEe-ylLQlqOPcDA" labelSize="18" showIcon="false" labelPosition="node" width="2" height="2" color="0,0,0">
-          <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg']"/>
-      </ownedBorderedNodes>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:Square" uid="_3OBu8beZEe-ylLQlqOPcDA" labelSize="12" labelPosition="node" width="10" height="4" color="253,206,137">
-        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_-qVRUbPcEe-XK4emMCRY3w" name="Res" width="10" height="4" resizeKind="NSEW">
       <target xmi:type="script:Resultat" href="script-complet-design.xmi#//@resultat.0"/>
       <semanticElements xmi:type="script:Resultat" href="script-complet-design.xmi#//@resultat.0"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qVRVLPcEe-XK4emMCRY3w" outgoingEdges="_RXTUmLPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qVRVLPcEe-XK4emMCRY3w" outgoingEdges="_RXTUmLPiEe-XK4emMCRY3w" incomingEdges="_BiXXpbe9Ee-CJP5rwx23dA" width="2" height="2">
         <target xmi:type="script:Entree" href="script-complet-design.xmi#//@resultat.0/@entree"/>
         <semanticElements xmi:type="script:Entree" href="script-complet-design.xmi#//@resultat.0/@entree"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -336,32 +334,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_n0jqkLeZEe-ylLQlqOPcDA" name="Res2" width="10" height="4" resizeKind="NSEW">
-      <target xmi:type="script:Resultat" href="script-complet-design.xmi#//@resultat.1"/>
-      <semanticElements xmi:type="script:Resultat" href="script-complet-design.xmi#//@resultat.1"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_n0jqk7eZEe-ylLQlqOPcDA" width="2" height="2">
-        <target xmi:type="script:Entree" href="script-complet-design.xmi#//@resultat.1/@entree"/>
-        <semanticElements xmi:type="script:Entree" href="script-complet-design.xmi#//@resultat.1/@entree"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_n0jqlLeZEe-ylLQlqOPcDA" labelSize="18" showIcon="false" labelPosition="node" width="2" height="2" color="209,209,209">
-          <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes']"/>
-      </ownedBorderedNodes>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:Square" uid="_n0jqkbeZEe-ylLQlqOPcDA" labelSize="12" labelColor="255,255,255" labelPosition="node" width="10" height="4" color="0,0,0">
-        <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_-qVRV7PcEe-XK4emMCRY3w" name="4.0" width="4" height="4" resizeKind="EAST_WEST">
       <target xmi:type="script:Constante" href="script-complet-design.xmi#//@blocs.0"/>
       <semanticElements xmi:type="script:Constante" href="script-complet-design.xmi#//@blocs.0"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qXtkLPcEe-XK4emMCRY3w" incomingEdges="_RXTUk7PiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qXtkLPcEe-XK4emMCRY3w" outgoingEdges="_BiXXqre9Ee-CJP5rwx23dA" incomingEdges="_RXTUk7PiEe-XK4emMCRY3w" width="2" height="2">
         <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.0/@sortie"/>
         <semanticElements xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.0/@sortie"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -383,7 +359,7 @@
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_f3TMhLPdEe-XK4emMCRY3w" name="Cosinus" width="4" height="4" resizeKind="EAST_WEST">
       <target xmi:type="script:FonctionUnaire" href="script-complet-design.xmi#//@blocs.1"/>
       <semanticElements xmi:type="script:FonctionUnaire" href="script-complet-design.xmi#//@blocs.1"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_qXrbA7PdEe-XK4emMCRY3w" outgoingEdges="_RXTUnbPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_qXrbA7PdEe-XK4emMCRY3w" outgoingEdges="_RXTUnbPiEe-XK4emMCRY3w" incomingEdges="_BiWwkLe9Ee-CJP5rwx23dA" width="2" height="2">
         <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.1/@entree"/>
         <semanticElements xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.1/@entree"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -394,7 +370,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='EntreeUnaire']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_zz9IMrPdEe-XK4emMCRY3w" incomingEdges="_RXTUjrPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_zz9IMrPdEe-XK4emMCRY3w" outgoingEdges="_BiXXr7e9Ee-CJP5rwx23dA" incomingEdges="_RXTUjrPiEe-XK4emMCRY3w" width="2" height="2">
         <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.1/@sortie"/>
         <semanticElements xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.1/@sortie"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -416,7 +392,7 @@
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_olQlvrPeEe-XK4emMCRY3w" name="Addition" width="14" height="6" resizeKind="NSEW">
       <target xmi:type="script:OperationBinaire" href="script-complet-design.xmi#//@blocs.2"/>
       <semanticElements xmi:type="script:OperationBinaire" href="script-complet-design.xmi#//@blocs.2"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scwbsrPeEe-XK4emMCRY3w" incomingEdges="_RXTUmLPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scwbsrPeEe-XK4emMCRY3w" outgoingEdges="_BiXXpbe9Ee-CJP5rwx23dA" incomingEdges="_RXTUmLPiEe-XK4emMCRY3w" width="2" height="2">
         <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.2/@sortie"/>
         <semanticElements xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.2/@sortie"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -427,7 +403,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='SortieBinaire']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scwbtbPeEe-XK4emMCRY3w" outgoingEdges="_RXTUjrPiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scwbtbPeEe-XK4emMCRY3w" outgoingEdges="_RXTUjrPiEe-XK4emMCRY3w" incomingEdges="_BiXXr7e9Ee-CJP5rwx23dA" width="2" height="2">
         <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.0"/>
         <semanticElements xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -438,7 +414,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='EntreeBinaire']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scxCwbPeEe-XK4emMCRY3w" outgoingEdges="_RXTUk7PiEe-XK4emMCRY3w" width="2" height="2">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_scxCwbPeEe-XK4emMCRY3w" outgoingEdges="_RXTUk7PiEe-XK4emMCRY3w" incomingEdges="_BiXXqre9Ee-CJP5rwx23dA" width="2" height="2">
         <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.1"/>
         <semanticElements xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.1"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -457,7 +433,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUjrPiEe-XK4emMCRY3w" sourceNode="_scwbtbPeEe-XK4emMCRY3w" targetNode="_zz9IMrPdEe-XK4emMCRY3w">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUjrPiEe-XK4emMCRY3w" visible="false" sourceNode="_scwbtbPeEe-XK4emMCRY3w" targetNode="_zz9IMrPdEe-XK4emMCRY3w">
       <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RXTUj7PiEe-XK4emMCRY3w" sourceArrow="InputArrow" targetArrow="NoDecoration" size="2" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']/@style"/>
@@ -465,7 +441,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUk7PiEe-XK4emMCRY3w" sourceNode="_scxCwbPeEe-XK4emMCRY3w" targetNode="_-qXtkLPcEe-XK4emMCRY3w">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUk7PiEe-XK4emMCRY3w" visible="false" sourceNode="_scxCwbPeEe-XK4emMCRY3w" targetNode="_-qXtkLPcEe-XK4emMCRY3w">
       <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.2/@entree.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RXTUlLPiEe-XK4emMCRY3w" sourceArrow="InputArrow" targetArrow="NoDecoration" size="2" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']/@style"/>
@@ -473,7 +449,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUmLPiEe-XK4emMCRY3w" sourceNode="_-qVRVLPcEe-XK4emMCRY3w" targetNode="_scwbsrPeEe-XK4emMCRY3w">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUmLPiEe-XK4emMCRY3w" visible="false" sourceNode="_-qVRVLPcEe-XK4emMCRY3w" targetNode="_scwbsrPeEe-XK4emMCRY3w">
       <target xmi:type="script:Entree" href="script-complet-design.xmi#//@resultat.0/@entree"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RXTUmbPiEe-XK4emMCRY3w" sourceArrow="InputArrow" targetArrow="NoDecoration" size="2" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']/@style"/>
@@ -481,13 +457,45 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUnbPiEe-XK4emMCRY3w" sourceNode="_qXrbA7PdEe-XK4emMCRY3w" targetNode="_-qUqQbPcEe-XK4emMCRY3w">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RXTUnbPiEe-XK4emMCRY3w" visible="false" sourceNode="_qXrbA7PdEe-XK4emMCRY3w" targetNode="_-qUqQbPcEe-XK4emMCRY3w">
       <target xmi:type="script:Entree" href="script-complet-design.xmi#//@blocs.1/@entree"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RXTUnrPiEe-XK4emMCRY3w" sourceArrow="InputArrow" targetArrow="NoDecoration" size="2" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RXTUn7PiEe-XK4emMCRY3w" labelSize="12"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='EntreeSortieEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_BiWwkLe9Ee-CJP5rwx23dA" sourceNode="_-qUqQbPcEe-XK4emMCRY3w" targetNode="_qXrbA7PdEe-XK4emMCRY3w">
+      <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@arguments.0/@sortie"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_BiWwkbe9Ee-CJP5rwx23dA" size="2" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_BiWwkre9Ee-CJP5rwx23dA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_BiXXpbe9Ee-CJP5rwx23dA" sourceNode="_scwbsrPeEe-XK4emMCRY3w" targetNode="_-qVRVLPcEe-XK4emMCRY3w">
+      <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.2/@sortie"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_BiXXpre9Ee-CJP5rwx23dA" size="2" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_BiXXp7e9Ee-CJP5rwx23dA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_BiXXqre9Ee-CJP5rwx23dA" sourceNode="_-qXtkLPcEe-XK4emMCRY3w" targetNode="_scxCwbPeEe-XK4emMCRY3w">
+      <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.0/@sortie"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_BiXXq7e9Ee-CJP5rwx23dA" size="2" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_BiXXrLe9Ee-CJP5rwx23dA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_BiXXr7e9Ee-CJP5rwx23dA" sourceNode="_zz9IMrPdEe-XK4emMCRY3w" targetNode="_scwbtbPeEe-XK4emMCRY3w">
+      <target xmi:type="script:Sortie" href="script-complet-design.xmi#//@blocs.1/@sortie"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_BiXXsLe9Ee-CJP5rwx23dA" size="2" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_BiXXsbe9Ee-CJP5rwx23dA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_-qPKsbPcEe-XK4emMCRY3w"/>

@@ -88,9 +88,9 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="EntreeSortieEdge" sourceMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='SortieBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ConstNode']/@borderedNodeMappings[name='SortieConst'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='SortieUnaire']" targetMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='EntreeBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='EntreeUnaire']" targetFinderExpression="aql:self.sortie">
-          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        <edgeMappings name="SortieEntreeEdge" sourceMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='SortieBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ConstNode']/@borderedNodeMappings[name='SortieConst'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='SortieUnaire']" targetMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='EntreeBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='EntreeUnaire']" targetFinderExpression="[entree/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -152,6 +152,17 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
                 </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="EntreeSortieEdge" edgeMappings="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@edgeMappings[name='SortieEntreeEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source/]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="entree" valueExpression="[target/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

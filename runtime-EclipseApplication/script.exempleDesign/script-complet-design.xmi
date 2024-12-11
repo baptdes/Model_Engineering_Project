@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script:Script xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:script="http://www.example.org/script">
-  <arguments nom="dansCos">
+  <arguments nom="Arg1">
     <sortie entree="//@blocs.1/@entree" nom="arg"/>
-  </arguments>
-  <arguments nom="TestFleche">
-    <sortie/>
   </arguments>
   <resultat nom="Res">
     <entree sortie="//@blocs.2/@sortie"/>
-  </resultat>
-  <resultat nom="Res2">
-    <entree/>
   </resultat>
   <blocs xsi:type="script:Constante" valeur="4.0">
     <sortie entree="//@blocs.2/@entree.1" nom="const"/>
