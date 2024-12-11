@@ -88,7 +88,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="EntreeSortieEdge" sourceMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='EntreeBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='EntreeUnaire']" targetMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='SortieBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ConstNode']/@borderedNodeMappings[name='SortieConst'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='SortieUnaire']" targetFinderExpression="aql:self.sortie">
+        <edgeMappings name="EntreeSortieEdge" sourceMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@borderedNodeMappings[name='SortieArg'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='SortieBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ConstNode']/@borderedNodeMappings[name='SortieConst'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='SortieUnaire']" targetMapping="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']/@borderedNodeMappings[name='EntreeBinaire'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']/@borderedNodeMappings[name='EntreeRes'] //@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']/@borderedNodeMappings[name='EntreeUnaire']" targetFinderExpression="aql:self.sortie">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -102,7 +102,56 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Argument" referenceName="Script"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Argument" referenceName="arguments">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Sortie" referenceName="sortie"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ResCreation" nodeMappings="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ResNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Resultat" referenceName="resultat">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ConstCreation" nodeMappings="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ConstNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Constante" referenceName="blocs">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Sortie" referenceName="sortie"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="UnaireCreation" nodeMappings="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='UnaireNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::FonctionUnaire" referenceName="blocs">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Sortie" referenceName="sortie"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="BinaireCreation" nodeMappings="//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='BinaireNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::OperationBinaire" referenceName="blocs">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Sortie" referenceName="sortie"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="script::Entree" referenceName="entree"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
