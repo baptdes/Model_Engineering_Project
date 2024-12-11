@@ -55,12 +55,19 @@
                       <initialOperation/>
                     </buttons>
                     <page name="Default Page" domainClass="SchemaTable::ColonneBrute" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='schematableViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ColonneBrute']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
-                    <groups name="Default Group" labelExpression="Saisir le nom de la nouvelle colonne" domainClass="SchemaTable::ColonneBrute" semanticCandidateExpression="var:self">
+                    <groups name="Default Group" labelExpression="Propriétés de la colonne" domainClass="SchemaTable::ColonneBrute" semanticCandidateExpression="var:self">
                       <controls xsi:type="properties:TextDescription" name="Nom" labelExpression="Nom" valueExpression="aql:self.nom">
                         <initialOperation>
                           <firstModelOperations xsi:type="tool_1:ChangeContext">
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="nom" valueExpression="aql:newValue"/>
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="identifiant" valueExpression="aql:self.schema.nom+'.'+newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:SchemaTable::TypeDonnee.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
@@ -93,6 +100,13 @@
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
+                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:SchemaTable::TypeDonnee.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
                     </groups>
                   </subModelOperations>
                 </subModelOperations>
@@ -119,6 +133,13 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext">
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="nom" valueExpression="aql:newValue"/>
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="identifiant" valueExpression="aql:self.schema.nom+'.'+newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:SchemaTable::TypeDonnee.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
