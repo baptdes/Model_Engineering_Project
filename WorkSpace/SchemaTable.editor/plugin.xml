@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SchemaTable -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="SchemaTable.presentation.SchemaTableModelWizardID"
+            name="%_UI_SchemaTableModelWizard_label"
+            class="SchemaTable.presentation.SchemaTableModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SchemaTableModelFile.gif">
+         <description>%_UI_SchemaTableModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SchemaTable -->
+      <editor
+            id="SchemaTable.presentation.SchemaTableEditorID"
+            name="%_UI_SchemaTableEditor_label"
+            icon="icons/full/obj16/SchemaTableModelFile.gif"
+            extensions="schematable"
+            class="SchemaTable.presentation.SchemaTableEditor"
+            contributorClass="SchemaTable.presentation.SchemaTableActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

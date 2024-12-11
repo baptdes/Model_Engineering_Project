@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schematable:SchemaDeTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schematable="http://schematable" nom="test">
+  <colonnes xsi:type="schematable:ColonneBrute" nom="1" identifiant="test.1"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="2" identifiant="test.2"/>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="3" identifiant="test.3">
+    <identifiantsColonnesEntree>test.1</identifiantsColonnesEntree>
+    <identifiantsColonnesEntree>test.2</identifiantsColonnesEntree>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="4" identifiant="test.4" identifiantColonneEtrangere="toto.max"/>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="Test" identifiant="test.Test">
+    <identifiantsColonnesEntree>test.2</identifiantsColonnesEntree>
+    <identifiantsColonnesEntree>test.4</identifiantsColonnesEntree>
+    <identifiantsColonnesEntree>test.3</identifiantsColonnesEntree>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="tata" identifiant="test.tata"/>
+</schematable:SchemaDeTable>
