@@ -64,9 +64,7 @@ class ColonneCal:
     def verificationImport(self,contenue):  
         tableau = []
 
-        #contraintes à vérifier qui ne concerne que des colonnes importées
-        contrainteMinMax = Contrainte("max valeur","Erreur","<=",[0,1])
-
+       
         #vérification
         for ligne in range(1,len(contenue)):
             for colonne in range (0,len(self.colonnesImport)) :
@@ -83,6 +81,9 @@ class ColonneCal:
             
             #vérification des contraintes     
             #contrainte 1
+            #contraintes à vérifier qui ne concerne que des colonnes importées
+            contrainteMinMax = Contrainte("max valeur","Erreur","<=",[0,1])
+
             
             colonnes = contrainteMinMax.colonnes
             if eval("not(" + str(contenue[ligne][colonnes[0]]) + contrainteMinMax.comparatifs + str(contenue[ligne][colonnes[1]]) + ")") :
@@ -160,7 +161,7 @@ class ColonneCal:
     def verificationFinal(self):  
         tableau = []
 
-        #contraintes à vérifier qui ne concerne que des colonnes importées
+        #reste des contraintes
         contrainteMinMax = Contrainte("mauvaise moy","Erreur",">=",[0,0])
 
         #vérification des contraintes     

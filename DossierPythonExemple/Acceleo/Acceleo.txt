@@ -35,12 +35,12 @@ class Contrainte:
 
 
 class colonne:
-    valeur = []
+    valeur = \[\]
     type = "str"
     nom = ""
 
     def __init__(self,nom,type):
-        self.valeur = []
+        self.valeur = \[\]
         self.type = type
         self.nom = nom
 
@@ -50,20 +50,25 @@ class colonne:
 
 class [aSchemaTable.nom]:
 
-    colonnesImport = []
-    colonnesReference = []
-    colonnesCalcule = []
+    colonnesImport = \[\]
+    colonnesReference = \[\]
+    colonnesCalcule = \[\]
     
 
     def __init__(self):
         [let cbs : OrderedSet(Colonne) = aSchemaTable.getColonne()]
-        self.colonnesImport = [
+        self.colonnesImport = \[
             [for (  cb : colonnesBrute | cbs) separator(', ')]
-
-            colonne("taille","float"), colonne("contraintes","float")
-            ]
-        self.colonnesReference = [colonne("Open","float")]
-        self.colonnesCalcule = [colonne("Moy","float")]
+            colonne("cb.nom","cb.typeDonnees")
+            \]
+        self.colonnesReference = \[
+            [for (  cb : colonnesReference | cbs) separator(', ')]
+            colonne("cb.nom","cb.typeDonnees")
+            \]
+        self.colonnesCalcule = \[
+            [for (  cb : colonnesCalcule | cbs) separator(', ')]
+            colonne("cb.nom","cb.typeDonnees")
+            \]
 
 
         
@@ -73,10 +78,9 @@ class [aSchemaTable.nom]:
     #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
     # affiche les messages d'avertissements ou d'éreurs 
     def verificationImport(self,contenue):  
-        tableau = []
+        tableau = \[\]
 
-        #contraintes à vérifier qui ne concerne que des colonnes importées
-        contrainteMinMax = Contrainte("max valeur","Erreur","<=",[0,1])
+        
 
         #vérification
         for ligne in range(1,len(contenue)):
@@ -84,19 +88,21 @@ class [aSchemaTable.nom]:
                 
                 #vérification de type
                 try :
-                    contenue[ligne][colonne]  = eval(self.colonnesImport[colonne].type + "(\"" + contenue[ligne][colonne] + "\")")  
+                    contenue\[ligne\]\[colonne\]  = eval(self.colonnesImport\[colonne\].type + "(\"" + contenue\[ligne\]\[colonne\] + "\")")  
 
                     #ajout de la valeur dans le tableau 
-                    self.colonnesImport[colonne].valeur.append(contenue[ligne][colonne])          
+                    self.colonnesImport\[colonne\].valeur.append(contenue\[ligne\]\[colonne\])          
                 except Exception as e:
                     print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
                     return False      
             
             #vérification des contraintes     
             #contrainte 1
+            #contraintes à vérifier qui ne concerne que des colonnes importées
+            contrainteMinMax = Contrainte("max valeur","Erreur","<=",\[0,1\])
             
             colonnes = contrainteMinMax.colonnes
-            if eval("not(" + str(contenue[ligne][colonnes[0]]) + contrainteMinMax.comparatifs + str(contenue[ligne][colonnes[1]]) + ")") :
+            if eval("not(" + str(contenue\[ligne\]\[colonnes\[0\]\]) + contrainteMinMax.comparatifs + str(contenue\[ligne\]\[colonnes\[1\]\]) + ")") :
                 if contrainteMinMax.actionContrainte == "Erreur":
                     print(str(contrainteMinMax.message) + ", ligne:" + str(ligne) )
                     return False
@@ -120,7 +126,7 @@ class [aSchemaTable.nom]:
             with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
                     fichierCSV = fichier
                     lecteur_csv = csv.reader(fichier)
-                    contenue = [ligne for ligne in lecteur_csv]
+                    contenue = \[ligne for ligne in lecteur_csv\]
                             #verification que la matrice importer est conforme aux contraintes et aux types
                     if not(self.verificationImport(contenue)):
                             print("retour false Calcul")                                                 
@@ -135,12 +141,12 @@ class [aSchemaTable.nom]:
         #création du tableau 
         RefC = RefCroise()
         #appel des fonctions d'importations des données et calcul des données sur le tableau en référence
-        RefC.AjoutColonneReference([])
-        RefC.importationCSV(addresseTabRef[0])
+        RefC.AjoutColonneReference(\[\])
+        RefC.importationCSV(addresseTabRef\[0\])
         RefC.calcul()
         if not(RefC.verificationFinal):
             raise("Erreur dans les vérifications")
-        self.colonnesReference[0].valeur = RefC.colonnesImport[0].valeur
+        self.colonnesReference\[0\].valeur = RefC.colonnesImport\[0\].valeur
 
 
 
@@ -148,18 +154,18 @@ class [aSchemaTable.nom]:
     def calcul(self):
         for ColonneActive in self.colonnesCalcule:
             #imaginons une colonne calculée 
-            intermediaire = []
+            intermediaire = \[\]
             #ici à aller chercher dans industrieAllemande
-            identifiantColonnesEntree = [0,0]
+            identifiantColonnesEntree = \[0,0\]
             
             #faire de l'introspection pour récupérer le nom de la fonction
-            methodes = [name for name, obj in inspect.getmembers(AlgoMoyExp, inspect.isfunction)]
+            methodes = \[name for name, obj in inspect.getmembers(AlgoMoyExp, inspect.isfunction)\]
             #si il y a plusieurs méthode fini 
             if len(methodes) > 1:
                 raise("L'algo " + "AlgoMoyExp" + "a trop de fonction alors que nous en voulons qu'une")
-            for i in range(0,len(self.colonnesReference[identifiantColonnesEntree[0]].valeur)):
+            for i in range(0,len(self.colonnesReference\[identifiantColonnesEntree\[0\]\].valeur)):
                 #Il faut ajouter le nom du dossier de la fonction importer
-                intermediaire.append(eval("AlgoMoyExp." + str(methodes[0]) + "(self.colonnesReference[identifiantColonnesEntree[0]].valeur[i], self.colonnesImport[identifiantColonnesEntree[1]].valeur[i])"))
+                intermediaire.append(eval("AlgoMoyExp." + str(methodes\[0\]) + "(self.colonnesReference\[identifiantColonnesEntree\[0\]\].valeur\[i\], self.colonnesImport\[identifiantColonnesEntree\[1\]\].valeur\[i\])"))
             ColonneActive.valeur = intermediaire
 
 
@@ -169,16 +175,16 @@ class [aSchemaTable.nom]:
     #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
     # affiche les messages d'avertissements ou d'éreurs 
     def verificationFinal(self):  
-        tableau = []
+        tableau = \[\]
 
         #contraintes à vérifier qui ne concerne que des colonnes importées
-        contrainteMinMax = Contrainte("mauvaise moy","Erreur",">=",[0,0])
+        contrainteMinMax = Contrainte("mauvaise moy","Erreur",">=",\[0,0\])
 
         #vérification des contraintes     
         #contrainte 1
-        for ligne in range(0,len(self.colonnesReference[0].valeur)):
+        for ligne in range(0,len(self.colonnesReference\[0\].valeur)):
             identifiantColonnesEntree = contrainteMinMax.colonnes
-            if eval("not(" +"self.colonnesImport[identifiantColonnesEntree[0]].valeur[ligne]"+ contrainteMinMax.comparatifs +  "self.colonnesCalcule[identifiantColonnesEntree[1]].valeur[ligne])") :
+            if eval("not(" +"self.colonnesImport\[identifiantColonnesEntree\[0\]\].valeur\[ligne\]"+ contrainteMinMax.comparatifs +  "self.colonnesCalcule\[identifiantColonnesEntree\[1\]\].valeur\[ligne\])") :
                 if contrainteMinMax.actionContrainte == "Erreur":
                     print(str(contrainteMinMax.message) + ", ligne:" + str(ligne) )
                     return False
@@ -196,38 +202,38 @@ class [aSchemaTable.nom]:
             #création de la matrice adéquate :
             taille = 0
             if len(self.colonnesReference) != 0:
-                taille = len(self.colonnesReference[0].valeur)
-                donnees = [[] for i in range(0,taille+1)]
+                taille = len(self.colonnesReference\[0\].valeur)
+                donnees = \[\[\] for i in range(0,taille+1)\]
             elif len(self.colonnesCalcule) != 0:
-                taille = len(self.colonnesCalcule[0].valeur)
-                donnees = [[] for i in range(0,taille+1)]
+                taille = len(self.colonnesCalcule\[0\].valeur)
+                donnees = \[\[\] for i in range(0,taille+1)\]
             elif len(self.colonnesImport) != 0:
-                taille = len(self.colonnesImport[0].valeur)
-                donnees = [[] for i in range(0,taille+1)]
+                taille = len(self.colonnesImport\[0\].valeur)
+                donnees = \[\[\] for i in range(0,taille+1)\]
             else :
                 raise("Le tableau ne contient aucune colonne")
             #colonne de référence
             for colonne in self.colonnesReference:
-                donnees[0].append(colonne.nom)
+                donnees\[0\].append(colonne.nom)
                 for ligne in range (0,taille):
-                    donnees[ligne+1].append(colonne.valeur[ligne])
+                    donnees\[ligne+1\].append(colonne.valeur\[ligne\])
             #colonne importe
             for colonne in self.colonnesImport:
-                donnees[0].append(colonne.nom)
+                donnees\[0\].append(colonne.nom)
                 for ligne in range(0,taille):
-                    donnees[ligne+1].append(colonne.valeur[ligne])
+                    donnees\[ligne+1\].append(colonne.valeur\[ligne\])
             #colonne calculé
             for colonne in self.colonnesCalcule:
-                donnees[0].append(colonne.nom)
+                donnees\[0\].append(colonne.nom)
                 for ligne in range(0,taille):
-                    donnees[ligne+1].append(colonne.valeur[ligne])
+                    donnees\[ligne+1\].append(colonne.valeur\[ligne\])
 
             writer.writerows(donnees)  # Écrit chaque ligne du dictionnair
 
     
 
 tabCal = ColonneCal()
-tabCal.AjoutColonneReference(["fichierDeTest/testRef.csv"])
+tabCal.AjoutColonneReference(\["fichierDeTest/testRef.csv"\])
 tabCal.importationCSV("fichierDeTest/testCal.csv")
 tabCal.calcul()
 tabCal.verificationFinal()
