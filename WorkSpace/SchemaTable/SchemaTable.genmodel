@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/SchemaTable/src" modelPluginID="SchemaTable" modelName="SchemaTable"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="17.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>SchemaTable.ecore</foreignModel>
+  <genPackages prefix="SchemaTable" disposableProviderFactory="true" ecorePackage="SchemaTable.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SchemaTable.ecore#//TypeDonnee">
+      <genEnumLiterals ecoreEnumLiteral="SchemaTable.ecore#//TypeDonnee/Entier"/>
+      <genEnumLiterals ecoreEnumLiteral="SchemaTable.ecore#//TypeDonnee/Flottant"/>
+      <genEnumLiterals ecoreEnumLiteral="SchemaTable.ecore#//TypeDonnee/Texte"/>
+      <genEnumLiterals ecoreEnumLiteral="SchemaTable.ecore#//TypeDonnee/Booleen"/>
+    </genEnums>
+    <genClasses ecoreClass="SchemaTable.ecore#//SchemaDeTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//SchemaDeTable/nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//SchemaDeTable/colonnes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//SchemaDeTable/colonneIdentifiants"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SchemaTable.ecore#//Colonne">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SchemaTable.ecore#//Colonne/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/identifiant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/typeDonnees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//Colonne/contraintes"/>
+    </genClasses>
+    <genClasses ecoreClass="SchemaTable.ecore#//ColonneBrute"/>
+    <genClasses ecoreClass="SchemaTable.ecore#//ColonneCalculee">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//ColonneCalculee/algorithme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//ColonneCalculee/identifiantsColonnesEntree"/>
+    </genClasses>
+    <genClasses ecoreClass="SchemaTable.ecore#//ColonneEtrangere">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//ColonneEtrangere/identifiantColonneEtrangere"/>
+    </genClasses>
+    <genClasses ecoreClass="SchemaTable.ecore#//Algorithme"/>
+    <genClasses ecoreClass="SchemaTable.ecore#//Contrainte">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//Contrainte/colonnes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//Contrainte/algorithme"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
