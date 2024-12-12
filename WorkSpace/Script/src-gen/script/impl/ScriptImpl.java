@@ -72,14 +72,14 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	protected EList<Argument> arguments;
 
 	/**
-	 * The cached value of the '{@link #getResultat() <em>Resultat</em>}' containment reference.
+	 * The cached value of the '{@link #getResultat() <em>Resultat</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResultat()
 	 * @generated
 	 * @ordered
 	 */
-	protected Resultat resultat;
+	protected EList<Resultat> resultat;
 
 	/**
 	 * The cached value of the '{@link #getBlocs() <em>Blocs</em>}' containment reference list.
@@ -153,50 +153,12 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 	 * @generated
 	 */
 	@Override
-	public Resultat getResultat() {
-		return resultat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResultat(Resultat newResultat, NotificationChain msgs) {
-		Resultat oldResultat = resultat;
-		resultat = newResultat;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ScriptPackage.SCRIPT__RESULTAT, oldResultat, newResultat);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Resultat> getResultat() {
+		if (resultat == null) {
+			resultat = new EObjectContainmentWithInverseEList<Resultat>(Resultat.class, this,
+					ScriptPackage.SCRIPT__RESULTAT, ScriptPackage.RESULTAT__SCRIPT);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setResultat(Resultat newResultat) {
-		if (newResultat != resultat) {
-			NotificationChain msgs = null;
-			if (resultat != null)
-				msgs = ((InternalEObject) resultat).eInverseRemove(this, ScriptPackage.RESULTAT__SCRIPT, Resultat.class,
-						msgs);
-			if (newResultat != null)
-				msgs = ((InternalEObject) newResultat).eInverseAdd(this, ScriptPackage.RESULTAT__SCRIPT, Resultat.class,
-						msgs);
-			msgs = basicSetResultat(newResultat, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.SCRIPT__RESULTAT, newResultat,
-					newResultat));
+		return resultat;
 	}
 
 	/**
@@ -225,10 +187,7 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		case ScriptPackage.SCRIPT__ARGUMENTS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getArguments()).basicAdd(otherEnd, msgs);
 		case ScriptPackage.SCRIPT__RESULTAT:
-			if (resultat != null)
-				msgs = ((InternalEObject) resultat).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ScriptPackage.SCRIPT__RESULTAT, null, msgs);
-			return basicSetResultat((Resultat) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getResultat()).basicAdd(otherEnd, msgs);
 		case ScriptPackage.SCRIPT__BLOCS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getBlocs()).basicAdd(otherEnd, msgs);
 		}
@@ -246,7 +205,7 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		case ScriptPackage.SCRIPT__ARGUMENTS:
 			return ((InternalEList<?>) getArguments()).basicRemove(otherEnd, msgs);
 		case ScriptPackage.SCRIPT__RESULTAT:
-			return basicSetResultat(null, msgs);
+			return ((InternalEList<?>) getResultat()).basicRemove(otherEnd, msgs);
 		case ScriptPackage.SCRIPT__BLOCS:
 			return ((InternalEList<?>) getBlocs()).basicRemove(otherEnd, msgs);
 		}
@@ -290,7 +249,8 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 			getArguments().addAll((Collection<? extends Argument>) newValue);
 			return;
 		case ScriptPackage.SCRIPT__RESULTAT:
-			setResultat((Resultat) newValue);
+			getResultat().clear();
+			getResultat().addAll((Collection<? extends Resultat>) newValue);
 			return;
 		case ScriptPackage.SCRIPT__BLOCS:
 			getBlocs().clear();
@@ -315,7 +275,7 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 			getArguments().clear();
 			return;
 		case ScriptPackage.SCRIPT__RESULTAT:
-			setResultat((Resultat) null);
+			getResultat().clear();
 			return;
 		case ScriptPackage.SCRIPT__BLOCS:
 			getBlocs().clear();
@@ -337,7 +297,7 @@ public class ScriptImpl extends MinimalEObjectImpl.Container implements Script {
 		case ScriptPackage.SCRIPT__ARGUMENTS:
 			return arguments != null && !arguments.isEmpty();
 		case ScriptPackage.SCRIPT__RESULTAT:
-			return resultat != null;
+			return resultat != null && !resultat.isEmpty();
 		case ScriptPackage.SCRIPT__BLOCS:
 			return blocs != null && !blocs.isEmpty();
 		}

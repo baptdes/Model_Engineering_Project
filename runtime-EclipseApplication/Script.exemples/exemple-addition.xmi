@@ -22,6 +22,11 @@
     <entree
         sortie="//@blocs.0/@sortie"/>
   </resultat>
+  <resultat
+      nom="test">
+    <entree
+        sortie="//@blocs.1/@sortie"/>
+  </resultat>
   <blocs xsi:type="script:OperationBinaire">
     <entree
         sortie="//@arguments.0/@sortie"/>
@@ -30,5 +35,11 @@
     <sortie
         entree="//@resultat.0/@entree"
         nom="resultat"/>
+  </blocs>
+  <blocs xsi:type="script:Constante"
+      valeur="4.0">
+    <sortie
+        entree="//@resultat.1/@entree"
+        nom="4"/>
   </blocs>
 </script:Script>

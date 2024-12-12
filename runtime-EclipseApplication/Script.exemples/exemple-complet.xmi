@@ -4,20 +4,21 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:script="http://www.example.org/script"
-    nom="somme-cos-sin">
+    nom="sommeCosSin">
   <arguments
-      nom="arg-cos">
+      nom="argcos">
     <sortie
         entree="//@blocs.0/@entree"
         nom="arg-cos"/>
   </arguments>
   <arguments
-      nom="arg-sin">
+      nom="argsin">
     <sortie
         entree="//@blocs.1/@entree"
         nom="arg-sin"/>
   </arguments>
-  <resultat>
+  <resultat
+      nom="res">
     <entree
         sortie="//@blocs.2/@sortie"/>
   </resultat>

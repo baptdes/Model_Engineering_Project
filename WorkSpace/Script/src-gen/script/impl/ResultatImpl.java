@@ -28,6 +28,7 @@ import script.ScriptPackage;
  * <ul>
  *   <li>{@link script.impl.ResultatImpl#getEntree <em>Entree</em>}</li>
  *   <li>{@link script.impl.ResultatImpl#getScript <em>Script</em>}</li>
+ *   <li>{@link script.impl.ResultatImpl#getNom <em>Nom</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +43,25 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * @ordered
 	 */
 	protected Entree entree;
+
+	/**
+	 * The default value of the '{@link #getNom() <em>Nom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNom()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOM_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getNom() <em>Nom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNom()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nom = NOM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +187,29 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 	 * @generated
 	 */
 	@Override
+	public String getNom() {
+		return nom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNom(String newNom) {
+		String oldNom = nom;
+		nom = newNom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScriptPackage.RESULTAT__NOM, oldNom, nom));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ScriptPackage.RESULTAT__SCRIPT:
@@ -219,6 +262,8 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 			return getEntree();
 		case ScriptPackage.RESULTAT__SCRIPT:
 			return getScript();
+		case ScriptPackage.RESULTAT__NOM:
+			return getNom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +281,9 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 			return;
 		case ScriptPackage.RESULTAT__SCRIPT:
 			setScript((Script) newValue);
+			return;
+		case ScriptPackage.RESULTAT__NOM:
+			setNom((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,6 +303,9 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 		case ScriptPackage.RESULTAT__SCRIPT:
 			setScript((Script) null);
 			return;
+		case ScriptPackage.RESULTAT__NOM:
+			setNom(NOM_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -271,8 +322,27 @@ public class ResultatImpl extends MinimalEObjectImpl.Container implements Result
 			return entree != null;
 		case ScriptPackage.RESULTAT__SCRIPT:
 			return getScript() != null;
+		case ScriptPackage.RESULTAT__NOM:
+			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (nom: ");
+		result.append(nom);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ResultatImpl

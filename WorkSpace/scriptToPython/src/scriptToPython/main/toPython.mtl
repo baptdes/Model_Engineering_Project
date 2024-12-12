@@ -5,86 +5,33 @@
 [template public scriptTopython(aScript : Script)]
 [comment @main/]
 [file (aScript.nom + '.py', false, 'UTF-8')]
-def [aScript.nom/](
-		[for (arg : Argument | aScript.arguments) separator(',') ]
-			[arg.nom/]
-		[/for]):
-
-[for (bloc : Bloc | aScript.blocs)]
-[if (bloc.oclIsTypeOf(OperationBinaire))]
-[afficherOperation(bloc.oclAsType(OperationBinaire))/]
-[elseif (bloc.oclIsTypeOf(FonctionUnaire))]
-[afficherFonctionUnaire(bloc.oclAsType(FonctionUnaire))/]
-[elseif (bloc.oclIsTypeOf(Constante))]
-[afficherConstante(bloc.oclAsType(Constante))/]
-[/if]
-
-[/for]
-
-return [for (res : Resultat | aScript.resultat) separator(',')]
-[res.nom/]
-[/for]
-
+def [aScript.nom/]([for (arg : Argument | aScript.arguments) separator(',') ][arg.nom/][/for]):
+	[for (res : Resultat | aScript.resultat)]
+	[res.nom/] = [analyseEntree(res.entree)/]
+	[/for]
+	return [for (res : Resultat | aScript.resultat) separator(',')][res.nom/][/for]
 [/file]
 [/template]
 
 [template public afficherOperateur(symbole : String, entrees : OrderedSet(Entree))]
-[for (e : Entree | entrees) separator(' ' + symbole) ]
-[e/]
-[/for] 
+[for (e : Entree | entrees) separator(' ' + symbole + ' ') ]([analyseEntree(e)/])[/for]
 [/template] 
 
 [template public afficherFonction(nom : String, entrees : OrderedSet(Entree))]
-nom(
-[for (e : Entree | entrees) separator(',') after(')')]
-[e/]
-[/for] 
+[nom/]([for (e : Entree | entrees) separator(',')]([analyseEntree(e)/])[/for])
 [/template]
 
 [template public afficherOperation(op : OperationBinaire) ]
-[op.sortie.nom/] = 
-[if (op.operation = TypeOperationBinaire::Addition)]
-[afficherOperateur('+',op.entree)/]
-
-[elseif (op.operation = TypeOperationBinaire::Soustraction)]
-[afficherOperateur('-',op.entree)/]
-
-[elseif (op.operation = TypeOperationBinaire::Multiplication)]
-[afficherOperateur('*',op.entree)/]
-
-[elseif (op.operation = TypeOperationBinaire::Division)]
-[afficherOperateur('/',op.entree)/]
-
-[elseif (op.operation = TypeOperationBinaire::Maximum)]
-[afficherFonction('max',op.entree)/]
-
-[elseif (op.operation = TypeOperationBinaire::Minimum)]
-[afficherFonction('min',op.entree)/]
-[/if]
+[if (op.operation = TypeOperationBinaire::Addition)][afficherOperateur('+',op.entree)/][elseif (op.operation = TypeOperationBinaire::Soustraction)][afficherOperateur('-',op.entree)/][elseif (op.operation = TypeOperationBinaire::Multiplication)][afficherOperateur('*',op.entree)/][elseif (op.operation = TypeOperationBinaire::Division)][afficherOperateur('/',op.entree)/][elseif (op.operation = TypeOperationBinaire::Maximum)][afficherFonction('max',op.entree)/][elseif (op.operation = TypeOperationBinaire::Minimum)][afficherFonction('min',op.entree)/][/if]
 [/template]
 
 [template public afficherFonctionUnaire(fct : FonctionUnaire) ]
-[fct.sortie.nom/] = 
-[if (fct.fonction = TypeFonctionUnaire::Cosinus)]
-[afficherFonction('cos',fct.entree->asOrderedSet())/]
-
-[elseif (fct.fonction = TypeFonctionUnaire::Sinus)]
-[afficherFonction('sin',fct.entree->asOrderedSet())/]
- 
-[elseif (fct.fonction = TypeFonctionUnaire::Exponentielle)]
-[afficherFonction('exp',fct.entree->asOrderedSet())/]
-
-[elseif (fct.fonction = TypeFonctionUnaire::RacineCaree)]
-[afficherFonction('sqrt',fct.entree->asOrderedSet())/]
- 
-[elseif (fct.fonction = TypeFonctionUnaire::Inverse)]
-[afficherFonction('reverse',fct.entree->asOrderedSet())/]
-
-[elseif (fct.fonction = TypeFonctionUnaire::Oppose)]
-[afficherOperateur('-',fct.entree->asOrderedSet())/]
-[/if]
+[if (fct.fonction = TypeFonctionUnaire::Cosinus)][afficherFonction('cos',fct.entree->asOrderedSet())/][elseif (fct.fonction = TypeFonctionUnaire::Sinus)][afficherFonction('sin',fct.entree->asOrderedSet())/][elseif (fct.fonction = TypeFonctionUnaire::Exponentielle)][afficherFonction('exp',fct.entree->asOrderedSet())/][elseif (fct.fonction = TypeFonctionUnaire::RacineCaree)][afficherFonction('sqrt',fct.entree->asOrderedSet())/][elseif (fct.fonction = TypeFonctionUnaire::Inverse)]1/([analyseEntree(fct.entree)/])[elseif (fct.fonction = TypeFonctionUnaire::Oppose)]-([analyseEntree(fct.entree)/])[/if]
 [/template]
 
-[template public afficherConstante(cste : Constante) ]
-[cste.sortie.nom/] = [cste.valeur/]
+[template public analyseEntree(entree : Entree)]
+[if (entree.sortie.eContainer().oclIsTypeOf(Argument))][entree.sortie.eContainer().oclAsType(Argument).nom/][elseif (entree.sortie.eContainer().oclIsTypeOf(OperationBinaire))][afficherOperation(entree.sortie.eContainer().oclAsType(OperationBinaire))/][elseif (entree.sortie.eContainer().oclIsTypeOf(FonctionUnaire))][afficherFonctionUnaire(entree.sortie.eContainer().oclAsType(FonctionUnaire))/][elseif (entree.sortie.eContainer().oclIsTypeOf(Constante))][entree.sortie.eContainer().oclAsType(Constante).valeur/][/if]
 [/template]
+
+
+
