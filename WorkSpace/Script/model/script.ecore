@@ -6,7 +6,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//Argument" containment="true" eOpposite="#//Argument/script"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultat" lowerBound="1"
-        eType="#//Resultat" containment="true" eOpposite="#//Resultat/script"/>
+        upperBound="-1" eType="#//Resultat" containment="true" eOpposite="#//Resultat/script"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocs" upperBound="-1"
         eType="#//Bloc" containment="true" eOpposite="#//Bloc/script"/>
   </eClassifiers>
@@ -15,6 +15,7 @@
         eType="#//Entree" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
         eType="#//Script" eOpposite="#//Script/resultat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
