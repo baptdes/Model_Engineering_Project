@@ -4,7 +4,7 @@
     <semanticResources>SchemaTable.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_9IxpMKZNEe-QA4O3m2VmoQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-K9e8KZNEe-QA4O3m2VmoQ" name=" class diagram" repPath="#_-KeWwKZNEe-QA4O3m2VmoQ" changeId="1732811752851">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-K9e8KZNEe-QA4O3m2VmoQ" name=" class diagram" repPath="#_-KeWwKZNEe-QA4O3m2VmoQ" changeId="1734003866841">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SchemaTable.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -33,7 +33,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_XHYgQqZOEe-QA4O3m2VmoQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_XHUO0aZOEe-QA4O3m2VmoQ" fontName="Ubuntu" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XHUO0qZOEe-QA4O3m2VmoQ" x="80" y="65" width="120" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XHUO0qZOEe-QA4O3m2VmoQ" x="60" y="65" width="140" height="100"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_qRPtEKZOEe-QA4O3m2VmoQ" type="2003" element="_qREG4KZOEe-QA4O3m2VmoQ">
           <children xmi:type="notation:Node" xmi:id="_qRQUIKZOEe-QA4O3m2VmoQ" type="5007"/>
