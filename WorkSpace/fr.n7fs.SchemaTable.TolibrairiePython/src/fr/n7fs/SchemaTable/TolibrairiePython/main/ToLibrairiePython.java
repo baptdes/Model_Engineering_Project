@@ -8,9 +8,12 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package fr.n7.SchemaTable.toLibrairiePython.main;
+package fr.n7fs.SchemaTable.TolibrairiePython.main;
 
+import SchemaTable.SchemaTablePackage;
 import java.io.File;
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
@@ -35,14 +39,14 @@ public class ToLibrairiePython extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/fr/n7/SchemaTable/toLibrairiePython/main/toLibrairiePython";
+    public static final String MODULE_FILE_NAME = "/fr/n7fs/SchemaTable/TolibrairiePython/main/ToLibrairiePython";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "SchemaTableToLibrairiePython" };
+    public static final String[] TEMPLATE_NAMES = { "SchemaTable" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -335,11 +339,12 @@ public class ToLibrairiePython extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        EPackage.Registry.INSTANCE.put(SchemaTablePackage.eNS_URI, SchemaTablePackage.eINSTANCE);
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
@@ -360,12 +365,9 @@ public class ToLibrairiePython extends AbstractAcceleoGenerator {
          * If the package is located in another plug-in, already installed in Eclipse. The following content should
          * have been generated at the beginning of this method. Do not register the package using this mechanism if
          * the metamodel is located in the workspace.
-         *  
-         * if (!isInWorkspace(UMLPackage.class)) {
-         *     // The normal package registration if your metamodel is in a plugin.
-         *     resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
-         * }
-         * 
+         */  
+         
+         /*
          * If the package is located in another project in your workspace, the plugin containing the package has not
          * been register by EMF and Acceleo should register it automatically. If you want to use the generator in
          * stand alone, the regular registration (seen a couple lines before) is needed.

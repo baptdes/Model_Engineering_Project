@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo ToLibrairiePython Module Runtime Plug-in
-Bundle-SymbolicName: fr.n7.SchemaTable.toLibrairiePython
+Bundle-Name: Acceleo TolibrairiePython Module Runtime Plug-in
+Bundle-SymbolicName: fr.n7fs.SchemaTable.TolibrairiePython
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: fr.n7.SchemaTable.toLibrairiePython.Activator
+Bundle-Activator: fr.n7fs.SchemaTable.TolibrairiePython.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.core.runtime, 
  org.eclipse.emf.ecore, 
@@ -19,5 +19,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Export-Package: fr.n7.SchemaTable.toLibrairiePython.main
+Export-Package: fr.n7fs.SchemaTable.TolibrairiePython.main
+Import-Package: SchemaTable
 
