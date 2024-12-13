@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/algorithms/src-gen" creationIcons="false" editDirectory="/algorithms.edit/src-gen"
+    editorDirectory="/algorithms.editor/src-gen" modelPluginID="algorithms" modelName="Algorithms"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>algorithms.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Algorithms" disposableProviderFactory="true" ecorePackage="algorithms.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="algorithms.ecore#//TypeDeRessource">
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDeRessource/Python"/>
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDeRessource/Matlab"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="algorithms.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//Direction/Input"/>
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//Direction/Output"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="algorithms.ecore#//TypeDonnee">
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDonnee/Entier"/>
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDonnee/Flottant"/>
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDonnee/Text"/>
+      <genEnumLiterals ecoreEnumLiteral="algorithms.ecore#//TypeDonnee/Booleen"/>
+    </genEnums>
+    <genClasses ecoreClass="algorithms.ecore#//Algorithme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Algorithme/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Algorithme/documentation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithms.ecore#//Algorithme/resource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithms.ecore#//Algorithme/port"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithms.ecore#//Catalogue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Catalogue/nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithms.ecore#//Catalogue/algorithme"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithms.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Port/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Port/constant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Port/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Port/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithms.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Resource/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithms.ecore#//Resource/Emplacement"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
