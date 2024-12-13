@@ -18,7 +18,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeDonnee"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../SchemaTable/SchemaTable.ecore#//TypeDonnee"
+        defaultValueLiteral="Flottant"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource">
@@ -32,11 +33,5 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Direction">
     <eLiterals name="Input"/>
     <eLiterals name="Output" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnee">
-    <eLiterals name="Entier"/>
-    <eLiterals name="Flottant" value="1"/>
-    <eLiterals name="Text" value="2"/>
-    <eLiterals name="Booleen" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

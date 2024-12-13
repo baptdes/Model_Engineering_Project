@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDonnees" lowerBound="1"
         eType="#//TypeDonnee" defaultValueLiteral="Flottant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
-        eType="#//Contrainte" eOpposite="#//Contrainte/colonnes"/>
+        eType="ecore:EClass ../algorithms/model/algorithms.ecore#//Algorithme"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnee">
     <eLiterals name="Entier" literal="Entier"/>
@@ -28,19 +28,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="ColonneBrute" eSuperTypes="#//Colonne"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneCalculee" eSuperTypes="#//Colonne">
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="#//Algorithme"/>
+        eType="ecore:EClass ../algorithms/model/algorithms.ecore#//Algorithme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantsColonnesEntree"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneEtrangere" eSuperTypes="#//Colonne">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantColonneEtrangere"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nomColonneEtrangere" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaEntree" lowerBound="1"
+        eType="#//SchemaDeTable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Algorithme"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Contrainte">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
-        eType="#//Colonne" eOpposite="#//Colonne/contraintes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="#//Algorithme"/>
-  </eClassifiers>
 </ecore:EPackage>
