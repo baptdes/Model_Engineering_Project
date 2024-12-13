@@ -1,2 +1,2 @@
 # Projet-IDM
-testastos
+ Projet d'ingénierie des modèles réalisé à l'ENSEEIHT
