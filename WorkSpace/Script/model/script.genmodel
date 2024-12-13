@@ -34,6 +34,7 @@
     <genClasses ecoreClass="script.ecore#//Resultat">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Resultat/entree"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference script.ecore#//Resultat/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute script.ecore#//Resultat/nom"/>
     </genClasses>
     <genClasses image="false" ecoreClass="script.ecore#//Bloc">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference script.ecore#//Bloc/script"/>

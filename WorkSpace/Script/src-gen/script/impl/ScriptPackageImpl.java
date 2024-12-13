@@ -258,6 +258,16 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getResultat_Nom() {
+		return (EAttribute) resultatEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBloc() {
 		return blocEClass;
 	}
@@ -531,6 +541,7 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 		resultatEClass = createEClass(RESULTAT);
 		createEReference(resultatEClass, RESULTAT__ENTREE);
 		createEReference(resultatEClass, RESULTAT__SCRIPT);
+		createEAttribute(resultatEClass, RESULTAT__NOM);
 
 		blocEClass = createEClass(BLOC);
 		createEReference(blocEClass, BLOC__SCRIPT);
@@ -606,7 +617,7 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 		initEReference(getScript_Arguments(), this.getArgument(), this.getArgument_Script(), "arguments", null, 0, -1,
 				Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScript_Resultat(), this.getResultat(), this.getResultat_Script(), "resultat", null, 1, 1,
+		initEReference(getScript_Resultat(), this.getResultat(), this.getResultat_Script(), "resultat", null, 1, -1,
 				Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScript_Blocs(), this.getBloc(), this.getBloc_Script(), "blocs", null, 0, -1, Script.class,
@@ -621,6 +632,8 @@ public class ScriptPackageImpl extends EPackageImpl implements ScriptPackage {
 		initEReference(getResultat_Script(), this.getScript(), this.getScript_Resultat(), "script", null, 1, 1,
 				Resultat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResultat_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, Resultat.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blocEClass, Bloc.class, "Bloc", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBloc_Script(), this.getScript(), this.getScript_Blocs(), "script", null, 1, 1, Bloc.class,

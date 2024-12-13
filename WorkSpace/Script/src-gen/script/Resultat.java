@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link script.Resultat#getEntree <em>Entree</em>}</li>
  *   <li>{@link script.Resultat#getScript <em>Script</em>}</li>
+ *   <li>{@link script.Resultat#getNom <em>Nom</em>}</li>
  * </ul>
  *
  * @see script.ScriptPackage#getResultat()
@@ -68,4 +69,26 @@ public interface Resultat extends EObject {
 	 * @generated
 	 */
 	void setScript(Script value);
+
+	/**
+	 * Returns the value of the '<em><b>Nom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nom</em>' attribute.
+	 * @see #setNom(String)
+	 * @see script.ScriptPackage#getResultat_Nom()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getNom();
+
+	/**
+	 * Sets the value of the '{@link script.Resultat#getNom <em>Nom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nom</em>' attribute.
+	 * @see #getNom()
+	 * @generated
+	 */
+	void setNom(String value);
 } // Resultat

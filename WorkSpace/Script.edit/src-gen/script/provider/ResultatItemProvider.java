@@ -17,7 +17,10 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import script.Resultat;
 import script.ScriptPackage;
 
 /**
@@ -51,6 +54,7 @@ public class ResultatItemProvider extends ItemProviderAdapter implements IEditin
 
 			addEntreePropertyDescriptor(object);
 			addScriptPropertyDescriptor(object);
+			addNomPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +90,22 @@ public class ResultatItemProvider extends ItemProviderAdapter implements IEditin
 	}
 
 	/**
+	 * This adds a property descriptor for the Nom feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNomPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Resultat_nom_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Resultat_nom_feature",
+								"_UI_Resultat_type"),
+						ScriptPackage.Literals.RESULTAT__NOM, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns Resultat.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,7 +134,9 @@ public class ResultatItemProvider extends ItemProviderAdapter implements IEditin
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Resultat_type");
+		String label = ((Resultat) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Resultat_type")
+				: getString("_UI_Resultat_type") + " " + label;
 	}
 
 	/**
@@ -127,6 +149,12 @@ public class ResultatItemProvider extends ItemProviderAdapter implements IEditin
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Resultat.class)) {
+		case ScriptPackage.RESULTAT__NOM:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
