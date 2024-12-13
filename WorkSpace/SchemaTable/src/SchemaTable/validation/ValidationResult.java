@@ -1,4 +1,4 @@
-package petrinet.validation;
+package SchemaTable.validation;
 
 import java.util.ArrayList;
 import java.util.Collections;

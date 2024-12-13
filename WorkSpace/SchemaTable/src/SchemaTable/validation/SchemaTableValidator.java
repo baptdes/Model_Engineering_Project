@@ -1,5 +1,12 @@
 package SchemaTable.validation;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -7,13 +14,13 @@ import SchemaTable.Colonne;
 import SchemaTable.ColonneBrute;
 import SchemaTable.ColonneCalculee;
 import SchemaTable.ColonneEtrangere;
+import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
-import SchemaTable.Arc;
-import SchemaTable.Transition;
+import SchemaTable.impl.ColonneCalculeeImpl;
 import SchemaTable.util.SchemaTableSwitch;
 
 /**
- * Réalise la validation d'un EObject issu de Petrinet (en théorie, d'un petrinet).
+ * Réalise la validation d'un EObject issu de SchemaTable.
  * Cet classe visite le modèle et utilise les caseXXX pour rediriger l'algo vers la
  * bonne méthode.
  * Attention, lorsqu'une classe est un parent il faut aller faire la visite des enfants
@@ -58,127 +65,165 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 		
 		return this.result;
 	}
-
-
+			
 	/**
-	 * Méthode appelée lorsque l'objet visité est un PetriNet.
+	 * Détection d'un cycle dans la composante connexe contenant la colonne calculée c
+	 * @param c colonne calculée à analyser
+	 * @param etant_visite liste de noms de colonnes étant en cours de visite
+	 * @param deja_visite liste de noms de colonnes déjà visitées
+	 * @return existence d'un tel cycle
+	 */
+	private boolean detectionCycle(ColonneCalculee c, List<String> etant_visite, List<String> deja_visite) {
+		etant_visite.add(c.getIdentifiant());
+		
+		List<ColonneCalculee> voisins = c.getSchema().getColonnes().stream()
+				.filter(col -> col.eClass().getClassifierID() == SchemaTablePackage.COLONNE_CALCULEE)
+				.filter(col -> c.getIdentifiantsColonnesEntree().contains(col.getIdentifiant()))
+				.map(col -> (ColonneCalculee) col).toList();
+		
+		for(ColonneCalculee voisin : voisins) {
+			if(etant_visite.contains(voisin.getIdentifiant())) {
+				return true;
+			} else if (!deja_visite.contains(voisin.getIdentifiant()) && detectionCycle(voisin, etant_visite, deja_visite)) {
+				return true;
+			}
+		}
+		
+		etant_visite.remove(c.getIdentifiant());
+		deja_visite.add(c.getIdentifiant());
+		
+		return false;
+	}
+	
+	/**
+	 * Détection d'un cycle dans les dépendances calculatoires induites par les colonnes calculées
+	 * @param object schemadetable à analyser
+	 * @return existence d'un tel cycle
+	 */
+	private boolean detectionCycle(SchemaDeTable object) {
+		List<ColonneCalculee> colonnes_calculees = object.getColonnes().stream()
+				.filter(c -> c.eClass().getClassifierID() == SchemaTablePackage.COLONNE_CALCULEE)
+				.map(c -> (ColonneCalculee) c).toList();
+		
+		List<String> etant_visite = new ArrayList<String>();
+		List<String> deja_visite = new ArrayList<String>();
+		
+		for(ColonneCalculee c : colonnes_calculees) {
+			if(!deja_visite.contains(c.getIdentifiant()) && detectionCycle(c, etant_visite, deja_visite)) {
+				return true;
+			}
+		}
+					
+		return false;
+	}
+	
+	
+	/**
+	 * Méthode appelée lorsque l'objet visité est un SchemaDeTable.
 	 * Cet méthode amorce aussi la visite des éléments enfants.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean casePetriNet(petrinet.PetriNet object) {
-		// Contraintes sur PetriNet
+	public Boolean caseSchemaDeTable(SchemaDeTable object) {
+		// Contraintes sur SchemaDeTable
 		this.result.recordIfFailed(
-				object.getName() != null && object.getName().matches(IDENT_REGEX), 
+				object.getNom() != null && object.getNom().matches(IDENT_REGEX), 
 				object, 
-				"Le nom du petrinet ne respecte pas les conventions Java");
+				"Le nom du schema de table ne respecte pas les conventions Java");
 		
 		this.result.recordIfFailed(
-				object.getPetrinetElements().stream()
-				.filter(p -> p.eClass().getClassifierID() == PetrinetPackage.PLACE)
-				.mapToInt(pl -> ((Place) pl).getNombreJetons()).sum() > 0, 
+				object.getColonneIdentifiants() != null, 
 				object, 
-				"Il n'y a aucun jeton initial sur le petrinet.");
+				"Il faut définir une colonne identifiant");
 		
 		// Visite
-		for (PetriNetElements pe : object.getPetrinetElements()) {
-			this.doSwitch(pe);
+		for (Colonne c : object.getColonnes()) {
+			this.doSwitch(c);
 		}
 		
+		this.result.recordIfFailed(
+				!detectionCycle(object), 
+				object, 
+				"Il y a un cycle dans le graphe induit par le calcul des colonnes calculées");
+		
 		return null;
 	}
 
 	/**
-	 * Méthode appelée lorsque l'objet visité est un PetriNetElements (ou un sous type).
+	 * Méthode appelée lorsque l'objet visité est une Colonne (ou un sous type).
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean casePetriNetElements(PetriNetElements object) {
+	public Boolean caseColonne(Colonne object) {
+		// Contraintes sur Colonne
+		this.result.recordIfFailed(
+				object.getNom() != null && object.getNom().matches(IDENT_REGEX), 
+				object, 
+				"Le nom de la colonne ne respecte pas les conventions Java");
+		
+		this.result.recordIfFailed(
+				object.getSchema().getColonnes().stream()
+					.allMatch(c -> (c.equals(object) || !((Colonne) c).getIdentifiant().contains(object.getIdentifiant()))),
+				object, 
+				"L'identifiant de la colonne (" + object.getNom() + ") n'est pas unique");
+		
+		this.result.recordIfFailed(
+				object.getIdentifiant().equals(object.getSchema().getNom() + '.' + object.getNom()),
+				object, 
+				"L'identifiant de la colonne (" + object.getIdentifiant() + ") ne respecte pas la convention sur les identifiants (nom_table.nom_colonne).");
 		return null;
 	}
 
 	/**
-	 * Méthode appelée lorsque l'objet visité est une Place.
+	 * Méthode appelée lorsque l'objet visité est une ColonneBrute.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean casePlace(Place object) {
-		// Contraintes sur Place
-		this.result.recordIfFailed(
-				object.getName() != null && object.getName().matches(IDENT_REGEX), 
-				object, 
-				"Le nom de la place ne respecte pas les conventions Java");
+	public Boolean caseColonneBrute(ColonneBrute object) {
+		// Contraintes sur ColonneBrute
 		
-		this.result.recordIfFailed(
-				object.getPetrinet().getPetrinetElements().stream()
-					.filter(p -> p.eClass().getClassifierID() == PetrinetPackage.PLACE)
-					.allMatch(pe -> (pe.equals(object) || !((Place) pe).getName().contains(object.getName()))),
-				object, 
-				"Le nom de la place (" + object.getName() + ") n'est pas unique");
-		
-		this.result.recordIfFailed(
-				object.getNombreJetons() >= 0, 
-				object, 
-				"Le nombre de jetons de la place est incorrect ("+ object.getNombreJetons() +" < 0 )");
-
 		return null;
 	}
 	
 	/**
-	 * Méthode appelée lorsque l'objet visité est une Transition.
+	 * Méthode appelée lorsque l'objet visité est une ColonneCalculee.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean caseTransition(Transition object) {
-		// Contraintes sur Place
+	public Boolean caseColonneCalculee(ColonneCalculee object) {
+		// Contraintes sur ColonneCalculee
 		this.result.recordIfFailed(
-				object.getName() != null && object.getName().matches(IDENT_REGEX), 
+				object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().containsAll(object.getIdentifiantsColonnesEntree()),
 				object, 
-				"Le nom de la transition ne respecte pas les conventions Java");
-		
-		this.result.recordIfFailed(
-				object.getPetrinet().getPetrinetElements().stream()
-					.filter(p -> p.eClass().getClassifierID() == PetrinetPackage.TRANSITION)
-					.allMatch(pe -> (pe.equals(object) || !((Transition) pe).getName().contains(object.getName()))),
-				object, 
-				"Le nom de la transition (" + object.getName() + ") n'est pas unique");
+				"Une des colonnes d'entrée n'existe pas dans cette table");
 
 		return null;
 	}
 
 	/**
-	 * Méthode appelée lorsque l'objet visité est un Arc.
+	 * Méthode appelée lorsque l'objet visité est une ColonneEtrangere.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean caseArc(Arc object) {
-		// Contraintes sur Arc
+	public Boolean caseColonneEtrangere(ColonneEtrangere object) {
+		// Contraintes sur ColonneEtrangere
 		this.result.recordIfFailed(
-				object.getPetrinet().getPetrinetElements().stream()
-				.filter(p -> p.eClass().getClassifierID() == PetrinetPackage.ARC)
-				.filter(pe -> ((Arc) pe).isToTransition() == object.isToTransition())
-				.allMatch(pe -> (pe.equals(object) || !((Arc) pe).getPlace().equals(object.getPlace()) || !((Arc) pe).getTransition().equals(object.getTransition()))),
-				object,
-				"L'arc n'est pas le seul orienté " + (object.isToTransition() ? "transition" : "place") + " à relier la place " + object.getPlace().getName() + " à la transition " + object.getTransition().getName() +".");
-		
-		this.result.recordIfFailed(
-				object.getCost() > 0,
-				object,
-				"Le coût de l'arc est incorrect ("+ object.getCost() +" <= 0).");
+				!object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().contains(object.getIdentifiantColonneEtrangere()),
+				object, 
+				"La colonne étrangère renseignée est présente dans cette table");
 		
 		return null;
 	}
-	
 	/**
 	 * Cas par défaut, lorsque l'objet visité ne correspond pas à un des autres cas.
 	 * Cette méthode est aussi appelée lorsqu'une méthode renvoie null (comme une sorte de

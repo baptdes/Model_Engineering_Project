@@ -1,4 +1,4 @@
-package petrinet.validation;
+package SchemaTable.validation;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import petrinet.PetrinetPackage;
+import SchemaTable.SchemaTablePackage;
 
 /**
  * Réalise la validation de modèles conformes à PetriNet à l'aide du validateur et
@@ -20,7 +20,7 @@ import petrinet.PetrinetPackage;
  * @author Guillaume Dupont
  * @version 0.1
  */
-public class ValidatePetrinet {
+public class ValidateSchemaTable {
 	
 	/**
 	 * Afficher une lsite d'erreur avec un préfixe.
@@ -48,10 +48,10 @@ public class ValidatePetrinet {
 	 * @param resultat résultat de la validation calculé auparavant
 	 */
 	private static void afficherResultat(ValidationResult resultat) {
-		afficherErreurs("- PetriNet", resultat.getRecordedErrorsFor(PetrinetPackage.PETRI_NET));
-		afficherErreurs("- Place", resultat.getRecordedErrorsFor(PetrinetPackage.PLACE));
-		afficherErreurs("- Transition", resultat.getRecordedErrorsFor(PetrinetPackage.TRANSITION));
-		afficherErreurs("- Arc", resultat.getRecordedErrorsFor(PetrinetPackage.ARC));
+		afficherErreurs("- SchemaDeTable", resultat.getRecordedErrorsFor(SchemaTablePackage.SCHEMA_DE_TABLE));
+		afficherErreurs("- ColonneBrute", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_BRUTE));
+		afficherErreurs("- ColonneCalculee", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_CALCULEE));
+		afficherErreurs("- ColonneEtrangere", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_ETRANGERE));
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class ValidatePetrinet {
 		// Bien sûr, on n'utilise pas directement packageInstance, d'où le warning "unused" qui
 		// est supprimé avec l'annotation.
 		@SuppressWarnings("unused")
-		PetrinetPackage packageInstance = PetrinetPackage.eINSTANCE;
+		SchemaTablePackage packageInstance = SchemaTablePackage.eINSTANCE;
 		
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
