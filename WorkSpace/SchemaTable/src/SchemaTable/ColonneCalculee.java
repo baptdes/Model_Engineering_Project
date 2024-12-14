@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link SchemaTable.ColonneCalculee#getAlgorithme <em>Algorithme</em>}</li>
  *   <li>{@link SchemaTable.ColonneCalculee#getIdentifiantsColonnesEntree <em>Identifiants Colonnes Entree</em>}</li>
- *   <li>{@link SchemaTable.ColonneCalculee#getSchemasEntree <em>Schemas Entree</em>}</li>
  * </ul>
  *
  * @see SchemaTable.SchemaTablePackage#getColonneCalculee()
@@ -57,17 +56,5 @@ public interface ColonneCalculee extends Colonne {
 	 * @generated
 	 */
 	EList<String> getIdentifiantsColonnesEntree();
-
-	/**
-	 * Returns the value of the '<em><b>Schemas Entree</b></em>' reference list.
-	 * The list contents are of type {@link SchemaTable.SchemaDeTable}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schemas Entree</em>' reference list.
-	 * @see SchemaTable.SchemaTablePackage#getColonneCalculee_SchemasEntree()
-	 * @model
-	 * @generated
-	 */
-	EList<SchemaDeTable> getSchemasEntree();
 
 } // ColonneCalculee

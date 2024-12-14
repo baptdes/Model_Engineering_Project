@@ -331,22 +331,13 @@ public interface SchemaTablePackage extends EPackage {
 	int COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE = COLONNE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Schemas Entree</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLONNE_CALCULEE__SCHEMAS_ENTREE = COLONNE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Colonne Calculee</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLONNE_CALCULEE_FEATURE_COUNT = COLONNE_FEATURE_COUNT + 3;
+	int COLONNE_CALCULEE_FEATURE_COUNT = COLONNE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Colonne Calculee</em>' class.
@@ -599,17 +590,6 @@ public interface SchemaTablePackage extends EPackage {
 	EAttribute getColonneCalculee_IdentifiantsColonnesEntree();
 
 	/**
-	 * Returns the meta object for the reference list '{@link SchemaTable.ColonneCalculee#getSchemasEntree <em>Schemas Entree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Schemas Entree</em>'.
-	 * @see SchemaTable.ColonneCalculee#getSchemasEntree()
-	 * @see #getColonneCalculee()
-	 * @generated
-	 */
-	EReference getColonneCalculee_SchemasEntree();
-
-	/**
 	 * Returns the meta object for class '{@link SchemaTable.ColonneEtrangere <em>Colonne Etrangere</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,14 +763,6 @@ public interface SchemaTablePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE = eINSTANCE.getColonneCalculee_IdentifiantsColonnesEntree();
-
-		/**
-		 * The meta object literal for the '<em><b>Schemas Entree</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COLONNE_CALCULEE__SCHEMAS_ENTREE = eINSTANCE.getColonneCalculee_SchemasEntree();
 
 		/**
 		 * The meta object literal for the '{@link SchemaTable.impl.ColonneEtrangereImpl <em>Colonne Etrangere</em>}' class.

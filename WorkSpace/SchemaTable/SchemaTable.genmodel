@@ -23,7 +23,6 @@
     <genClasses ecoreClass="SchemaTable.ecore#//ColonneCalculee">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//ColonneCalculee/algorithme"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//ColonneCalculee/identifiantsColonnesEntree"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//ColonneCalculee/schemasEntree"/>
     </genClasses>
     <genClasses ecoreClass="SchemaTable.ecore#//ColonneEtrangere">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//ColonneEtrangere/nomColonneEtrangere"/>

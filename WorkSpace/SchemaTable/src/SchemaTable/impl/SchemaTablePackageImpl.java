@@ -268,16 +268,6 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 * @generated
 	 */
 	@Override
-	public EReference getColonneCalculee_SchemasEntree() {
-		return (EReference)colonneCalculeeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getColonneEtrangere() {
 		return colonneEtrangereEClass;
 	}
@@ -348,7 +338,6 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		colonneCalculeeEClass = createEClass(COLONNE_CALCULEE);
 		createEReference(colonneCalculeeEClass, COLONNE_CALCULEE__ALGORITHME);
 		createEAttribute(colonneCalculeeEClass, COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE);
-		createEReference(colonneCalculeeEClass, COLONNE_CALCULEE__SCHEMAS_ENTREE);
 
 		colonneEtrangereEClass = createEClass(COLONNE_ETRANGERE);
 		createEAttribute(colonneEtrangereEClass, COLONNE_ETRANGERE__NOM_COLONNE_ETRANGERE);
@@ -408,7 +397,6 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		initEClass(colonneCalculeeEClass, ColonneCalculee.class, "ColonneCalculee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getColonneCalculee_Algorithme(), theAlgorithmeTablePackage.getAlgorithme(), null, "algorithme", null, 1, 1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColonneCalculee_IdentifiantsColonnesEntree(), ecorePackage.getEString(), "identifiantsColonnesEntree", null, 0, -1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColonneCalculee_SchemasEntree(), this.getSchemaDeTable(), null, "schemasEntree", null, 0, -1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneEtrangereEClass, ColonneEtrangere.class, "ColonneEtrangere", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColonneEtrangere_NomColonneEtrangere(), ecorePackage.getEString(), "nomColonneEtrangere", null, 1, 1, ColonneEtrangere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

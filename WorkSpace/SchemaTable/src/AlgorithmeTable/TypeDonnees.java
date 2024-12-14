@@ -1,6 +1,6 @@
 /**
  */
-package SchemaTable;
+package AlgorithmeTable;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Type Donnee</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Type Donnees</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see SchemaTable.SchemaTablePackage#getTypeDonnee()
+ * @see AlgorithmeTable.AlgorithmeTablePackage#getTypeDonnees()
  * @model
  * @generated
  */
-public enum TypeDonnee implements Enumerator {
+public enum TypeDonnees implements Enumerator {
 	/**
 	 * The '<em><b>Entier</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -103,13 +103,13 @@ public enum TypeDonnee implements Enumerator {
 	public static final int BOOLEEN_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Type Donnee</b></em>' enumerators.
+	 * An array of all the '<em><b>Type Donnees</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TypeDonnee[] VALUES_ARRAY =
-		new TypeDonnee[] {
+	private static final TypeDonnees[] VALUES_ARRAY =
+		new TypeDonnees[] {
 			ENTIER,
 			FLOTTANT,
 			TEXTE,
@@ -117,24 +117,24 @@ public enum TypeDonnee implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Type Donnee</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Type Donnees</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TypeDonnee> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<TypeDonnees> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Type Donnee</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Type Donnees</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static TypeDonnee get(String literal) {
+	public static TypeDonnees get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TypeDonnee result = VALUES_ARRAY[i];
+			TypeDonnees result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -143,16 +143,16 @@ public enum TypeDonnee implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type Donnee</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Type Donnees</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static TypeDonnee getByName(String name) {
+	public static TypeDonnees getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TypeDonnee result = VALUES_ARRAY[i];
+			TypeDonnees result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -161,14 +161,14 @@ public enum TypeDonnee implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type Donnee</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Type Donnees</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static TypeDonnee get(int value) {
+	public static TypeDonnees get(int value) {
 		switch (value) {
 			case ENTIER_VALUE: return ENTIER;
 			case FLOTTANT_VALUE: return FLOTTANT;
@@ -205,7 +205,7 @@ public enum TypeDonnee implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TypeDonnee(int value, String name, String literal) {
+	private TypeDonnees(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -252,4 +252,4 @@ public enum TypeDonnee implements Enumerator {
 		return literal;
 	}
 	
-} //TypeDonnee
+} //TypeDonnees
