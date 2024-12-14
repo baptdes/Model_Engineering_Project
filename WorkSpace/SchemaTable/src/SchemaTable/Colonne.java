@@ -2,7 +2,8 @@
  */
 package SchemaTable;
 
-import algorithms.TypeDonnees;
+import AlgorithmeTable.Algorithme;
+import AlgorithmeTable.TypeDonnees;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -37,7 +38,7 @@ public interface Colonne extends EObject {
 	 * @see #setSchema(SchemaDeTable)
 	 * @see SchemaTable.SchemaTablePackage#getColonne_Schema()
 	 * @see SchemaTable.SchemaDeTable#getColonnes
-	 * @model opposite="colonnes" transient="false"
+	 * @model opposite="colonnes" required="true" transient="false"
 	 * @generated
 	 */
 	SchemaDeTable getSchema();
@@ -99,11 +100,11 @@ public interface Colonne extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Type Donnees</b></em>' attribute.
 	 * The default value is <code>"Flottant"</code>.
-	 * The literals are from the enumeration {@link algorithms.TypeDonnees}.
+	 * The literals are from the enumeration {@link AlgorithmeTable.TypeDonnees}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type Donnees</em>' attribute.
-	 * @see algorithms.TypeDonnees
+	 * @see AlgorithmeTable.TypeDonnees
 	 * @see #setTypeDonnees(TypeDonnees)
 	 * @see SchemaTable.SchemaTablePackage#getColonne_TypeDonnees()
 	 * @model default="Flottant" required="true"
@@ -116,7 +117,7 @@ public interface Colonne extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type Donnees</em>' attribute.
-	 * @see algorithms.TypeDonnees
+	 * @see AlgorithmeTable.TypeDonnees
 	 * @see #getTypeDonnees()
 	 * @generated
 	 */
@@ -124,7 +125,7 @@ public interface Colonne extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Contraintes</b></em>' reference list.
-	 * The list contents are of type {@link SchemaTable.Algorithme}.
+	 * The list contents are of type {@link AlgorithmeTable.Algorithme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contraintes</em>' reference list.

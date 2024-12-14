@@ -10,12 +10,9 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: SchemaTable,
  SchemaTable.impl,
- SchemaTable.util,
- algorithms,
- algorithms.impl,
- algorithms.util
+ SchemaTable.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- algorithms;visibility:=reexport,
+ AlgorithmeTable;visibility:=reexport,
  org.eclipse.emf.ecore.xmi
 Bundle-ActivationPolicy: lazy

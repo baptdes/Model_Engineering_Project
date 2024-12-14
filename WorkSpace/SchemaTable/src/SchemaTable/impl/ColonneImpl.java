@@ -2,11 +2,11 @@
  */
 package SchemaTable.impl;
 
-import SchemaTable.Algorithme;
+import AlgorithmeTable.Algorithme;
+import AlgorithmeTable.TypeDonnees;
 import SchemaTable.Colonne;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
-import algorithms.TypeDonnees;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

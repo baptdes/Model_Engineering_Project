@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated AlgorithmeTable -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="AlgorithmeTable.presentation.AlgorithmeTableModelWizardID"
+            name="%_UI_AlgorithmeTableModelWizard_label"
+            class="AlgorithmeTable.presentation.AlgorithmeTableModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AlgorithmeTableModelFile.gif">
+         <description>%_UI_AlgorithmeTableModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated AlgorithmeTable -->
+      <editor
+            id="AlgorithmeTable.presentation.AlgorithmeTableEditorID"
+            name="%_UI_AlgorithmeTableEditor_label"
+            icon="icons/full/obj16/AlgorithmeTableModelFile.gif"
+            extensions="algorithmetable"
+            class="AlgorithmeTable.presentation.AlgorithmeTableEditor"
+            contributorClass="AlgorithmeTable.presentation.AlgorithmeTableActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

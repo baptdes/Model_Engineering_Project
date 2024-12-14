@@ -3,6 +3,8 @@
   <viewpoint:DAnalysis uid="_85WtIKZNEe-QA4O3m2VmoQ" selectedViews="_9IxpMKZNEe-QA4O3m2VmoQ _9JA5wKZNEe-QA4O3m2VmoQ _9JCH4KZNEe-QA4O3m2VmoQ _9JFyQKZNEe-QA4O3m2VmoQ" version="15.2.0.202303281325">
     <semanticResources>SchemaTable.ecore</semanticResources>
     <semanticResources>platform:/resource/algorithms/model/algorithms.ecore</semanticResources>
+    <semanticResources>SchemaTable.genmodel</semanticResources>
+    <semanticResources>platform:/resource/algorithms/model/algorithms.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_9IxpMKZNEe-QA4O3m2VmoQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-K9e8KZNEe-QA4O3m2VmoQ" name=" class diagram" repPath="#_-KeWwKZNEe-QA4O3m2VmoQ" changeId="1734170871328">

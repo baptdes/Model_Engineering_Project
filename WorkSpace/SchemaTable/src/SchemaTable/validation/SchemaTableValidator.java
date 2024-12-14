@@ -134,7 +134,7 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				"Le nom du schema de table ne respecte pas les conventions Java");
 		
 		this.result.recordIfFailed(
-				object.getColonneIdentifiants() != null, 
+				object.getColonneLignes() != null, 
 				object, 
 				"Il faut définir une colonne identifiant");
 		

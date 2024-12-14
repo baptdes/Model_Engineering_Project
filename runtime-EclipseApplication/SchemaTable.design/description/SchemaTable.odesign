@@ -26,7 +26,7 @@
           </style>
         </nodeMappings>
         <edgeMappings name="LienCalcul" sourceMapping="//@ownedViewpoints[name='schematableViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode']" targetMapping="//@ownedViewpoints[name='schematableViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CBNode'] //@ownedViewpoints[name='schematableViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode'] //@ownedViewpoints[name='schematableViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CENode']" targetFinderExpression="aql:self.schema.colonnes->select(c | self.identifiantsColonnesEntree->exists(id | id.equals(c.identifiant)))">
-          <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="3" routingStyle="manhattan">
+          <style targetArrow="NoDecoration" sizeComputationExpression="3" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

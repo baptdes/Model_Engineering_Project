@@ -58,15 +58,6 @@ public interface SchemaTableFactory extends EFactory {
 	ColonneEtrangere createColonneEtrangere();
 
 	/**
-	 * Returns a new object of class '<em>Algorithme</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Algorithme</em>'.
-	 * @generated
-	 */
-	Algorithme createAlgorithme();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

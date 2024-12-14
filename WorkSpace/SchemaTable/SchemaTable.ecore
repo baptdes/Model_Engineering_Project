@@ -13,18 +13,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiant" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDonnees" lowerBound="1"
-        eType="ecore:EEnum ../algorithms/model/algorithms.ecore#//TypeDonnees" defaultValueLiteral="Flottant"/>
+        eType="ecore:EEnum ../AlgorithmeTable/AlgorithmeTable.ecore#//TypeDonnees"
+        defaultValueLiteral="Flottant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
-        eType="#//Algorithme"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//SchemaDeTable"
-        eOpposite="#//SchemaDeTable/colonnes"/>
+        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="#//SchemaDeTable" eOpposite="#//SchemaDeTable/colonnes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneBrute" eSuperTypes="#//Colonne"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneCalculee" eSuperTypes="#//Colonne">
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="#//Algorithme"/>
+        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantsColonnesEntree"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemasEntree" upperBound="-1"
+        eType="#//SchemaDeTable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneEtrangere" eSuperTypes="#//Colonne">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nomColonneEtrangere" lowerBound="1"
@@ -32,5 +35,4 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaEntree" lowerBound="1"
         eType="#//SchemaDeTable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Algorithme"/>
 </ecore:EPackage>

@@ -47,6 +47,7 @@ public class ColonneCalculeeItemProvider extends ColonneItemProvider {
 
 			addAlgorithmePropertyDescriptor(object);
 			addIdentifiantsColonnesEntreePropertyDescriptor(object);
+			addSchemasEntreePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +92,28 @@ public class ColonneCalculeeItemProvider extends ColonneItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Schemas Entree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSchemasEntreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColonneCalculee_schemasEntree_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColonneCalculee_schemasEntree_feature", "_UI_ColonneCalculee_type"),
+				 SchemaTablePackage.Literals.COLONNE_CALCULEE__SCHEMAS_ENTREE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

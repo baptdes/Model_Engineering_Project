@@ -331,13 +331,22 @@ public interface SchemaTablePackage extends EPackage {
 	int COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE = COLONNE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Schemas Entree</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLONNE_CALCULEE__SCHEMAS_ENTREE = COLONNE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Colonne Calculee</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLONNE_CALCULEE_FEATURE_COUNT = COLONNE_FEATURE_COUNT + 2;
+	int COLONNE_CALCULEE_FEATURE_COUNT = COLONNE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Colonne Calculee</em>' class.
@@ -438,34 +447,6 @@ public interface SchemaTablePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLONNE_ETRANGERE_OPERATION_COUNT = COLONNE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link SchemaTable.impl.AlgorithmeImpl <em>Algorithme</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see SchemaTable.impl.AlgorithmeImpl
-	 * @see SchemaTable.impl.SchemaTablePackageImpl#getAlgorithme()
-	 * @generated
-	 */
-	int ALGORITHME = 5;
-
-	/**
-	 * The number of structural features of the '<em>Algorithme</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALGORITHME_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Algorithme</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALGORITHME_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link SchemaTable.SchemaDeTable <em>Schema De Table</em>}'.
@@ -618,6 +599,17 @@ public interface SchemaTablePackage extends EPackage {
 	EAttribute getColonneCalculee_IdentifiantsColonnesEntree();
 
 	/**
+	 * Returns the meta object for the reference list '{@link SchemaTable.ColonneCalculee#getSchemasEntree <em>Schemas Entree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Schemas Entree</em>'.
+	 * @see SchemaTable.ColonneCalculee#getSchemasEntree()
+	 * @see #getColonneCalculee()
+	 * @generated
+	 */
+	EReference getColonneCalculee_SchemasEntree();
+
+	/**
 	 * Returns the meta object for class '{@link SchemaTable.ColonneEtrangere <em>Colonne Etrangere</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -648,16 +640,6 @@ public interface SchemaTablePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColonneEtrangere_SchemaEntree();
-
-	/**
-	 * Returns the meta object for class '{@link SchemaTable.Algorithme <em>Algorithme</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Algorithme</em>'.
-	 * @see SchemaTable.Algorithme
-	 * @generated
-	 */
-	EClass getAlgorithme();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -803,6 +785,14 @@ public interface SchemaTablePackage extends EPackage {
 		EAttribute COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE = eINSTANCE.getColonneCalculee_IdentifiantsColonnesEntree();
 
 		/**
+		 * The meta object literal for the '<em><b>Schemas Entree</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLONNE_CALCULEE__SCHEMAS_ENTREE = eINSTANCE.getColonneCalculee_SchemasEntree();
+
+		/**
 		 * The meta object literal for the '{@link SchemaTable.impl.ColonneEtrangereImpl <em>Colonne Etrangere</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -827,16 +817,6 @@ public interface SchemaTablePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLONNE_ETRANGERE__SCHEMA_ENTREE = eINSTANCE.getColonneEtrangere_SchemaEntree();
-
-		/**
-		 * The meta object literal for the '{@link SchemaTable.impl.AlgorithmeImpl <em>Algorithme</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see SchemaTable.impl.AlgorithmeImpl
-		 * @see SchemaTable.impl.SchemaTablePackageImpl#getAlgorithme()
-		 * @generated
-		 */
-		EClass ALGORITHME = eINSTANCE.getAlgorithme();
 
 	}
 

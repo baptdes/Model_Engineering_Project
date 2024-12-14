@@ -99,12 +99,6 @@ public class SchemaTableSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SchemaTablePackage.ALGORITHME: {
-				Algorithme algorithme = (Algorithme)theEObject;
-				T result = caseAlgorithme(algorithme);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -181,21 +175,6 @@ public class SchemaTableSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColonneEtrangere(ColonneEtrangere object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Algorithme</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Algorithme</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAlgorithme(Algorithme object) {
 		return null;
 	}
 

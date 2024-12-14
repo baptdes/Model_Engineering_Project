@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AlgorithmeTable" nsURI="http://algorithme_table" nsPrefix="algorithmeTable">
+  <eClassifiers xsi:type="ecore:EClass" name="Algorithme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ressource" lowerBound="1"
+        eType="#//Ressource" containment="true" eOpposite="#//Ressource/algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" lowerBound="1" upperBound="-1"
+        eType="#//Port" containment="true" eOpposite="#//Port/algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="catalogue" eType="#//Catalogue"
+        eOpposite="#//Catalogue/algorithme"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalogue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        upperBound="-1" eType="#//Algorithme" containment="true" eOpposite="#//Algorithme/catalogue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeDonnees"
+        defaultValueLiteral="Flottant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        eType="#//Algorithme" eOpposite="#//Algorithme/port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ressource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//TypeRessource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Emplacement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        eType="#//Algorithme" eOpposite="#//Algorithme/ressource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeRessource">
+    <eLiterals name="Python"/>
+    <eLiterals name="Matlab"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Direction">
+    <eLiterals name="Entree"/>
+    <eLiterals name="Sortie" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnees">
+    <eLiterals name="Entier"/>
+    <eLiterals name="Flottant" value="1"/>
+    <eLiterals name="Texte" value="2"/>
+    <eLiterals name="Booleen" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -2,8 +2,9 @@
  */
 package SchemaTable.impl;
 
-import SchemaTable.Algorithme;
+import AlgorithmeTable.Algorithme;
 import SchemaTable.ColonneCalculee;
+import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
 
 import java.util.Collection;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <ul>
  *   <li>{@link SchemaTable.impl.ColonneCalculeeImpl#getAlgorithme <em>Algorithme</em>}</li>
  *   <li>{@link SchemaTable.impl.ColonneCalculeeImpl#getIdentifiantsColonnesEntree <em>Identifiants Colonnes Entree</em>}</li>
+ *   <li>{@link SchemaTable.impl.ColonneCalculeeImpl#getSchemasEntree <em>Schemas Entree</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +56,16 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 	 * @ordered
 	 */
 	protected EList<String> identifiantsColonnesEntree;
+
+	/**
+	 * The cached value of the '{@link #getSchemasEntree() <em>Schemas Entree</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchemasEntree()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchemaDeTable> schemasEntree;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +145,19 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 	 * @generated
 	 */
 	@Override
+	public EList<SchemaDeTable> getSchemasEntree() {
+		if (schemasEntree == null) {
+			schemasEntree = new EObjectResolvingEList<SchemaDeTable>(SchemaDeTable.class, this, SchemaTablePackage.COLONNE_CALCULEE__SCHEMAS_ENTREE);
+		}
+		return schemasEntree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SchemaTablePackage.COLONNE_CALCULEE__ALGORITHME:
@@ -139,6 +165,8 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 				return basicGetAlgorithme();
 			case SchemaTablePackage.COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE:
 				return getIdentifiantsColonnesEntree();
+			case SchemaTablePackage.COLONNE_CALCULEE__SCHEMAS_ENTREE:
+				return getSchemasEntree();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,6 +187,10 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 				getIdentifiantsColonnesEntree().clear();
 				getIdentifiantsColonnesEntree().addAll((Collection<? extends String>)newValue);
 				return;
+			case SchemaTablePackage.COLONNE_CALCULEE__SCHEMAS_ENTREE:
+				getSchemasEntree().clear();
+				getSchemasEntree().addAll((Collection<? extends SchemaDeTable>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -177,6 +209,9 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 			case SchemaTablePackage.COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE:
 				getIdentifiantsColonnesEntree().clear();
 				return;
+			case SchemaTablePackage.COLONNE_CALCULEE__SCHEMAS_ENTREE:
+				getSchemasEntree().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +228,8 @@ public class ColonneCalculeeImpl extends ColonneImpl implements ColonneCalculee 
 				return algorithme != null;
 			case SchemaTablePackage.COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE:
 				return identifiantsColonnesEntree != null && !identifiantsColonnesEntree.isEmpty();
+			case SchemaTablePackage.COLONNE_CALCULEE__SCHEMAS_ENTREE:
+				return schemasEntree != null && !schemasEntree.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
