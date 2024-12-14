@@ -157,6 +157,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import SchemaTable.provider.SchemaTableItemProviderAdapterFactory;
 
+import algorithms.provider.AlgorithmsItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -711,6 +712,7 @@ public class SchemaTableEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SchemaTableItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AlgorithmsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

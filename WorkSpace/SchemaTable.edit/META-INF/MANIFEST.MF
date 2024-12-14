@@ -9,8 +9,11 @@ Bundle-Activator: SchemaTable.provider.SchemaTableEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: SchemaTable.provider
+Export-Package: SchemaTable.provider,
+ algorithms.provider
 Require-Bundle: org.eclipse.core.runtime,
  SchemaTable;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ algorithms;visibility:=reexport,
+ algorithms.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

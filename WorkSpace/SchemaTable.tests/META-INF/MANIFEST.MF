@@ -8,9 +8,11 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: SchemaTable.tests
+Export-Package: SchemaTable.tests,
+ algorithms.tests
 Require-Bundle: org.eclipse.core.runtime,
  SchemaTable;visibility:=reexport,
+ algorithms;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

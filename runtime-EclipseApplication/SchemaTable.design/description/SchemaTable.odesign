@@ -4,13 +4,6 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SchemaTableDiagram" domainClass="SchemaTable::SchemaDeTable" enablePopupBars="true">
       <metamodel href="http://schematable#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="CBNode" domainClass="SchemaTable::ColonneBrute">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne brute : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="CCNode" domainClass="SchemaTable::ColonneCalculee">
           <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne calculée : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -25,8 +18,8 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings>
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne brute : ' + self.nom + '\n(' + self.identifiant + ')'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="CBNode" domainClass="SchemaTable::ColonneBrute">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne brute : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -174,7 +167,7 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="identifiantColonneEtrangere" valueExpression="aql:target.identifiant"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="nomColonneEtrangere" valueExpression="aql:target.identifiant"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

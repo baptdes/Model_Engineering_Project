@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link SchemaTable.SchemaDeTable#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.SchemaDeTable#getColonnes <em>Colonnes</em>}</li>
- *   <li>{@link SchemaTable.SchemaDeTable#getColonneIdentifiants <em>Colonne Identifiants</em>}</li>
+ *   <li>{@link SchemaTable.SchemaDeTable#getColonneLignes <em>Colonne Lignes</em>}</li>
  * </ul>
  *
  * @see SchemaTable.SchemaTablePackage#getSchemaDeTable()
@@ -56,31 +56,31 @@ public interface SchemaDeTable extends EObject {
 	 * @return the value of the '<em>Colonnes</em>' containment reference list.
 	 * @see SchemaTable.SchemaTablePackage#getSchemaDeTable_Colonnes()
 	 * @see SchemaTable.Colonne#getSchema
-	 * @model opposite="schema" containment="true"
+	 * @model opposite="schema" containment="true" required="true"
 	 * @generated
 	 */
 	EList<Colonne> getColonnes();
 
 	/**
-	 * Returns the value of the '<em><b>Colonne Identifiants</b></em>' reference.
+	 * Returns the value of the '<em><b>Colonne Lignes</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Colonne Identifiants</em>' reference.
-	 * @see #setColonneIdentifiants(Colonne)
-	 * @see SchemaTable.SchemaTablePackage#getSchemaDeTable_ColonneIdentifiants()
+	 * @return the value of the '<em>Colonne Lignes</em>' reference.
+	 * @see #setColonneLignes(Colonne)
+	 * @see SchemaTable.SchemaTablePackage#getSchemaDeTable_ColonneLignes()
 	 * @model required="true"
 	 * @generated
 	 */
-	Colonne getColonneIdentifiants();
+	Colonne getColonneLignes();
 
 	/**
-	 * Sets the value of the '{@link SchemaTable.SchemaDeTable#getColonneIdentifiants <em>Colonne Identifiants</em>}' reference.
+	 * Sets the value of the '{@link SchemaTable.SchemaDeTable#getColonneLignes <em>Colonne Lignes</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Colonne Identifiants</em>' reference.
-	 * @see #getColonneIdentifiants()
+	 * @param value the new value of the '<em>Colonne Lignes</em>' reference.
+	 * @see #getColonneLignes()
 	 * @generated
 	 */
-	void setColonneIdentifiants(Colonne value);
+	void setColonneLignes(Colonne value);
 
 } // SchemaDeTable
