@@ -1,8 +1,8 @@
 [comment encoding = UTF-8 /]
-[module ToLibrairiePython('http://schematable')]
+[module toLibrairiePython('http://schematable','http://algorithme_table')]
 
 
-[template public SchemaTable(aSchemaDeTable : SchemaDeTable)]
+[template public toLibrairiePython(aSchemaDeTable : SchemaDeTable)]
 [comment @main/]
 [file (aSchemaDeTable.nom + '.py', false, 'UTF-8')]
 
@@ -24,21 +24,14 @@ from ExempleEssaisColonneRef import RefCroise
 import AlgoMoyExp
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 [for (  cb : Colonne | cbs )]
-[for (  cont : Algorithme | cb.Contraintes )]
-import [cont.Algorithme.Ressource.Emplacement 
+[for (  cont : Algorithme | cb.contraintes )]
+import [cont.Ressource.Emplacement/]
 [/for]
 [/for]
 [/let]
 
 
 
-#la classe des contraintes
-class Contrainte:
-    def __init__(self, message, actionContrainte, comparatifs, colonnes):
-        self.message = message
-        self.actionContrainte = actionContrainte
-        self.comparatifs = comparatifs
-        self.colonnes = colonnes
 
 
 
@@ -112,9 +105,8 @@ class [aSchemaDeTable.nom/]:
 
 
   
-            #contrainte 1
-            #contraintes à vérifier qui ne concerne que des colonnes importées
-            contrainteMinMax = Contrainte("max valeur","Erreur","<=",['['/]0,1[']'/])
+
+
             
             colonnes = contrainteMinMax.colonnes
             if eval("not(" + str(contenue['['/]ligne[']'/]['['/]colonnes['['/]0[']'/][']'/]) + contrainteMinMax.comparatifs + str(contenue['['/]ligne[']'/]['['/]colonnes['['/]1[']'/][']'/]) + ")") :

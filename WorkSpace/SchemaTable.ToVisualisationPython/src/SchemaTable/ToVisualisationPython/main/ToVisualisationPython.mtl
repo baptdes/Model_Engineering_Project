@@ -75,7 +75,7 @@ labelX.pack()
 listeX = Listbox(Frame3,  selectmode=SINGLE)
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 [for (  cb : Colonne | cbs )]
-listeY.insert(END, "[cb.nom/]")
+listeX.insert(END, "[cb.nom/]")
 [/for]
 [/let]
 listeX.pack()

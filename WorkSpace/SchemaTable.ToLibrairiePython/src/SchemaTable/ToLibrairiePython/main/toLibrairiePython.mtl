@@ -1,10 +1,11 @@
 [comment encoding = UTF-8 /]
-[module ToLibrairiePython('http://schematable')]
+[module toLibrairiePython('http://schematable')]
 
 
-[template public SchemaTable(aSchemaDeTable : SchemaDeTable)]
+[template public toLibrairiePython(aColonne : Colonne)]
 [comment @main/]
-[file (aSchemaDeTable.nom + '.py', false, 'UTF-8')]
+[file (aColonne.name, false, 'UTF-8')]
+
 
 
 import csv
@@ -24,7 +25,7 @@ from ExempleEssaisColonneRef import RefCroise
 import AlgoMoyExp
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 [for (  cb : Colonne | cbs )]
-[for (  cont : Algorithme | cb.Contraintes )]
+[for (  cont : Contrainte | cb.Contraintes )]
 import [cont.Algorithme.Ressource.Emplacement 
 [/for]
 [/for]
@@ -253,6 +254,7 @@ tabCal.importationCSV("fichierDeTest/testCal.csv")
 tabCal.calcul()
 tabCal.verificationFinal()
 tabCal.ExmportationCSV()
+
 
 [/file]
 [/template]
