@@ -21,9 +21,14 @@ from ExempleEssaisColonneRef import RefCroise
 #         - ...
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
-import AlgoMoyExp as AlgoMoyExp 
-
-
+import AlgoMoyExp
+[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
+[for (  cb : Colonne | cbs )]
+[for (  cont : Contrainte | cb.Contraintes )]
+import [cont.Algorithme.Ressource.Emplacement 
+[/for]
+[/for]
+[/let]
 
 
 
