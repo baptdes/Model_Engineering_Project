@@ -2,11 +2,8 @@ package SchemaTable.validation;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -16,7 +13,6 @@ import SchemaTable.ColonneCalculee;
 import SchemaTable.ColonneEtrangere;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
-import SchemaTable.impl.ColonneCalculeeImpl;
 import SchemaTable.util.SchemaTableSwitch;
 
 /**
@@ -134,9 +130,24 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				"Le nom du schema de table ne respecte pas les conventions Java");
 		
 		this.result.recordIfFailed(
-				object.getColonneIdentifiants() != null, 
+				object.getColonneLignes() != null, 
 				object, 
-				"Il faut définir une colonne identifiant");
+				"Il faut définir une colonne ligne");
+		
+		this.result.recordIfFailed(
+				object.getColonneLignes() != null && object.getColonneLignes().eClass().getClassifierID() == SchemaTablePackage.COLONNE_BRUTE, 
+				object, 
+				"La colonne ligne doit être une colonne brute");
+		
+		this.result.recordIfFailed(
+				object.getColonneLignes() != null && object.getColonneLignes().getTypeDonnees() == AlgorithmeTable.TypeDonnees.ENTIER, 
+				object, 
+				"La colonne ligne doit contenir des entiers");
+		
+		this.result.recordIfFailed(
+				object.getColonneLignes() != null && object.getColonneLignes().getContraintes().isEmpty(), 
+				object, 
+				"La colonne ligne ne peut pas avoir de contraintes");
 		
 		// Visite
 		for (Colonne c : object.getColonnes()) {
@@ -218,9 +229,9 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 	public Boolean caseColonneEtrangere(ColonneEtrangere object) {
 		// Contraintes sur ColonneEtrangere
 		this.result.recordIfFailed(
-				!object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().contains(object.getIdentifiantColonneEtrangere()),
+				!object.getSchema().getNom().equals(object.getSchemaEntree().getNom()),
 				object, 
-				"La colonne étrangère renseignée est présente dans cette table");
+				"La colonne doit provenir d'une autre table");
 		
 		return null;
 	}

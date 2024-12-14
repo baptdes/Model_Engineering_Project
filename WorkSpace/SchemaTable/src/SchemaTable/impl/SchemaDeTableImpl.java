@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getColonnes <em>Colonnes</em>}</li>
- *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getColonneIdentifiants <em>Colonne Identifiants</em>}</li>
+ *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getColonneLignes <em>Colonne Lignes</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,14 +69,14 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	protected EList<Colonne> colonnes;
 
 	/**
-	 * The cached value of the '{@link #getColonneIdentifiants() <em>Colonne Identifiants</em>}' reference.
+	 * The cached value of the '{@link #getColonneLignes() <em>Colonne Lignes</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColonneIdentifiants()
+	 * @see #getColonneLignes()
 	 * @generated
 	 * @ordered
 	 */
-	protected Colonne colonneIdentifiants;
+	protected Colonne colonneLignes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,16 +139,16 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	 * @generated
 	 */
 	@Override
-	public Colonne getColonneIdentifiants() {
-		if (colonneIdentifiants != null && colonneIdentifiants.eIsProxy()) {
-			InternalEObject oldColonneIdentifiants = (InternalEObject)colonneIdentifiants;
-			colonneIdentifiants = (Colonne)eResolveProxy(oldColonneIdentifiants);
-			if (colonneIdentifiants != oldColonneIdentifiants) {
+	public Colonne getColonneLignes() {
+		if (colonneLignes != null && colonneLignes.eIsProxy()) {
+			InternalEObject oldColonneLignes = (InternalEObject)colonneLignes;
+			colonneLignes = (Colonne)eResolveProxy(oldColonneLignes);
+			if (colonneLignes != oldColonneLignes) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS, oldColonneIdentifiants, colonneIdentifiants));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES, oldColonneLignes, colonneLignes));
 			}
 		}
-		return colonneIdentifiants;
+		return colonneLignes;
 	}
 
 	/**
@@ -156,8 +156,8 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Colonne basicGetColonneIdentifiants() {
-		return colonneIdentifiants;
+	public Colonne basicGetColonneLignes() {
+		return colonneLignes;
 	}
 
 	/**
@@ -166,11 +166,11 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	 * @generated
 	 */
 	@Override
-	public void setColonneIdentifiants(Colonne newColonneIdentifiants) {
-		Colonne oldColonneIdentifiants = colonneIdentifiants;
-		colonneIdentifiants = newColonneIdentifiants;
+	public void setColonneLignes(Colonne newColonneLignes) {
+		Colonne oldColonneLignes = colonneLignes;
+		colonneLignes = newColonneLignes;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS, oldColonneIdentifiants, colonneIdentifiants));
+			eNotify(new ENotificationImpl(this, Notification.SET, SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES, oldColonneLignes, colonneLignes));
 	}
 
 	/**
@@ -214,9 +214,9 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 				return getNom();
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
 				return getColonnes();
-			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS:
-				if (resolve) return getColonneIdentifiants();
-				return basicGetColonneIdentifiants();
+			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
+				if (resolve) return getColonneLignes();
+				return basicGetColonneLignes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,8 +237,8 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 				getColonnes().clear();
 				getColonnes().addAll((Collection<? extends Colonne>)newValue);
 				return;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS:
-				setColonneIdentifiants((Colonne)newValue);
+			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
+				setColonneLignes((Colonne)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,8 +258,8 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
 				getColonnes().clear();
 				return;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS:
-				setColonneIdentifiants((Colonne)null);
+			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
+				setColonneLignes((Colonne)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,8 +277,8 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
 				return colonnes != null && !colonnes.isEmpty();
-			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS:
-				return colonneIdentifiants != null;
+			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
+				return colonneLignes != null;
 		}
 		return super.eIsSet(featureID);
 	}

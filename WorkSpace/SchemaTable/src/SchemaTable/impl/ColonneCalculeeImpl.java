@@ -2,7 +2,7 @@
  */
 package SchemaTable.impl;
 
-import SchemaTable.Algorithme;
+import AlgorithmeTable.Algorithme;
 import SchemaTable.ColonneCalculee;
 import SchemaTable.SchemaTablePackage;
 

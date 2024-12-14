@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schematable:SchemaDeTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schematable="http://schematable" nom="toto" colonneLignes="//@colonnes.0">
+  <colonnes xsi:type="schematable:ColonneBrute" nom="lignes" identifiant="toto.lignes" typeDonnees="Entier"/>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="a" identifiant="toto.a"/>
+</schematable:SchemaDeTable>

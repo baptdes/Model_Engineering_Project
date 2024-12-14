@@ -2,6 +2,7 @@
  */
 package SchemaTable;
 
+import AlgorithmeTable.Algorithme;
 import org.eclipse.emf.common.util.EList;
 
 /**

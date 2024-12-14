@@ -2,6 +2,8 @@
  */
 package SchemaTable;
 
+import AlgorithmeTable.Algorithme;
+import AlgorithmeTable.TypeDonnees;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -15,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link SchemaTable.Colonne#getSchema <em>Schema</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getIdentifiant <em>Identifiant</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getTypeDonnees <em>Type Donnees</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getContraintes <em>Contraintes</em>}</li>
+ *   <li>{@link SchemaTable.Colonne#getSchema <em>Schema</em>}</li>
  * </ul>
  *
  * @see SchemaTable.SchemaTablePackage#getColonne()
@@ -98,41 +100,39 @@ public interface Colonne extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Type Donnees</b></em>' attribute.
 	 * The default value is <code>"Flottant"</code>.
-	 * The literals are from the enumeration {@link SchemaTable.TypeDonnee}.
+	 * The literals are from the enumeration {@link AlgorithmeTable.TypeDonnees}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type Donnees</em>' attribute.
-	 * @see SchemaTable.TypeDonnee
-	 * @see #setTypeDonnees(TypeDonnee)
+	 * @see AlgorithmeTable.TypeDonnees
+	 * @see #setTypeDonnees(TypeDonnees)
 	 * @see SchemaTable.SchemaTablePackage#getColonne_TypeDonnees()
 	 * @model default="Flottant" required="true"
 	 * @generated
 	 */
-	TypeDonnee getTypeDonnees();
+	TypeDonnees getTypeDonnees();
 
 	/**
 	 * Sets the value of the '{@link SchemaTable.Colonne#getTypeDonnees <em>Type Donnees</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type Donnees</em>' attribute.
-	 * @see SchemaTable.TypeDonnee
+	 * @see AlgorithmeTable.TypeDonnees
 	 * @see #getTypeDonnees()
 	 * @generated
 	 */
-	void setTypeDonnees(TypeDonnee value);
+	void setTypeDonnees(TypeDonnees value);
 
 	/**
 	 * Returns the value of the '<em><b>Contraintes</b></em>' reference list.
-	 * The list contents are of type {@link SchemaTable.Contrainte}.
-	 * It is bidirectional and its opposite is '{@link SchemaTable.Contrainte#getColonnes <em>Colonnes</em>}'.
+	 * The list contents are of type {@link AlgorithmeTable.Algorithme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contraintes</em>' reference list.
 	 * @see SchemaTable.SchemaTablePackage#getColonne_Contraintes()
-	 * @see SchemaTable.Contrainte#getColonnes
-	 * @model opposite="colonnes"
+	 * @model
 	 * @generated
 	 */
-	EList<Contrainte> getContraintes();
+	EList<Algorithme> getContraintes();
 
 } // Colonne

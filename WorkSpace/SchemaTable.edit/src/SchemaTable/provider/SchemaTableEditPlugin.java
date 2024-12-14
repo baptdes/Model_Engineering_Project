@@ -2,6 +2,8 @@
  */
 package SchemaTable.provider;
 
+import AlgorithmeTable.provider.AlgorithmeTableEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +40,7 @@ public final class SchemaTableEditPlugin extends EMFPlugin {
 	public SchemaTableEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     AlgorithmeTableEditPlugin.INSTANCE,
 		   });
 	}
 

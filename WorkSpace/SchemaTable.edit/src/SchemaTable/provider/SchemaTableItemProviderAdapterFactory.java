@@ -164,52 +164,6 @@ public class SchemaTableItemProviderAdapterFactory extends SchemaTableAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link SchemaTable.Algorithme} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AlgorithmeItemProvider algorithmeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link SchemaTable.Algorithme}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAlgorithmeAdapter() {
-		if (algorithmeItemProvider == null) {
-			algorithmeItemProvider = new AlgorithmeItemProvider(this);
-		}
-
-		return algorithmeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link SchemaTable.Contrainte} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContrainteItemProvider contrainteItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link SchemaTable.Contrainte}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContrainteAdapter() {
-		if (contrainteItemProvider == null) {
-			contrainteItemProvider = new ContrainteItemProvider(this);
-		}
-
-		return contrainteItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,8 +272,6 @@ public class SchemaTableItemProviderAdapterFactory extends SchemaTableAdapterFac
 		if (colonneBruteItemProvider != null) colonneBruteItemProvider.dispose();
 		if (colonneCalculeeItemProvider != null) colonneCalculeeItemProvider.dispose();
 		if (colonneEtrangereItemProvider != null) colonneEtrangereItemProvider.dispose();
-		if (algorithmeItemProvider != null) algorithmeItemProvider.dispose();
-		if (contrainteItemProvider != null) contrainteItemProvider.dispose();
 	}
 
 }

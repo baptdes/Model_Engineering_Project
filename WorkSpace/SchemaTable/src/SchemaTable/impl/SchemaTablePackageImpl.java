@@ -2,20 +2,16 @@
  */
 package SchemaTable.impl;
 
-import SchemaTable.Algorithme;
+import AlgorithmeTable.AlgorithmeTablePackage;
 import SchemaTable.Colonne;
 import SchemaTable.ColonneBrute;
 import SchemaTable.ColonneCalculee;
 import SchemaTable.ColonneEtrangere;
-import SchemaTable.Contrainte;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTableFactory;
 import SchemaTable.SchemaTablePackage;
-import SchemaTable.TypeDonnee;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -64,27 +60,6 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	private EClass colonneEtrangereEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass algorithmeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass contrainteEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum typeDonneeEEnum = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -129,6 +104,9 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		SchemaTablePackageImpl theSchemaTablePackage = registeredSchemaTablePackage instanceof SchemaTablePackageImpl ? (SchemaTablePackageImpl)registeredSchemaTablePackage : new SchemaTablePackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		AlgorithmeTablePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSchemaTablePackage.createPackageContents();
@@ -180,7 +158,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 * @generated
 	 */
 	@Override
-	public EReference getSchemaDeTable_ColonneIdentifiants() {
+	public EReference getSchemaDeTable_ColonneLignes() {
 		return (EReference)schemaDeTableEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -201,7 +179,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 */
 	@Override
 	public EReference getColonne_Schema() {
-		return (EReference)colonneEClass.getEStructuralFeatures().get(0);
+		return (EReference)colonneEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -211,7 +189,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 */
 	@Override
 	public EAttribute getColonne_Nom() {
-		return (EAttribute)colonneEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)colonneEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -221,7 +199,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 */
 	@Override
 	public EAttribute getColonne_Identifiant() {
-		return (EAttribute)colonneEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)colonneEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -231,7 +209,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 */
 	@Override
 	public EAttribute getColonne_TypeDonnees() {
-		return (EAttribute)colonneEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)colonneEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -241,7 +219,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 */
 	@Override
 	public EReference getColonne_Contraintes() {
-		return (EReference)colonneEClass.getEStructuralFeatures().get(4);
+		return (EReference)colonneEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -300,7 +278,7 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getColonneEtrangere_IdentifiantColonneEtrangere() {
+	public EAttribute getColonneEtrangere_NomColonneEtrangere() {
 		return (EAttribute)colonneEtrangereEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -310,48 +288,8 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 	 * @generated
 	 */
 	@Override
-	public EClass getAlgorithme() {
-		return algorithmeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getContrainte() {
-		return contrainteEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getContrainte_Colonnes() {
-		return (EReference)contrainteEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getContrainte_Algorithme() {
-		return (EReference)contrainteEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getTypeDonnee() {
-		return typeDonneeEEnum;
+	public EReference getColonneEtrangere_SchemaEntree() {
+		return (EReference)colonneEtrangereEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -386,14 +324,14 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		schemaDeTableEClass = createEClass(SCHEMA_DE_TABLE);
 		createEAttribute(schemaDeTableEClass, SCHEMA_DE_TABLE__NOM);
 		createEReference(schemaDeTableEClass, SCHEMA_DE_TABLE__COLONNES);
-		createEReference(schemaDeTableEClass, SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS);
+		createEReference(schemaDeTableEClass, SCHEMA_DE_TABLE__COLONNE_LIGNES);
 
 		colonneEClass = createEClass(COLONNE);
-		createEReference(colonneEClass, COLONNE__SCHEMA);
 		createEAttribute(colonneEClass, COLONNE__NOM);
 		createEAttribute(colonneEClass, COLONNE__IDENTIFIANT);
 		createEAttribute(colonneEClass, COLONNE__TYPE_DONNEES);
 		createEReference(colonneEClass, COLONNE__CONTRAINTES);
+		createEReference(colonneEClass, COLONNE__SCHEMA);
 
 		colonneBruteEClass = createEClass(COLONNE_BRUTE);
 
@@ -402,16 +340,8 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		createEAttribute(colonneCalculeeEClass, COLONNE_CALCULEE__IDENTIFIANTS_COLONNES_ENTREE);
 
 		colonneEtrangereEClass = createEClass(COLONNE_ETRANGERE);
-		createEAttribute(colonneEtrangereEClass, COLONNE_ETRANGERE__IDENTIFIANT_COLONNE_ETRANGERE);
-
-		algorithmeEClass = createEClass(ALGORITHME);
-
-		contrainteEClass = createEClass(CONTRAINTE);
-		createEReference(contrainteEClass, CONTRAINTE__COLONNES);
-		createEReference(contrainteEClass, CONTRAINTE__ALGORITHME);
-
-		// Create enums
-		typeDonneeEEnum = createEEnum(TYPE_DONNEE);
+		createEAttribute(colonneEtrangereEClass, COLONNE_ETRANGERE__NOM_COLONNE_ETRANGERE);
+		createEReference(colonneEtrangereEClass, COLONNE_ETRANGERE__SCHEMA_ENTREE);
 	}
 
 	/**
@@ -437,6 +367,9 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		AlgorithmeTablePackage theAlgorithmeTablePackage = (AlgorithmeTablePackage)EPackage.Registry.INSTANCE.getEPackage(AlgorithmeTablePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -449,37 +382,25 @@ public class SchemaTablePackageImpl extends EPackageImpl implements SchemaTableP
 		// Initialize classes, features, and operations; add parameters
 		initEClass(schemaDeTableEClass, SchemaDeTable.class, "SchemaDeTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaDeTable_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, SchemaDeTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchemaDeTable_Colonnes(), this.getColonne(), this.getColonne_Schema(), "colonnes", null, 0, -1, SchemaDeTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchemaDeTable_ColonneIdentifiants(), this.getColonne(), null, "colonneIdentifiants", null, 1, 1, SchemaDeTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchemaDeTable_Colonnes(), this.getColonne(), this.getColonne_Schema(), "colonnes", null, 1, -1, SchemaDeTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchemaDeTable_ColonneLignes(), this.getColonne(), null, "colonneLignes", null, 1, 1, SchemaDeTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneEClass, Colonne.class, "Colonne", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColonne_Schema(), this.getSchemaDeTable(), this.getSchemaDeTable_Colonnes(), "schema", null, 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColonne_Nom(), ecorePackage.getEString(), "nom", null, 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColonne_Identifiant(), ecorePackage.getEString(), "identifiant", null, 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColonne_TypeDonnees(), this.getTypeDonnee(), "typeDonnees", "Flottant", 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColonne_Contraintes(), this.getContrainte(), this.getContrainte_Colonnes(), "contraintes", null, 0, -1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColonne_TypeDonnees(), theAlgorithmeTablePackage.getTypeDonnees(), "typeDonnees", "Flottant", 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColonne_Contraintes(), theAlgorithmeTablePackage.getAlgorithme(), null, "contraintes", null, 0, -1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColonne_Schema(), this.getSchemaDeTable(), this.getSchemaDeTable_Colonnes(), "schema", null, 1, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneBruteEClass, ColonneBrute.class, "ColonneBrute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(colonneCalculeeEClass, ColonneCalculee.class, "ColonneCalculee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColonneCalculee_Algorithme(), this.getAlgorithme(), null, "algorithme", null, 1, 1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColonneCalculee_Algorithme(), theAlgorithmeTablePackage.getAlgorithme(), null, "algorithme", null, 1, 1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColonneCalculee_IdentifiantsColonnesEntree(), ecorePackage.getEString(), "identifiantsColonnesEntree", null, 0, -1, ColonneCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneEtrangereEClass, ColonneEtrangere.class, "ColonneEtrangere", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColonneEtrangere_IdentifiantColonneEtrangere(), ecorePackage.getEString(), "identifiantColonneEtrangere", null, 1, 1, ColonneEtrangere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(algorithmeEClass, Algorithme.class, "Algorithme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(contrainteEClass, Contrainte.class, "Contrainte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContrainte_Colonnes(), this.getColonne(), this.getColonne_Contraintes(), "colonnes", null, 0, -1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContrainte_Algorithme(), this.getAlgorithme(), null, "algorithme", null, 1, 1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(typeDonneeEEnum, TypeDonnee.class, "TypeDonnee");
-		addEEnumLiteral(typeDonneeEEnum, TypeDonnee.ENTIER);
-		addEEnumLiteral(typeDonneeEEnum, TypeDonnee.FLOTTANT);
-		addEEnumLiteral(typeDonneeEEnum, TypeDonnee.TEXTE);
-		addEEnumLiteral(typeDonneeEEnum, TypeDonnee.BOOLEEN);
+		initEAttribute(getColonneEtrangere_NomColonneEtrangere(), ecorePackage.getEString(), "nomColonneEtrangere", null, 1, 1, ColonneEtrangere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColonneEtrangere_SchemaEntree(), this.getSchemaDeTable(), null, "schemaEntree", null, 1, 1, ColonneEtrangere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

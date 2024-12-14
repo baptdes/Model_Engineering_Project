@@ -3,44 +3,34 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SchemaTable" nsURI="http://schematable" nsPrefix="schematable">
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDeTable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
-        eType="#//Colonne" containment="true" eOpposite="#//Colonne/schema"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneIdentifiants" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" lowerBound="1"
+        upperBound="-1" eType="#//Colonne" containment="true" eOpposite="#//Colonne/schema"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneLignes" lowerBound="1"
         eType="#//Colonne"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Colonne" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
-        eType="#//SchemaDeTable" eOpposite="#//SchemaDeTable/colonnes"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiant" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDonnees" lowerBound="1"
-        eType="#//TypeDonnee" defaultValueLiteral="Flottant"/>
+        eType="ecore:EEnum ../AlgorithmeTable/AlgorithmeTable.ecore#//TypeDonnees"
+        defaultValueLiteral="Flottant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
-        eType="#//Contrainte" eOpposite="#//Contrainte/colonnes"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnee">
-    <eLiterals name="Entier" literal="Entier"/>
-    <eLiterals name="Flottant" value="1"/>
-    <eLiterals name="Texte" value="2"/>
-    <eLiterals name="Booleen" value="3"/>
+        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="#//SchemaDeTable" eOpposite="#//SchemaDeTable/colonnes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneBrute" eSuperTypes="#//Colonne"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneCalculee" eSuperTypes="#//Colonne">
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="#//Algorithme"/>
+        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantsColonnesEntree"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneEtrangere" eSuperTypes="#//Colonne">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantColonneEtrangere"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Algorithme"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Contrainte">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
-        eType="#//Colonne" eOpposite="#//Colonne/contraintes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="#//Algorithme"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nomColonneEtrangere" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaEntree" lowerBound="1"
+        eType="#//SchemaDeTable"/>
   </eClassifiers>
 </ecore:EPackage>

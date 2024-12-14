@@ -64,7 +64,7 @@ public class SchemaDeTableItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNomPropertyDescriptor(object);
-			addColonneIdentifiantsPropertyDescriptor(object);
+			addColonneLignesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,19 +92,19 @@ public class SchemaDeTableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Colonne Identifiants feature.
+	 * This adds a property descriptor for the Colonne Lignes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addColonneIdentifiantsPropertyDescriptor(Object object) {
+	protected void addColonneLignesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchemaDeTable_colonneIdentifiants_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaDeTable_colonneIdentifiants_feature", "_UI_SchemaDeTable_type"),
-				 SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNE_IDENTIFIANTS,
+				 getString("_UI_SchemaDeTable_colonneLignes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaDeTable_colonneLignes_feature", "_UI_SchemaDeTable_type"),
+				 SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNE_LIGNES,
 				 true,
 				 false,
 				 true,

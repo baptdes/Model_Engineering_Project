@@ -11,6 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: SchemaTable.tests
 Require-Bundle: org.eclipse.core.runtime,
  SchemaTable;visibility:=reexport,
+ AlgorithmeTable;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -45,29 +45,52 @@ public class ColonneEtrangereItemProvider extends ColonneItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdentifiantColonneEtrangerePropertyDescriptor(object);
+			addNomColonneEtrangerePropertyDescriptor(object);
+			addSchemaEntreePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Identifiant Colonne Etrangere feature.
+	 * This adds a property descriptor for the Nom Colonne Etrangere feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdentifiantColonneEtrangerePropertyDescriptor(Object object) {
+	protected void addNomColonneEtrangerePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ColonneEtrangere_identifiantColonneEtrangere_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColonneEtrangere_identifiantColonneEtrangere_feature", "_UI_ColonneEtrangere_type"),
-				 SchemaTablePackage.Literals.COLONNE_ETRANGERE__IDENTIFIANT_COLONNE_ETRANGERE,
+				 getString("_UI_ColonneEtrangere_nomColonneEtrangere_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColonneEtrangere_nomColonneEtrangere_feature", "_UI_ColonneEtrangere_type"),
+				 SchemaTablePackage.Literals.COLONNE_ETRANGERE__NOM_COLONNE_ETRANGERE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Schema Entree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSchemaEntreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColonneEtrangere_schemaEntree_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColonneEtrangere_schemaEntree_feature", "_UI_ColonneEtrangere_type"),
+				 SchemaTablePackage.Literals.COLONNE_ETRANGERE__SCHEMA_ENTREE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -110,7 +133,7 @@ public class ColonneEtrangereItemProvider extends ColonneItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColonneEtrangere.class)) {
-			case SchemaTablePackage.COLONNE_ETRANGERE__IDENTIFIANT_COLONNE_ETRANGERE:
+			case SchemaTablePackage.COLONNE_ETRANGERE__NOM_COLONNE_ETRANGERE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
