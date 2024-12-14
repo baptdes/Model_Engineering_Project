@@ -4,21 +4,21 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SchemaTableDiagram" domainClass="SchemaTable::SchemaDeTable" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="CBNode" domainClass="SchemaTable::ColonneBrute">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne brute : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne brute : ' + self.nom + '\nType : ' +  self.typeDonnees + '\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="CCNode" domainClass="SchemaTable::ColonneCalculee">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne calculée : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne calculée : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nAlgorithme : '+ self.algorithme.nom +'\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="CENode" domainClass="SchemaTable::ColonneEtrangere">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Colonne étrangère : ' + self.nom + '\n' +  self.typeDonnees + '\n(' + self.identifiant + ')\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne étrangère : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nRenvoie à : ('+ self.schemaEntree.nom + '.' + self.nomColonneEtrangere +')\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
