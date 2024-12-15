@@ -3,11 +3,15 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:schematable="http://schematable">
+    xmlns:schematable="http://schematable"
+    nom="test">
   <colonnes
       xsi:type="schematable:ColonneBrute"
       nom="1"/>
   <colonnes
-      xsi:type="schematable:ColonneCalculee"
+      xsi:type="schematable:ColonneBrute"
+      nom="3"/>
+  <colonnes
+      xsi:type="schematable:ColonneBrute"
       nom="2"/>
 </schematable:SchemaDeTable>
