@@ -1,10 +1,3 @@
-[comment encoding = UTF-8 /]
-[module toLibrairiePython('http://schematable','http://algorithme_table')]
-
-
-[template public toLibrairiePython(aSchemaDeTable : SchemaDeTable)]
-[comment @main/]
-[file (aSchemaDeTable.nom + '.py', false, 'UTF-8')]
 
 
 import csv
@@ -22,38 +15,21 @@ from ExempleEssaisColonneRef import RefCroise
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
 import AlgoMoyExp
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : Colonne | cbs )]
-[for (  cont : Algorithme | cb.contraintes )]
-import [cont.ressource.Emplacement/]
-[/for]
-[/for]
-[/let]
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
-import [cb.algorithme.ressource.Emplacement/]
-[/for]
-[/let]
+import invalid
+import invalid
 
 
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
-
-
-
-[/for]
-[/let]
 
 
 
 
 class colonne:
-    valeur = ['['/][']'/]
+    valeur = []
     type = "str"
     nom = ""
 
     def __init__(self,nom,type):
-        self.valeur = ['['/][']'/]
+        self.valeur = []
         self.type = type
         self.nom = nom
 
@@ -61,32 +37,23 @@ class colonne:
 
 
 
-class [aSchemaDeTable.nom/]:
+class Test:
 
-    colonnesImport = ['['/][']'/]
-    colonnesReference = ['['/][']'/]
-    colonnesCalcule = ['['/][']'/]
+    colonnesImport = []
+    colonnesReference = []
+    colonnesCalcule = []
     
 
     def __init__(self):
-        [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-        self.colonnesImport = ['['/]
-            [for (  cb : ColonneBrute | cbs -> select(e | e.oclIsKindOf(ColonneBrute))) separator(', ')]
-            colonne("[cb.nom/]","([cb.typeDonnees/]")
-			[/for]
-            [']'/]
-        self.colonnesReference = ['['/]
-            [for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) separator(', ')]
-            colonne("[cb.nom/],"[cb.typeDonnees/]")
-			[/for]
-            [']'/]
-        self.colonnesCalcule = ['['/]
-            [for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) separator(', ')]
-            colonne("[cb.nom/]","[cb.typeDonnees/]")
-			[/for]
-            [']'/]
+        self.colonnesImport = [
+            ]
+        self.colonnesReference = [
+            ]
+        self.colonnesCalcule = [
+            colonne("premiereColonne","Flottant")
+,             colonne("secondeColonne","Texte")
+            ]
 
-		[/let]
         
 
     #permet de vérifier que la matrice est conforme
@@ -100,10 +67,10 @@ class [aSchemaDeTable.nom/]:
                 
                 #vérification de type
                 try :
-                    contenue['['/]ligne[']'/]['['/]colonne[']'/]  = eval(self.colonnesImport['['/]colonne[']'/].type + "(\"" + contenue['['/]ligne[']'/]['['/]colonne[']'/] + "\")")  
+                    contenue[ligne][colonne]  = eval(self.colonnesImport[colonne].type + "(\"" + contenue[ligne][colonne] + "\")")  
 
                     #ajout de la valeur dans le tableau 
-                    self.colonnesImport['['/]colonne[']'/].valeur.append(contenue['['/]ligne[']'/]['['/]colonne[']'/])          
+                    self.colonnesImport[colonne].valeur.append(contenue[ligne][colonne])          
                 except Exception as e:
                     print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
                     return False      
@@ -121,7 +88,7 @@ class [aSchemaDeTable.nom/]:
             with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
                     fichierCSV = fichier
                     lecteur_csv = csv.reader(fichier)
-                    contenue = ['['/]ligne for ligne in lecteur_csv[']'/]
+                    contenue = [ligne for ligne in lecteur_csv]
                             #verification que la matrice importer est conforme aux contraintes et aux types
                     if not(self.verificationImport(contenue)):
                             print("retour false Calcul")                                                 
@@ -136,32 +103,39 @@ class [aSchemaDeTable.nom/]:
         #création du tableau 
         RefC = RefCroise()
         #appel des fonctions d'importations des données et calcul des données sur le tableau en référence
-        RefC.AjoutColonneReference(['['/][']'/])
-        RefC.importationCSV(addresseTabRef['['/]0[']'/])
+        RefC.AjoutColonneReference([])
+        RefC.importationCSV(addresseTabRef[0])
         RefC.calcul()
         if not(RefC.verificationFinal):
             raise("Erreur dans les vérifications")
-        self.colonnesReference['['/]0[']'/].valeur = RefC.colonnesImport['['/]0[']'/].valeur
+        self.colonnesReference[0].valeur = RefC.colonnesImport[0].valeur
 
 
 
 
     def calcul(self):
-		[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-		[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
-		intermediaire = ['['/][']'/]
-        identifiantColonnesEntree = ['['/][cb.identifiantsColonnesEntree/][']'/]      
+		intermediaire = []
+        identifiantColonnesEntree = []      
         #faire de l'introspection pour récupérer le nom de la fonction
-        methodes = ['['/]name for name, obj in inspect.getmembers([cb.algorithme.ressource.Emplacement/], inspect.isfunction)[']'/]
+        methodes = [name for name, obj in inspect.getmembers(invalid, inspect.isfunction)]
         #si il y a plusieurs méthode fini 
         if len(methodes) > 1:
-            raise("L'algo " + "[cb.algorithme.ressource.Emplacement/]" + "a trop de fonction alors que nous en voulons qu'une")
-        for i in range(0,len(self.colonneCalcule['['/]identifiantColonnesEntree['['/]0[']'/][']'/].valeur)):
+            raise("L'algo " + "invalid" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonneCalcule[identifiantColonnesEntree[0]].valeur)):
         #Il faut ajouter le nom du dossier de la fonction importer
-        intermediaire.append(eval("AlgoMoyExp." + str(methodes['['/]0[']'/]) + "(self.colonnesReference['['/]identifiantColonnesEntree['['/]0[']'/][']'/].valeur['['/]i[']'/], self.colonnesImport['['/]identifiantColonnesEntree['['/]1[']'/][']'/].valeur['['/]i[']'/])"))
+        intermediaire.append(eval("AlgoMoyExp." + str(methodes[0]) + "(self.colonnesReference[identifiantColonnesEntree[0]].valeur[i], self.colonnesImport[identifiantColonnesEntree[1]].valeur[i])"))
         ColonneActive.valeur = intermediaire
-		[/for]
-		[/let]
+		intermediaire = []
+        identifiantColonnesEntree = []      
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(invalid, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise("L'algo " + "invalid" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonneCalcule[identifiantColonnesEntree[0]].valeur)):
+        #Il faut ajouter le nom du dossier de la fonction importer
+        intermediaire.append(eval("AlgoMoyExp." + str(methodes[0]) + "(self.colonnesReference[identifiantColonnesEntree[0]].valeur[i], self.colonnesImport[identifiantColonnesEntree[1]].valeur[i])"))
+        ColonneActive.valeur = intermediaire
 
 
 
@@ -173,15 +147,15 @@ class [aSchemaDeTable.nom/]:
 
         #vérification des contraintes     
         #contrainte 1
-        contrainteMinMax = Contrainte("mauvaise moy","Erreur",['['/]0,0[']'/])
+        contrainteMinMax = Contrainte("mauvaise moy","Erreur",[0,0])
         #faire de l'introspection pour récupérer le nom de la fonction
-        methodes = ['['/]name for name, obj in inspect.getmembers(AlgoSup, inspect.isfunction)[']'/]
+        methodes = [name for name, obj in inspect.getmembers(AlgoSup, inspect.isfunction)]
         #si il y a plusieurs méthode fini 
         if len(methodes) > 1:
             raise("L'algo " + "AlgoSup" + "a trop de fonction alors que nous en voulons qu'une")
-        for i in range(0,len(self.colonnesReference['['/]contrainteMinMax.colonnes['['/]0[']'/][']'/].valeur)):
+        for i in range(0,len(self.colonnesReference[contrainteMinMax.colonnes[0]].valeur)):
             #Il faut ajouter le nom du dossier de la fonction importer
-            if eval("not( AlgoSup." + str(methodes['['/]0[']'/]) + "(self.colonnesReference['['/]contrainteMinMax.colonnes['['/]0[']'/][']'/].valeur['['/]i[']'/], self.colonnesImport['['/]contrainteMinMax.colonnes['['/]1[']'/][']'/].valeur['['/]i[']'/]))") :
+            if eval("not( AlgoSup." + str(methodes[0]) + "(self.colonnesReference[contrainteMinMax.colonnes[0]].valeur[i], self.colonnesImport[contrainteMinMax.colonnes[1]].valeur[i]))") :
                 if contrainteMinMax.actionContrainte == "Erreur" :
                     print(contrainteMinMax.message)
                     return False # on pourrait retourner la contraintes
@@ -197,42 +171,40 @@ class [aSchemaDeTable.nom/]:
             #création de la matrice adéquate :
             taille = 0
             if len(self.colonnesReference) != 0:
-                taille = len(self.colonnesReference['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
+                taille = len(self.colonnesReference[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
             elif len(self.colonnesCalcule) != 0:
-                taille = len(self.colonnesCalcule['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
+                taille = len(self.colonnesCalcule[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
             elif len(self.colonnesImport) != 0:
-                taille = len(self.colonnesImport['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
+                taille = len(self.colonnesImport[0].valeur)
+                donnees = [[] for i in range(0,taille+1)]
             else :
                 raise("Le tableau ne contient aucune colonne")
             #colonne de référence
             for colonne in self.colonnesReference:
-                donnees['['/]0[']'/].append(colonne.nom)
+                donnees[0].append(colonne.nom)
                 for ligne in range (0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
+                    donnees[ligne+1].append(colonne.valeur[ligne])
             #colonne importe
             for colonne in self.colonnesImport:
-                donnees['['/]0[']'/].append(colonne.nom)
+                donnees[0].append(colonne.nom)
                 for ligne in range(0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
+                    donnees[ligne+1].append(colonne.valeur[ligne])
             #colonne calculé
             for colonne in self.colonnesCalcule:
-                donnees['['/]0[']'/].append(colonne.nom)
+                donnees[0].append(colonne.nom)
                 for ligne in range(0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
+                    donnees[ligne+1].append(colonne.valeur[ligne])
 
             writer.writerows(donnees)  # Écrit chaque ligne du dictionnair
 
     
 
 tabCal = ColonneCal()
-tabCal.AjoutColonneReference(['['/]"fichierDeTest/testRef.csv"[']'/])
+tabCal.AjoutColonneReference(["fichierDeTest/testRef.csv"])
 tabCal.importationCSV("fichierDeTest/testCal.csv")
 tabCal.calcul()
 tabCal.verificationFinal()
 tabCal.ExmportationCSV()
 
-[/file]
-[/template]
