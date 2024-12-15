@@ -7,6 +7,8 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import AlgorithmeTable.Direction;
+import AlgorithmeTable.Port;
 import SchemaTable.Colonne;
 import SchemaTable.ColonneBrute;
 import SchemaTable.ColonneCalculee;
@@ -186,6 +188,13 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				object.getIdentifiant().equals(object.getSchema().getNom() + '.' + object.getNom()),
 				object, 
 				"L'identifiant de la colonne (" + object.getIdentifiant() + ") ne respecte pas la convention sur les identifiants (nom_table.nom_colonne).");
+		
+		this.result.recordIfFailed(
+				object.getContraintes().stream()
+					.allMatch(contrainte -> contrainte.getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOLEEN).count() == 1),
+				object, 
+				"Une des contraintes n'a pas exactement une sortie booléenne.");
+		
 		return null;
 	}
 
@@ -215,6 +224,13 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().containsAll(object.getIdentifiantsColonnesEntree()),
 				object, 
 				"Une des colonnes d'entrée n'existe pas dans cette table");
+		
+		/** Ne fonctionne pas
+		*	this.result.recordIfFailed(
+		*		object.getAlgorithme().getPort().stream().filter(port -> port.getDirection().getValue() == AlgorithmeTable.Direction.SORTIE_VALUE && port.getType().equals(object.getTypeDonnees())).count() == 1,
+		*		object, 
+		*		"L'algorithme n'a pas un type de sortie compatible avec la colonne");
+		*/
 
 		return null;
 	}

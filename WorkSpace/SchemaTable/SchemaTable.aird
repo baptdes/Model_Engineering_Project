@@ -5,7 +5,6 @@
     <semanticResources>platform:/resource/algorithms/model/algorithms.ecore</semanticResources>
     <semanticResources>platform:/resource/algorithms/model/algorithms.genmodel</semanticResources>
     <semanticResources>platform:/resource/AlgorithmeTable/AlgorithmeTable.ecore</semanticResources>
-    <semanticResources>platform:/resource/AlgorithmeTable/AlgorithmeTable.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_9IxpMKZNEe-QA4O3m2VmoQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-K9e8KZNEe-QA4O3m2VmoQ" name=" class diagram" repPath="#_-KeWwKZNEe-QA4O3m2VmoQ" changeId="1734170871328">

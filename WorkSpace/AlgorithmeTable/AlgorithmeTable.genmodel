@@ -8,7 +8,7 @@
   <genPackages prefix="AlgorithmeTable" disposableProviderFactory="true" ecorePackage="AlgorithmeTable.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AlgorithmeTable.ecore#//TypeRessource">
       <genEnumLiterals ecoreEnumLiteral="AlgorithmeTable.ecore#//TypeRessource/Python"/>
-      <genEnumLiterals ecoreEnumLiteral="AlgorithmeTable.ecore#//TypeRessource/Matlab"/>
+      <genEnumLiterals ecoreEnumLiteral="AlgorithmeTable.ecore#//TypeRessource/Script"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AlgorithmeTable.ecore#//Direction">
       <genEnumLiterals ecoreEnumLiteral="AlgorithmeTable.ecore#//Direction/Entree"/>

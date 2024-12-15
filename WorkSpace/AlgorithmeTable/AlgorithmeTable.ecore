@@ -34,7 +34,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeRessource">
     <eLiterals name="Python"/>
-    <eLiterals name="Matlab"/>
+    <eLiterals name="Script" literal="Script"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Direction">
     <eLiterals name="Entree"/>

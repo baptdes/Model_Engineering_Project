@@ -29,14 +29,14 @@ public enum TypeRessource implements Enumerator {
 	PYTHON(0, "Python", "Python"),
 
 	/**
-	 * The '<em><b>Matlab</b></em>' literal object.
+	 * The '<em><b>Script</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MATLAB_VALUE
+	 * @see #SCRIPT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MATLAB(0, "Matlab", "Matlab");
+	SCRIPT(0, "Script", "Script");
 
 	/**
 	 * The '<em><b>Python</b></em>' literal value.
@@ -50,15 +50,15 @@ public enum TypeRessource implements Enumerator {
 	public static final int PYTHON_VALUE = 0;
 
 	/**
-	 * The '<em><b>Matlab</b></em>' literal value.
+	 * The '<em><b>Script</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MATLAB
-	 * @model name="Matlab"
+	 * @see #SCRIPT
+	 * @model name="Script"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MATLAB_VALUE = 0;
+	public static final int SCRIPT_VALUE = 0;
 
 	/**
 	 * An array of all the '<em><b>Type Ressource</b></em>' enumerators.
@@ -69,7 +69,7 @@ public enum TypeRessource implements Enumerator {
 	private static final TypeRessource[] VALUES_ARRAY =
 		new TypeRessource[] {
 			PYTHON,
-			MATLAB,
+			SCRIPT,
 		};
 
 	/**
