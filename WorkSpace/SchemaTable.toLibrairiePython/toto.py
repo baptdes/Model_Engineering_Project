@@ -14,7 +14,7 @@ from enum import Enum
 #         - ...
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
-import est_positif.xmi
+import est_positif.xmi as est_positif
 import int_to_float.py as int_to_float
 
 
@@ -40,6 +40,7 @@ class toto:
 
 
 	colonnes = []
+	
 
 	def getColonne(self,idColonne):
 		for colonne in self.colonnes:
@@ -52,9 +53,9 @@ class toto:
 
 		
         self.colonnes = [
-            colonne("lignes","Entier","toto.lignes", true )
-,             colonne("col2","Flottant","toto.col2")
-,             colonne("col1","Flottant","toto.col1", true )
+            colonne("lignes","float","toto.lignes", true )
+,             colonne("col2","float","toto.col2")
+,             colonne("col1","float","toto.col1", true )
             ]
 
         
@@ -105,6 +106,8 @@ class toto:
         
     #permet d'ajouter les colonnes des autres tableaux
     def AjoutColonneReference(self,addresseTabRef):
+		
+
         #création du tableau 
         RefC = RefCroise()
         #appel des fonctions d'importations des données et calcul des données sur le tableau en référence
@@ -119,22 +122,19 @@ class toto:
 
 
     def calcul(self):
-		return 0
+		
 		intermediaire = []
-			
-
-							]      
+			  
         #faire de l'introspection pour récupérer le nom de la fonction
         methodes = [name for name, obj in inspect.getmembers(int_to_float.py, inspect.isfunction)]
         #si il y a plusieurs méthode fini 
         if len(methodes) > 1:
             raise("L'algo " + "int_to_float.py" + "a trop de fonction alors que nous en voulons qu'une")
-        for i in range(0,len(self.colonneCalcule[identifiantColonnesEntree[0]].valeur)):
+        for i in range(0,len(self.colonne[[0]].valeur)):
 	        #Il faut ajouter le nom du dossier de la fonction importer
-	        intermediaire.append(eval("int_to_float." + str(methodes[0]) + "(" 				
-				getColonne(toto.lignes).valeur[i])
- + ")"
+	        intermediaire.append(eval("int_to_float." + str(methodes[0]) + "("  getColonne(toto.lignes).valeur[i])  + ")" ))
         getColonne(toto.col2).valeur = intermediaire
+		print("calcul des colonnes")
 		
 
 
@@ -144,7 +144,24 @@ class toto:
     #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
     # affiche les messages d'avertissements ou d'éreurs 
     def verificationFinal(self):  
-		return 0
+		#vérification des contraintes 
+		  
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(est_positif.xmi, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise("L'algo " + "est_positif.xmi" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonne[[0]].valeur)):
+	        #Il faut ajouter le nom du dossier de la fonction importer
+	        if eval("not(est_positif." + str(methodes[0]) + "("  getColonne(toto.lignes).valeur[i]) ,  getColonne(toto.col2).valeur[i])  + "))" )):
+	            return false
+	          
+
+		
+
+
+		
+	
 
 
     def ExportationCSV(self):
