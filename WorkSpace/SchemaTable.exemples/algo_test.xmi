@@ -2,5 +2,5 @@
 <algorithmeTable:Algorithme xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:algorithmeTable="http://algorithme_table" nom="int_to_float">
   <ressource Emplacement="int_to_float.py"/>
   <port nom="sortie" direction="Sortie"/>
-  <port nom="entree" type="Entier"/>
+  <port nom="entree" type="int"/>
 </algorithmeTable:Algorithme>

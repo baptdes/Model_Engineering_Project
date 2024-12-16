@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link SchemaTable.SchemaDeTable#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.SchemaDeTable#getColonnes <em>Colonnes</em>}</li>
  *   <li>{@link SchemaTable.SchemaDeTable#getColonneLignes <em>Colonne Lignes</em>}</li>
+ *   <li>{@link SchemaTable.SchemaDeTable#getContraintes <em>Contraintes</em>}</li>
  * </ul>
  *
  * @see SchemaTable.SchemaTablePackage#getSchemaDeTable()
@@ -82,5 +83,19 @@ public interface SchemaDeTable extends EObject {
 	 * @generated
 	 */
 	void setColonneLignes(Colonne value);
+
+	/**
+	 * Returns the value of the '<em><b>Contraintes</b></em>' containment reference list.
+	 * The list contents are of type {@link SchemaTable.Contrainte}.
+	 * It is bidirectional and its opposite is '{@link SchemaTable.Contrainte#getSchema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contraintes</em>' containment reference list.
+	 * @see SchemaTable.SchemaTablePackage#getSchemaDeTable_Contraintes()
+	 * @see SchemaTable.Contrainte#getSchema
+	 * @model opposite="schema" containment="true"
+	 * @generated
+	 */
+	EList<Contrainte> getContraintes();
 
 } // SchemaDeTable

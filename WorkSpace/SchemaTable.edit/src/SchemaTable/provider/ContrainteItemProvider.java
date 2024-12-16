@@ -3,8 +3,7 @@
 package SchemaTable.provider;
 
 
-import SchemaTable.SchemaDeTable;
-import SchemaTable.SchemaTableFactory;
+import SchemaTable.Contrainte;
 import SchemaTable.SchemaTablePackage;
 
 import java.util.Collection;
@@ -14,8 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link SchemaTable.SchemaDeTable} object.
+ * This is the item provider adapter for a {@link SchemaTable.Contrainte} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SchemaDeTableItemProvider 
+public class ContrainteItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +45,7 @@ public class SchemaDeTableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaDeTableItemProvider(AdapterFactory adapterFactory) {
+	public ContrainteItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,26 +60,48 @@ public class SchemaDeTableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNomPropertyDescriptor(object);
-			addColonneLignesPropertyDescriptor(object);
+			addAlgorithmePropertyDescriptor(object);
+			addIdentifiantsColonnesEntreePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Nom feature.
+	 * This adds a property descriptor for the Algorithme feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNomPropertyDescriptor(Object object) {
+	protected void addAlgorithmePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchemaDeTable_nom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaDeTable_nom_feature", "_UI_SchemaDeTable_type"),
-				 SchemaTablePackage.Literals.SCHEMA_DE_TABLE__NOM,
+				 getString("_UI_Contrainte_algorithme_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contrainte_algorithme_feature", "_UI_Contrainte_type"),
+				 SchemaTablePackage.Literals.CONTRAINTE__ALGORITHME,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Identifiants Colonnes Entree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdentifiantsColonnesEntreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Contrainte_identifiantsColonnesEntree_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contrainte_identifiantsColonnesEntree_feature", "_UI_Contrainte_type"),
+				 SchemaTablePackage.Literals.CONTRAINTE__IDENTIFIANTS_COLONNES_ENTREE,
 				 true,
 				 false,
 				 false,
@@ -92,67 +111,14 @@ public class SchemaDeTableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Colonne Lignes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColonneLignesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SchemaDeTable_colonneLignes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaDeTable_colonneLignes_feature", "_UI_SchemaDeTable_type"),
-				 SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNE_LIGNES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES);
-			childrenFeatures.add(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__CONTRAINTES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns SchemaDeTable.gif.
+	 * This returns Contrainte.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchemaDeTable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Contrainte"));
 	}
 
 	/**
@@ -163,10 +129,7 @@ public class SchemaDeTableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SchemaDeTable)object).getNom();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SchemaDeTable_type") :
-			getString("_UI_SchemaDeTable_type") + " " + label;
+		return getString("_UI_Contrainte_type");
 	}
 
 
@@ -181,13 +144,9 @@ public class SchemaDeTableItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SchemaDeTable.class)) {
-			case SchemaTablePackage.SCHEMA_DE_TABLE__NOM:
+		switch (notification.getFeatureID(Contrainte.class)) {
+			case SchemaTablePackage.CONTRAINTE__IDENTIFIANTS_COLONNES_ENTREE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -203,26 +162,6 @@ public class SchemaDeTableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES,
-				 SchemaTableFactory.eINSTANCE.createColonneBrute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES,
-				 SchemaTableFactory.eINSTANCE.createColonneCalculee()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES,
-				 SchemaTableFactory.eINSTANCE.createColonneEtrangere()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__CONTRAINTES,
-				 SchemaTableFactory.eINSTANCE.createContrainte()));
 	}
 
 	/**

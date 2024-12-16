@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <algorithmeTable:Algorithme xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:algorithmeTable="http://algorithme_table" nom="est_positif">
   <ressource Type="Script" Emplacement="est_positif.xmi"/>
-  <port nom="sortie" type="Booleen" direction="Sortie"/>
+  <port nom="sortie" type="bool" direction="Sortie"/>
   <port nom="entree"/>
 </algorithmeTable:Algorithme>

@@ -458,7 +458,7 @@ public class AlgorithmeTablePackageImpl extends EPackageImpl implements Algorith
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Constant(), ecorePackage.getEBoolean(), "constant", "false", 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPort_Type(), this.getTypeDonnees(), "type", "Flottant", 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Type(), this.getTypeDonnees(), "type", "float", 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Direction(), this.getDirection(), "direction", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPort_Algorithme(), this.getAlgorithme(), this.getAlgorithme_Port(), "algorithme", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -477,10 +477,10 @@ public class AlgorithmeTablePackageImpl extends EPackageImpl implements Algorith
 		addEEnumLiteral(directionEEnum, Direction.SORTIE);
 
 		initEEnum(typeDonneesEEnum, TypeDonnees.class, "TypeDonnees");
-		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.ENTIER);
-		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.FLOTTANT);
-		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.TEXTE);
-		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.BOOLEEN);
+		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.INT);
+		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.FLOAT);
+		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.STR);
+		addEEnumLiteral(typeDonneesEEnum, TypeDonnees.BOOL);
 
 		// Create resource
 		createResource(eNS_URI);

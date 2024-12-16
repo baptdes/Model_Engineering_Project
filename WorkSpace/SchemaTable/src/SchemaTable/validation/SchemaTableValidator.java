@@ -13,6 +13,7 @@ import SchemaTable.Colonne;
 import SchemaTable.ColonneBrute;
 import SchemaTable.ColonneCalculee;
 import SchemaTable.ColonneEtrangere;
+import SchemaTable.Contrainte;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
 import SchemaTable.util.SchemaTableSwitch;
@@ -142,12 +143,12 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				"La colonne ligne doit être une colonne brute");
 		
 		this.result.recordIfFailed(
-				object.getColonneLignes() != null && object.getColonneLignes().getTypeDonnees() == AlgorithmeTable.TypeDonnees.ENTIER, 
+				object.getColonneLignes() != null && object.getColonneLignes().getTypeDonnees() == AlgorithmeTable.TypeDonnees.INT, 
 				object, 
 				"La colonne ligne doit contenir des entiers");
 		
 		this.result.recordIfFailed(
-				object.getColonneLignes() != null && object.getColonneLignes().getContraintes().isEmpty(), 
+				object.getColonneLignes() != null && !object.getContraintes().stream().map(contrainte -> contrainte.getIdentifiantsColonnesEntree()).toList().contains(object.getColonneLignes().getIdentifiant()), 
 				object, 
 				"La colonne ligne ne peut pas avoir de contraintes");
 		
@@ -164,6 +165,28 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 		return null;
 	}
 
+	/**
+	 * Méthode appelée lorsque l'objet visité est une Contrainte.
+	 * @param object élément visité
+	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
+	 * vers les classes parentes, le cas échéant)
+	 */
+	@Override
+	public Boolean caseContrainte(Contrainte object) {
+		// Contraintes sur Contrainte
+		this.result.recordIfFailed(
+				object.getAlgorithme() != null && object.getAlgorithme().getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOL).count() == 1, 
+				object, 
+				"L'algorithme associé à une contrainte doit avoir une unique sortie booléenne.");
+		
+		this.result.recordIfFailed(
+				object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().containsAll(object.getIdentifiantsColonnesEntree()),
+				object, 
+				"Une des colonnes d'entrée n'existe pas dans cette table");
+		
+		return null;
+	}
+	
 	/**
 	 * Méthode appelée lorsque l'objet visité est une Colonne (ou un sous type).
 	 * @param object élément visité
@@ -188,12 +211,6 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				object.getIdentifiant().equals(object.getSchema().getNom() + '.' + object.getNom()),
 				object, 
 				"L'identifiant de la colonne (" + object.getIdentifiant() + ") ne respecte pas la convention sur les identifiants (nom_table.nom_colonne).");
-		
-		this.result.recordIfFailed(
-				object.getContraintes().stream()
-					.allMatch(contrainte -> contrainte.getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOLEEN).count() == 1),
-				object, 
-				"Une des contraintes n'a pas exactement une sortie booléenne.");
 		
 		return null;
 	}
