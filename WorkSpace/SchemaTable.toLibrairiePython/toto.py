@@ -1,10 +1,3 @@
-[comment encoding = UTF-8 /]
-[module toLibrairiePython('http://schematable','http://algorithme_table')]
-
-
-[template public toLibrairiePython(aSchemaDeTable : SchemaDeTable)]
-[comment @main/]
-[file (aSchemaDeTable.nom + '.py', false, 'UTF-8')]
 
 
 import csv
@@ -21,50 +14,32 @@ from enum import Enum
 #         - ...
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : Colonne | cbs )]
-[for (  cont : Algorithme | cb.contraintes )]
-import [cont.ressource.Emplacement/] as [cont.nom/]
-[/for]
-[/for]
-[/let]
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
-import [cb.algorithme.ressource.Emplacement/] as [cb.algorithme.nom/]
-[/for]
-[/let]
+import est_positif.xmi
+import int_to_float.py as int_to_float
 
 
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
-
-
-
-[/for]
-[/let]
 
 
 
 
 class colonne:
-    valeur = ['['/][']'/]
+    valeur = []
     type = "str"
     nom = ""
 	import = false
 	id 
 
     def __init__(self,nom,type,id,import = false):
-        self.valeur = ['['/][']'/]
+        self.valeur = []
         self.type = type
         self.nom = nom
 		self.import = import
 		self.id = id
 
-class [aSchemaDeTable.nom/]:
+class toto:
 
 
-	colonnes = ['['/][']'/]
-	
+	colonnes = []
 
 	def getColonne(self,idColonne):
 		for colonne in self.colonnes:
@@ -73,17 +48,15 @@ class [aSchemaDeTable.nom/]:
     
 
     def __init__(self):
-        [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 		
 
 		
-        self.colonnes = ['['/]
-            [for (  cb : Colonne | cbs) separator(', ')]
-            colonne("[cb.nom/]","[cb.typeDonnees/]","[cb.identifiant/]"[if (cb.oclIsKindOf(ColonneBrute))], true [/if])
-			[/for]
-            [']'/]
+        self.colonnes = [
+            colonne("lignes","Entier","toto.lignes", true )
+,             colonne("col2","Flottant","toto.col2")
+,             colonne("col1","Flottant","toto.col1", true )
+            ]
 
-		[/let]
         
 
     #permet de vérifier que la matrice est conforme
@@ -98,10 +71,10 @@ class [aSchemaDeTable.nom/]:
                 
 	                #vérification de type
 	                try :
-	                    contenue['['/]ligne[']'/]['['/]colonne[']'/]  = eval(self.colonnes['['/]colonne[']'/].type + "(\"" + contenue['['/]ligne[']'/]['['/]colonne[']'/] + "\")")  
+	                    contenue[ligne][colonne]  = eval(self.colonnes[colonne].type + "(\"" + contenue[ligne][colonne] + "\")")  
 	
 	                    #ajout de la valeur dans le tableau 
-	                    self.colonnesImport['['/]colonne[']'/].valeur.append(contenue['['/]ligne[']'/]['['/]colonne[']'/])          
+	                    self.colonnesImport[colonne].valeur.append(contenue[ligne][colonne])          
 	                except Exception as e:
 	                    print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
 	                    return False      
@@ -120,7 +93,7 @@ class [aSchemaDeTable.nom/]:
             with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
                     fichierCSV = fichier
                     lecteur_csv = csv.reader(fichier)
-                    contenue = ['['/]ligne for ligne in lecteur_csv[']'/]
+                    contenue = [ligne for ligne in lecteur_csv]
                             #verification que la matrice importer est conforme aux contraintes et aux types
                     if not(self.verificationImport(contenue)):
                             print("retour false Calcul")                                                 
@@ -132,54 +105,36 @@ class [aSchemaDeTable.nom/]:
         
     #permet d'ajouter les colonnes des autres tableaux
     def AjoutColonneReference(self,addresseTabRef):
-		
-		[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-		[let count : Integer = 0]
-		[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
-		a[cb.schemaEntree.nom/] = [cb.schemaEntree.nom/]()
-		a[cb.schemaEntree.nom/].AjoutColonneReference()
-		a[cb.schemaEntree.nom/].importationCSV(addresseTabRef['['/][count/][']'/])
-        a[cb.schemaEntree.nom/].calcul()
-		if not(a[cb.schemaEntree.nom/].verificationFinal):
-            raise("Erreur dans les vérifications")
-		getColonne([cb.identifiant/]).valeur = a[cb.schemaEntree.nom/].colonne.getColonne([cb.identifiant/])
-		[/for]
-		[/let]
-		[/let]
-
         #création du tableau 
         RefC = RefCroise()
         #appel des fonctions d'importations des données et calcul des données sur le tableau en référence
-        RefC.AjoutColonneReference(['['/][']'/])
-        RefC.importationCSV(addresseTabRef['['/]0[']'/])
+        RefC.AjoutColonneReference([])
+        RefC.importationCSV(addresseTabRef[0])
         RefC.calcul()
         if not(RefC.verificationFinal):
             raise("Erreur dans les vérifications")
-        self.colonnesReference['['/]0[']'/].valeur = RefC.colonnesImport['['/]0[']'/].valeur
+        self.colonnesReference[0].valeur = RefC.colonnesImport[0].valeur
 
 
 
 
     def calcul(self):
-		
-		[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-		[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
-		intermediaire = ['['/][']'/]
+		return 0
+		intermediaire = []
 			
 
-							[']'/]      
+							]      
         #faire de l'introspection pour récupérer le nom de la fonction
-        methodes = ['['/]name for name, obj in inspect.getmembers([cb.algorithme.ressource.Emplacement/], inspect.isfunction)[']'/]
+        methodes = [name for name, obj in inspect.getmembers(int_to_float.py, inspect.isfunction)]
         #si il y a plusieurs méthode fini 
         if len(methodes) > 1:
-            raise("L'algo " + "[cb.algorithme.ressource.Emplacement/]" + "a trop de fonction alors que nous en voulons qu'une")
-        for i in range(0,len(self.colonne['['/]['['/]0[']'/][']'/].valeur)):
+            raise("L'algo " + "int_to_float.py" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonneCalcule[identifiantColonnesEntree[0]].valeur)):
 	        #Il faut ajouter le nom du dossier de la fonction importer
-	        intermediaire.append(eval("[cb.algorithme.nom/]." + str(methodes['['/]0[']'/]) + "(" [for ( id : String | cb.identifiantsColonnesEntree ) separator(', ')] getColonne([id/]).valeur['['/]i[']'/]) [/for] + ")" ))
-        getColonne([cb.identifiant/]).valeur = intermediaire
-		[/for]
-		[/let]
-		print("calcul des colonnes")
+	        intermediaire.append(eval("int_to_float." + str(methodes[0]) + "(" 				
+				getColonne(toto.lignes).valeur[i])
+ + ")"
+        getColonne(toto.col2).valeur = intermediaire
 		
 
 
@@ -189,12 +144,7 @@ class [aSchemaDeTable.nom/]:
     #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
     # affiche les messages d'avertissements ou d'éreurs 
     def verificationFinal(self):  
-		#vérification des contraintes 
-
-
-
-		
-	
+		return 0
 
 
     def ExportationCSV(self):
@@ -202,24 +152,22 @@ class [aSchemaDeTable.nom/]:
         with open("fichierSortie.csv", mode='w', newline='', encoding='utf-8') as fichier_csv: 
             writer = csv.writer(fichier_csv) 
             #création de la matrice adéquate :
-            taille = len(self.colonne['['/]0[']'/].valeur)
+            taille = len(self.colonne[0].valeur)
             #colonne de référence
             for colonne in self.colonnne:
-                donnees['['/]0[']'/].append(colonne.nom)
+                donnees[0].append(colonne.nom)
                 for ligne in range (0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
+                    donnees[ligne+1].append(colonne.valeur[ligne])
          
 
             writer.writerows(donnees)  # Écrit chaque ligne du dictionnair
 
     
 
-tabCal = [aSchemaDeTable.nom/]()
-tabCal.AjoutColonneReference(['['/]"fichierDeTest/testRef.csv"[']'/])
+tabCal = toto()
+tabCal.AjoutColonneReference(["fichierDeTest/testRef.csv"])
 tabCal.importationCSV("fichierDeTest/testCal.csv")
 tabCal.calcul()
 tabCal.verificationFinal()
 tabCal.ExportationCSV()
 
-[/file]
-[/template]

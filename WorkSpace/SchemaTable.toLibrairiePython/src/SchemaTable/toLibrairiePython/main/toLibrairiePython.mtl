@@ -24,13 +24,13 @@ from enum import Enum
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 [for (  cb : Colonne | cbs )]
 [for (  cont : Algorithme | cb.contraintes )]
-import [cont.ressource.Emplacement/]
+import [cont.ressource.Emplacement/] as [cont.nom/]
 [/for]
 [/for]
 [/let]
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 [for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
-import [cb.algorithme.ressource.Emplacement/]
+import [cb.algorithme.ressource.Emplacement/] as [cb.algorithme.nom/]
 [/for]
 [/let]
 
@@ -50,42 +50,36 @@ class colonne:
     valeur = ['['/][']'/]
     type = "str"
     nom = ""
+	import = false
+	id 
 
-    def __init__(self,nom,type):
+    def __init__(self,nom,type,id,import = false):
         self.valeur = ['['/][']'/]
         self.type = type
         self.nom = nom
-
-
-class Contrainte:
-	def __init__(self, message, actionContrainte, colonnes):
-		self.message = message
-		self.actionContrainte = actionContrainte
-		self.colonnes = colonnes
-
+		self.import = import
+		self.id = id
 
 class [aSchemaDeTable.nom/]:
 
-    colonnesImport = ['['/][']'/]
-    colonnesReference = ['['/][']'/]
-    colonnesCalcule = ['['/][']'/]
+
+	colonnes = ['['/][']'/]
+	
+
+	def getColonne(self,idColonne):
+		for colonne in self.colonnes:
+			if idColonne = colonne.id:
+				return colonne
     
 
     def __init__(self):
         [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-        self.colonnesImport = ['['/]
-            [for (  cb : ColonneBrute | cbs -> select(e | e.oclIsKindOf(ColonneBrute))) separator(', ')]
-            colonne("[cb.nom/]","([cb.typeDonnees/]")
-			[/for]
-            [']'/]
-        self.colonnesReference = ['['/]
-            [for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) separator(', ')]
-            colonne("[cb.nom/],"[cb.typeDonnees/]")
-			[/for]
-            [']'/]
-        self.colonnesCalcule = ['['/]
-            [for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) separator(', ')]
-            colonne("[cb.nom/]","[cb.typeDonnees/]")
+		
+
+		
+        self.colonnes = ['['/]
+            [for (  cb : Colonne | cbs) separator(', ')]
+            colonne("[cb.nom/]","[cb.typeDonnees/]","[cb.identifiant/]"[if (cb.oclIsKindOf(ColonneBrute))], true [/if])
 			[/for]
             [']'/]
 
@@ -99,21 +93,23 @@ class [aSchemaDeTable.nom/]:
     def verificationImport(self,contenue):  
         #vérification
         for ligne in range(1,len(contenue)):
-            for colonne in range (0,len(self.colonnesImport)) :
+            for colonne in range (0,len(self.colonnes)) :
+				if (colonne.import)
                 
-                #vérification de type
-                try :
-                    contenue['['/]ligne[']'/]['['/]colonne[']'/]  = eval(self.colonnesImport['['/]colonne[']'/].type + "(\"" + contenue['['/]ligne[']'/]['['/]colonne[']'/] + "\")")  
+	                #vérification de type
+	                try :
+	                    contenue['['/]ligne[']'/]['['/]colonne[']'/]  = eval(self.colonnes['['/]colonne[']'/].type + "(\"" + contenue['['/]ligne[']'/]['['/]colonne[']'/] + "\")")  
+	
+	                    #ajout de la valeur dans le tableau 
+	                    self.colonnesImport['['/]colonne[']'/].valeur.append(contenue['['/]ligne[']'/]['['/]colonne[']'/])          
+	                except Exception as e:
+	                    print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
+	                    return False      
+	                      
+	     return True
 
-                    #ajout de la valeur dans le tableau 
-                    self.colonnesImport['['/]colonne[']'/].valeur.append(contenue['['/]ligne[']'/]['['/]colonne[']'/])          
-                except Exception as e:
-                    print("mauvais type de données ligne : " + str(ligne) + ", colonne : " + str(colonne))
-                    return False      
-                      
-        return True
-
-
+	
+	
 
     #permet d'importer in fichier CSV
     #argument : - self classe
@@ -136,6 +132,21 @@ class [aSchemaDeTable.nom/]:
         
     #permet d'ajouter les colonnes des autres tableaux
     def AjoutColonneReference(self,addresseTabRef):
+		
+		[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
+		[let count : Integer = 0]
+		[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
+		a[cb.schemaEntree.nom/] = [cb.schemaEntree.nom/]()
+		a[cb.schemaEntree.nom/].AjoutColonneReference()
+		a[cb.schemaEntree.nom/].importationCSV(addresseTabRef['['/][count/][']'/])
+        a[cb.schemaEntree.nom/].calcul()
+		if not(a[cb.schemaEntree.nom/].verificationFinal):
+            raise("Erreur dans les vérifications")
+		getColonne([cb.identifiant/]).valeur = a[cb.schemaEntree.nom/].colonne.getColonne([cb.identifiant/])
+		[/for]
+		[/let]
+		[/let]
+
         #création du tableau 
         RefC = RefCroise()
         #appel des fonctions d'importations des données et calcul des données sur le tableau en référence
@@ -150,12 +161,11 @@ class [aSchemaDeTable.nom/]:
 
 
     def calcul(self):
-		return 0
+		
 		[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
 		[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
 		intermediaire = ['['/][']'/]
-        identifiantColonnesEntree = ['['/]
-			[cb.identifiantsColonnesEntree/]
+			
 
 							[']'/]      
         #faire de l'introspection pour récupérer le nom de la fonction
@@ -163,12 +173,13 @@ class [aSchemaDeTable.nom/]:
         #si il y a plusieurs méthode fini 
         if len(methodes) > 1:
             raise("L'algo " + "[cb.algorithme.ressource.Emplacement/]" + "a trop de fonction alors que nous en voulons qu'une")
-        for i in range(0,len(self.colonneCalcule['['/]identifiantColonnesEntree['['/]0[']'/][']'/].valeur)):
-        #Il faut ajouter le nom du dossier de la fonction importer
-        intermediaire.append(eval("AlgoMoyExp." + str(methodes['['/]0[']'/]) + "(self.colonnesReference['['/]identifiantColonnesEntree['['/]0[']'/][']'/].valeur['['/]i[']'/], self.colonnesImport['['/]identifiantColonnesEntree['['/]1[']'/][']'/].valeur['['/]i[']'/])"))
-        ColonneActive.valeur = intermediaire
+        for i in range(0,len(self.colonne['['/]['['/]0[']'/][']'/].valeur)):
+	        #Il faut ajouter le nom du dossier de la fonction importer
+	        intermediaire.append(eval("[cb.algorithme.nom/]." + str(methodes['['/]0[']'/]) + "(" [for ( id : String | cb.identifiantsColonnesEntree ) separator(', ')] getColonne([id/]).valeur['['/]i[']'/]) [/for] + ")" ))
+        getColonne([cb.identifiant/]).valeur = intermediaire
 		[/for]
 		[/let]
+		print("calcul des colonnes")
 		
 
 
@@ -178,7 +189,12 @@ class [aSchemaDeTable.nom/]:
     #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
     # affiche les messages d'avertissements ou d'éreurs 
     def verificationFinal(self):  
-		return 0
+		#vérification des contraintes 
+
+
+
+		
+	
 
 
     def ExportationCSV(self):
@@ -186,33 +202,13 @@ class [aSchemaDeTable.nom/]:
         with open("fichierSortie.csv", mode='w', newline='', encoding='utf-8') as fichier_csv: 
             writer = csv.writer(fichier_csv) 
             #création de la matrice adéquate :
-            taille = 0
-            if len(self.colonnesReference) != 0:
-                taille = len(self.colonnesReference['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
-            elif len(self.colonnesCalcule) != 0:
-                taille = len(self.colonnesCalcule['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
-            elif len(self.colonnesImport) != 0:
-                taille = len(self.colonnesImport['['/]0[']'/].valeur)
-                donnees = ['['/]['['/][']'/] for i in range(0,taille+1)[']'/]
-            else :
-                raise("Le tableau ne contient aucune colonne")
+            taille = len(self.colonne['['/]0[']'/].valeur)
             #colonne de référence
-            for colonne in self.colonnesReference:
+            for colonne in self.colonnne:
                 donnees['['/]0[']'/].append(colonne.nom)
                 for ligne in range (0,taille):
                     donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
-            #colonne importe
-            for colonne in self.colonnesImport:
-                donnees['['/]0[']'/].append(colonne.nom)
-                for ligne in range(0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
-            #colonne calculé
-            for colonne in self.colonnesCalcule:
-                donnees['['/]0[']'/].append(colonne.nom)
-                for ligne in range(0,taille):
-                    donnees['['/]ligne+1[']'/].append(colonne.valeur['['/]ligne[']'/])
+         
 
             writer.writerows(donnees)  # Écrit chaque ligne du dictionnair
 
