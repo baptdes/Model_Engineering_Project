@@ -27,4 +27,4 @@ enum Direction:
     Entree | Sortie;
 
 enum TypeDonnees:
-    Entier | Flottant | Texte | Booleen;
+    int | float | str | bool;

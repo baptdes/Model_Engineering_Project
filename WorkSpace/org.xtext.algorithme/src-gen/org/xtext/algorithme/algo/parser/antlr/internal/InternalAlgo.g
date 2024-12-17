@@ -473,34 +473,34 @@ ruleTypeDonnees returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='Entier'
+			enumLiteral_0='int'
 			{
-				$current = grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0());
+				$current = grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='Flottant'
+			enumLiteral_1='float'
 			{
-				$current = grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1());
+				$current = grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='Texte'
+			enumLiteral_2='str'
 			{
-				$current = grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2());
+				$current = grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
-			enumLiteral_3='Booleen'
+			enumLiteral_3='bool'
 			{
-				$current = grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3());
+				$current = grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3());
 			}
 		)
 	)

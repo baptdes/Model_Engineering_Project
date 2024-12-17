@@ -3,11 +3,11 @@
   <algorithmes nom="PremierAlgo" documentation="Ceci est un exemple d'algorithme.">
     <ressource emplacement="scripts/mon_script.py"/>
     <port constant="true" nom="port1"/>
-    <port direction="Sortie" nom="port2" type="Flottant"/>
+    <port direction="Sortie" nom="port2" type="float"/>
   </algorithmes>
   <algorithmes nom="SecondAlgo" documentation="Un algorithme de taxe.">
     <ressource emplacement="scripts/second_script.py"/>
-    <port nom="port3" type="Texte"/>
-    <port direction="Sortie" nom="port4" type="Booleen"/>
+    <port nom="port3" type="str"/>
+    <port direction="Sortie" nom="port4" type="bool"/>
   </algorithmes>
 </algo:Catalogue>

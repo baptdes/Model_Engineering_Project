@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAlgoParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Python'", "'Script'", "'Entree'", "'Sortie'", "'Entier'", "'Flottant'", "'Texte'", "'Booleen'", "'catalogue'", "'{'", "'}'", "'algorithm'", "'documentation'", "'ressource'", "'ports'", "'path'", "':'", "'constant'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Python'", "'Script'", "'Entree'", "'Sortie'", "'int'", "'float'", "'str'", "'bool'", "'catalogue'", "'{'", "'}'", "'algorithm'", "'documentation'", "'ressource'", "'ports'", "'path'", "':'", "'constant'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -702,13 +702,13 @@ public class InternalAlgoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeDonnees__Alternatives"
-    // InternalAlgo.g:242:1: rule__TypeDonnees__Alternatives : ( ( ( 'Entier' ) ) | ( ( 'Flottant' ) ) | ( ( 'Texte' ) ) | ( ( 'Booleen' ) ) );
+    // InternalAlgo.g:242:1: rule__TypeDonnees__Alternatives : ( ( ( 'int' ) ) | ( ( 'float' ) ) | ( ( 'str' ) ) | ( ( 'bool' ) ) );
     public final void rule__TypeDonnees__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAlgo.g:246:1: ( ( ( 'Entier' ) ) | ( ( 'Flottant' ) ) | ( ( 'Texte' ) ) | ( ( 'Booleen' ) ) )
+            // InternalAlgo.g:246:1: ( ( ( 'int' ) ) | ( ( 'float' ) ) | ( ( 'str' ) ) | ( ( 'bool' ) ) )
             int alt3=4;
             switch ( input.LA(1) ) {
             case 15:
@@ -740,20 +740,20 @@ public class InternalAlgoParser extends AbstractInternalContentAssistParser {
 
             switch (alt3) {
                 case 1 :
-                    // InternalAlgo.g:247:2: ( ( 'Entier' ) )
+                    // InternalAlgo.g:247:2: ( ( 'int' ) )
                     {
-                    // InternalAlgo.g:247:2: ( ( 'Entier' ) )
-                    // InternalAlgo.g:248:3: ( 'Entier' )
+                    // InternalAlgo.g:247:2: ( ( 'int' ) )
+                    // InternalAlgo.g:248:3: ( 'int' )
                     {
-                     before(grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0()); 
-                    // InternalAlgo.g:249:3: ( 'Entier' )
-                    // InternalAlgo.g:249:4: 'Entier'
+                     before(grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0()); 
+                    // InternalAlgo.g:249:3: ( 'int' )
+                    // InternalAlgo.g:249:4: 'int'
                     {
                     match(input,15,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0()); 
+                     after(grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0()); 
 
                     }
 
@@ -761,20 +761,20 @@ public class InternalAlgoParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalAlgo.g:253:2: ( ( 'Flottant' ) )
+                    // InternalAlgo.g:253:2: ( ( 'float' ) )
                     {
-                    // InternalAlgo.g:253:2: ( ( 'Flottant' ) )
-                    // InternalAlgo.g:254:3: ( 'Flottant' )
+                    // InternalAlgo.g:253:2: ( ( 'float' ) )
+                    // InternalAlgo.g:254:3: ( 'float' )
                     {
-                     before(grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1()); 
-                    // InternalAlgo.g:255:3: ( 'Flottant' )
-                    // InternalAlgo.g:255:4: 'Flottant'
+                     before(grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1()); 
+                    // InternalAlgo.g:255:3: ( 'float' )
+                    // InternalAlgo.g:255:4: 'float'
                     {
                     match(input,16,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1()); 
+                     after(grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1()); 
 
                     }
 
@@ -782,20 +782,20 @@ public class InternalAlgoParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalAlgo.g:259:2: ( ( 'Texte' ) )
+                    // InternalAlgo.g:259:2: ( ( 'str' ) )
                     {
-                    // InternalAlgo.g:259:2: ( ( 'Texte' ) )
-                    // InternalAlgo.g:260:3: ( 'Texte' )
+                    // InternalAlgo.g:259:2: ( ( 'str' ) )
+                    // InternalAlgo.g:260:3: ( 'str' )
                     {
-                     before(grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2()); 
-                    // InternalAlgo.g:261:3: ( 'Texte' )
-                    // InternalAlgo.g:261:4: 'Texte'
+                     before(grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2()); 
+                    // InternalAlgo.g:261:3: ( 'str' )
+                    // InternalAlgo.g:261:4: 'str'
                     {
                     match(input,17,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2()); 
+                     after(grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -803,20 +803,20 @@ public class InternalAlgoParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalAlgo.g:265:2: ( ( 'Booleen' ) )
+                    // InternalAlgo.g:265:2: ( ( 'bool' ) )
                     {
-                    // InternalAlgo.g:265:2: ( ( 'Booleen' ) )
-                    // InternalAlgo.g:266:3: ( 'Booleen' )
+                    // InternalAlgo.g:265:2: ( ( 'bool' ) )
+                    // InternalAlgo.g:266:3: ( 'bool' )
                     {
-                     before(grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3()); 
-                    // InternalAlgo.g:267:3: ( 'Booleen' )
-                    // InternalAlgo.g:267:4: 'Booleen'
+                     before(grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3()); 
+                    // InternalAlgo.g:267:3: ( 'bool' )
+                    // InternalAlgo.g:267:4: 'bool'
                     {
                     match(input,18,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3()); 
 
                     }
 

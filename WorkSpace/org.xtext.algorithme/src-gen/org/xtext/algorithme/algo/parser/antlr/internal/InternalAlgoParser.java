@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAlgoParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'catalogue'", "'{'", "'}'", "'algorithm'", "'documentation'", "'ressource'", "'ports'", "'path'", "'constant'", "':'", "'Python'", "'Script'", "'Entree'", "'Sortie'", "'Entier'", "'Flottant'", "'Texte'", "'Booleen'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'catalogue'", "'{'", "'}'", "'algorithm'", "'documentation'", "'ressource'", "'ports'", "'path'", "'constant'", "':'", "'Python'", "'Script'", "'Entree'", "'Sortie'", "'int'", "'float'", "'str'", "'bool'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -1048,7 +1048,7 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeDonnees"
-    // InternalAlgo.g:467:1: ruleTypeDonnees returns [Enumerator current=null] : ( (enumLiteral_0= 'Entier' ) | (enumLiteral_1= 'Flottant' ) | (enumLiteral_2= 'Texte' ) | (enumLiteral_3= 'Booleen' ) ) ;
+    // InternalAlgo.g:467:1: ruleTypeDonnees returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'float' ) | (enumLiteral_2= 'str' ) | (enumLiteral_3= 'bool' ) ) ;
     public final Enumerator ruleTypeDonnees() throws RecognitionException {
         Enumerator current = null;
 
@@ -1061,10 +1061,10 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlgo.g:473:2: ( ( (enumLiteral_0= 'Entier' ) | (enumLiteral_1= 'Flottant' ) | (enumLiteral_2= 'Texte' ) | (enumLiteral_3= 'Booleen' ) ) )
-            // InternalAlgo.g:474:2: ( (enumLiteral_0= 'Entier' ) | (enumLiteral_1= 'Flottant' ) | (enumLiteral_2= 'Texte' ) | (enumLiteral_3= 'Booleen' ) )
+            // InternalAlgo.g:473:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'float' ) | (enumLiteral_2= 'str' ) | (enumLiteral_3= 'bool' ) ) )
+            // InternalAlgo.g:474:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'float' ) | (enumLiteral_2= 'str' ) | (enumLiteral_3= 'bool' ) )
             {
-            // InternalAlgo.g:474:2: ( (enumLiteral_0= 'Entier' ) | (enumLiteral_1= 'Flottant' ) | (enumLiteral_2= 'Texte' ) | (enumLiteral_3= 'Booleen' ) )
+            // InternalAlgo.g:474:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'float' ) | (enumLiteral_2= 'str' ) | (enumLiteral_3= 'bool' ) )
             int alt7=4;
             switch ( input.LA(1) ) {
             case 25:
@@ -1096,15 +1096,15 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalAlgo.g:475:3: (enumLiteral_0= 'Entier' )
+                    // InternalAlgo.g:475:3: (enumLiteral_0= 'int' )
                     {
-                    // InternalAlgo.g:475:3: (enumLiteral_0= 'Entier' )
-                    // InternalAlgo.g:476:4: enumLiteral_0= 'Entier'
+                    // InternalAlgo.g:475:3: (enumLiteral_0= 'int' )
+                    // InternalAlgo.g:476:4: enumLiteral_0= 'int'
                     {
                     enumLiteral_0=(Token)match(input,25,FOLLOW_2); 
 
-                    				current = grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -1113,15 +1113,15 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAlgo.g:483:3: (enumLiteral_1= 'Flottant' )
+                    // InternalAlgo.g:483:3: (enumLiteral_1= 'float' )
                     {
-                    // InternalAlgo.g:483:3: (enumLiteral_1= 'Flottant' )
-                    // InternalAlgo.g:484:4: enumLiteral_1= 'Flottant'
+                    // InternalAlgo.g:483:3: (enumLiteral_1= 'float' )
+                    // InternalAlgo.g:484:4: enumLiteral_1= 'float'
                     {
                     enumLiteral_1=(Token)match(input,26,FOLLOW_2); 
 
-                    				current = grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -1130,15 +1130,15 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAlgo.g:491:3: (enumLiteral_2= 'Texte' )
+                    // InternalAlgo.g:491:3: (enumLiteral_2= 'str' )
                     {
-                    // InternalAlgo.g:491:3: (enumLiteral_2= 'Texte' )
-                    // InternalAlgo.g:492:4: enumLiteral_2= 'Texte'
+                    // InternalAlgo.g:491:3: (enumLiteral_2= 'str' )
+                    // InternalAlgo.g:492:4: enumLiteral_2= 'str'
                     {
                     enumLiteral_2=(Token)match(input,27,FOLLOW_2); 
 
-                    				current = grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -1147,15 +1147,15 @@ public class InternalAlgoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAlgo.g:499:3: (enumLiteral_3= 'Booleen' )
+                    // InternalAlgo.g:499:3: (enumLiteral_3= 'bool' )
                     {
-                    // InternalAlgo.g:499:3: (enumLiteral_3= 'Booleen' )
-                    // InternalAlgo.g:500:4: enumLiteral_3= 'Booleen'
+                    // InternalAlgo.g:499:3: (enumLiteral_3= 'bool' )
+                    // InternalAlgo.g:500:4: enumLiteral_3= 'bool'
                     {
                     enumLiteral_3=(Token)match(input,28,FOLLOW_2); 
 
-                    				current = grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3());
                     			
 
                     }

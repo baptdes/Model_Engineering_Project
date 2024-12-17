@@ -286,41 +286,41 @@ public class AlgoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class TypeDonneesElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.algorithme.algo.Algo.TypeDonnees");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cEntierEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cEntierEntierKeyword_0_0 = (Keyword)cEntierEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cFlottantEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cFlottantFlottantKeyword_1_0 = (Keyword)cFlottantEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cTexteEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cTexteTexteKeyword_2_0 = (Keyword)cTexteEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cBooleenEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cBooleenBooleenKeyword_3_0 = (Keyword)cBooleenEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cIntEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cIntIntKeyword_0_0 = (Keyword)cIntEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cFloatEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cFloatFloatKeyword_1_0 = (Keyword)cFloatEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cStrEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cStrStrKeyword_2_0 = (Keyword)cStrEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cBoolEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cBoolBoolKeyword_3_0 = (Keyword)cBoolEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum TypeDonnees:
-		//    Entier | Flottant | Texte | Booleen;
+		//    int | float | str | bool;
 		public EnumRule getRule() { return rule; }
 		
-		//Entier | Flottant | Texte | Booleen
+		//int | float | str | bool
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Entier
-		public EnumLiteralDeclaration getEntierEnumLiteralDeclaration_0() { return cEntierEnumLiteralDeclaration_0; }
+		//int
+		public EnumLiteralDeclaration getIntEnumLiteralDeclaration_0() { return cIntEnumLiteralDeclaration_0; }
 		
-		public Keyword getEntierEntierKeyword_0_0() { return cEntierEntierKeyword_0_0; }
+		public Keyword getIntIntKeyword_0_0() { return cIntIntKeyword_0_0; }
 		
-		//Flottant
-		public EnumLiteralDeclaration getFlottantEnumLiteralDeclaration_1() { return cFlottantEnumLiteralDeclaration_1; }
+		//float
+		public EnumLiteralDeclaration getFloatEnumLiteralDeclaration_1() { return cFloatEnumLiteralDeclaration_1; }
 		
-		public Keyword getFlottantFlottantKeyword_1_0() { return cFlottantFlottantKeyword_1_0; }
+		public Keyword getFloatFloatKeyword_1_0() { return cFloatFloatKeyword_1_0; }
 		
-		//Texte
-		public EnumLiteralDeclaration getTexteEnumLiteralDeclaration_2() { return cTexteEnumLiteralDeclaration_2; }
+		//str
+		public EnumLiteralDeclaration getStrEnumLiteralDeclaration_2() { return cStrEnumLiteralDeclaration_2; }
 		
-		public Keyword getTexteTexteKeyword_2_0() { return cTexteTexteKeyword_2_0; }
+		public Keyword getStrStrKeyword_2_0() { return cStrStrKeyword_2_0; }
 		
-		//Booleen
-		public EnumLiteralDeclaration getBooleenEnumLiteralDeclaration_3() { return cBooleenEnumLiteralDeclaration_3; }
+		//bool
+		public EnumLiteralDeclaration getBoolEnumLiteralDeclaration_3() { return cBoolEnumLiteralDeclaration_3; }
 		
-		public Keyword getBooleenBooleenKeyword_3_0() { return cBooleenBooleenKeyword_3_0; }
+		public Keyword getBoolBoolKeyword_3_0() { return cBoolBoolKeyword_3_0; }
 	}
 	
 	private final CatalogueElements pCatalogue;
@@ -443,7 +443,7 @@ public class AlgoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//enum TypeDonnees:
-	//    Entier | Flottant | Texte | Booleen;
+	//    int | float | str | bool;
 	public TypeDonneesElements getTypeDonneesAccess() {
 		return eTypeDonnees;
 	}

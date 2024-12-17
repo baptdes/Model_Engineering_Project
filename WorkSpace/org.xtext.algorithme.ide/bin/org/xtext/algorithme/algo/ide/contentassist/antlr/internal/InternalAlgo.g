@@ -245,27 +245,27 @@ rule__TypeDonnees__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0()); }
-		('Entier')
-		{ after(grammarAccess.getTypeDonneesAccess().getEntierEnumLiteralDeclaration_0()); }
+		{ before(grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0()); }
+		('int')
+		{ after(grammarAccess.getTypeDonneesAccess().getIntEnumLiteralDeclaration_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1()); }
-		('Flottant')
-		{ after(grammarAccess.getTypeDonneesAccess().getFlottantEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1()); }
+		('float')
+		{ after(grammarAccess.getTypeDonneesAccess().getFloatEnumLiteralDeclaration_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2()); }
-		('Texte')
-		{ after(grammarAccess.getTypeDonneesAccess().getTexteEnumLiteralDeclaration_2()); }
+		{ before(grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2()); }
+		('str')
+		{ after(grammarAccess.getTypeDonneesAccess().getStrEnumLiteralDeclaration_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3()); }
-		('Booleen')
-		{ after(grammarAccess.getTypeDonneesAccess().getBooleenEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3()); }
+		('bool')
+		{ after(grammarAccess.getTypeDonneesAccess().getBoolEnumLiteralDeclaration_3()); }
 	)
 ;
 finally {

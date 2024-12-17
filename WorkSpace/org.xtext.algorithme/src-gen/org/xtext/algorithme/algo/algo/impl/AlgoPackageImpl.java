@@ -467,10 +467,10 @@ public class AlgoPackageImpl extends EPackageImpl implements AlgoPackage
     addEEnumLiteral(directionEEnum, Direction.SORTIE);
 
     initEEnum(typeDonneesEEnum, TypeDonnees.class, "TypeDonnees");
-    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.ENTIER);
-    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.FLOTTANT);
-    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.TEXTE);
-    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.BOOLEEN);
+    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.INT);
+    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.FLOAT);
+    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.STR);
+    addEEnumLiteral(typeDonneesEEnum, TypeDonnees.BOOL);
 
     // Create resource
     createResource(eNS_URI);

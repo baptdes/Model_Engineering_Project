@@ -15,10 +15,10 @@
       <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//Direction/Sortie"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Algo.ecore#//TypeDonnees">
-      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/Entier"/>
-      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/Flottant"/>
-      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/Texte"/>
-      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/Booleen"/>
+      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/int"/>
+      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/float"/>
+      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/str"/>
+      <genEnumLiterals ecoreEnumLiteral="Algo.ecore#//TypeDonnees/bool"/>
     </genEnums>
     <genClasses ecoreClass="Algo.ecore#//Catalogue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Algo.ecore#//Catalogue/nom"/>
