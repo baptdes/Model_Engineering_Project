@@ -1,2 +1,2 @@
 def fonc(a,b):
-   return a>0 and b>0
+   return a<0 and b>0

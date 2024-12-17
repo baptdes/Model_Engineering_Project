@@ -58,6 +58,15 @@ public interface SchemaTableFactory extends EFactory {
 	ColonneEtrangere createColonneEtrangere();
 
 	/**
+	 * Returns a new object of class '<em>Contrainte</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contrainte</em>'.
+	 * @generated
+	 */
+	Contrainte createContrainte();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

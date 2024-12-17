@@ -2,10 +2,7 @@
  */
 package SchemaTable;
 
-import AlgorithmeTable.Algorithme;
 import AlgorithmeTable.TypeDonnees;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link SchemaTable.Colonne#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getIdentifiant <em>Identifiant</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getTypeDonnees <em>Type Donnees</em>}</li>
- *   <li>{@link SchemaTable.Colonne#getContraintes <em>Contraintes</em>}</li>
  *   <li>{@link SchemaTable.Colonne#getSchema <em>Schema</em>}</li>
  * </ul>
  *
@@ -99,7 +95,7 @@ public interface Colonne extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Type Donnees</b></em>' attribute.
-	 * The default value is <code>"Flottant"</code>.
+	 * The default value is <code>"float"</code>.
 	 * The literals are from the enumeration {@link AlgorithmeTable.TypeDonnees}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +103,7 @@ public interface Colonne extends EObject {
 	 * @see AlgorithmeTable.TypeDonnees
 	 * @see #setTypeDonnees(TypeDonnees)
 	 * @see SchemaTable.SchemaTablePackage#getColonne_TypeDonnees()
-	 * @model default="Flottant" required="true"
+	 * @model default="float" required="true"
 	 * @generated
 	 */
 	TypeDonnees getTypeDonnees();
@@ -122,17 +118,5 @@ public interface Colonne extends EObject {
 	 * @generated
 	 */
 	void setTypeDonnees(TypeDonnees value);
-
-	/**
-	 * Returns the value of the '<em><b>Contraintes</b></em>' reference list.
-	 * The list contents are of type {@link AlgorithmeTable.Algorithme}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contraintes</em>' reference list.
-	 * @see SchemaTable.SchemaTablePackage#getColonne_Contraintes()
-	 * @model
-	 * @generated
-	 */
-	EList<Algorithme> getContraintes();
 
 } // Colonne

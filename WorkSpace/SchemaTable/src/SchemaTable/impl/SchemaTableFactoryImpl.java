@@ -60,6 +60,7 @@ public class SchemaTableFactoryImpl extends EFactoryImpl implements SchemaTableF
 			case SchemaTablePackage.COLONNE_BRUTE: return createColonneBrute();
 			case SchemaTablePackage.COLONNE_CALCULEE: return createColonneCalculee();
 			case SchemaTablePackage.COLONNE_ETRANGERE: return createColonneEtrangere();
+			case SchemaTablePackage.CONTRAINTE: return createContrainte();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +108,17 @@ public class SchemaTableFactoryImpl extends EFactoryImpl implements SchemaTableF
 	public ColonneEtrangere createColonneEtrangere() {
 		ColonneEtrangereImpl colonneEtrangere = new ColonneEtrangereImpl();
 		return colonneEtrangere;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Contrainte createContrainte() {
+		ContrainteImpl contrainte = new ContrainteImpl();
+		return contrainte;
 	}
 
 	/**

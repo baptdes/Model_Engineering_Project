@@ -4,13 +4,13 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SchemaTableDiagram" domainClass="SchemaTable::SchemaDeTable" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="CBNode" domainClass="SchemaTable::ColonneBrute">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne brute : ' + self.nom + '\nType : ' +  self.typeDonnees + '\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne brute : ' + self.nom + '\nType : ' +  self.typeDonnees" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
           <conditionnalStyles predicateExpression="aql:self.schema.colonneLignes.identifiant==self.identifiant">
-            <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne brute : ' + self.nom + '\nType : ' +  self.typeDonnees + '\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne brute : ' + self.nom + '\nType : ' +  self.typeDonnees" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -18,17 +18,24 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="CCNode" domainClass="SchemaTable::ColonneCalculee">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne calculée : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nAlgorithme : '+ self.algorithme.nom +'\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne calculée : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nAlgorithme : '+ self.algorithme.nom" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="CENode" domainClass="SchemaTable::ColonneEtrangere">
-          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne étrangère : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nRenvoie à : ('+ self.schemaEntree.nom + '.' + self.nomColonneEtrangere +')\n[' + self.contraintes->collect(a | a.nom) + ']'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'(' + self.identifiant + ')\nColonne étrangère : ' + self.nom + '\nType : ' +  self.typeDonnees + '\nRenvoie à : ('+ self.schemaEntree.nom + '.' + self.nomColonneEtrangere +')'" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CNode" domainClass="SchemaTable::Contrainte">
+          <style xsi:type="style:SquareDescription" labelSize="15" showIcon="false" labelExpression="aql:'Contrainte : ' + self.algorithme.nom" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="LienCalcul" sourceMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode']" targetMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CBNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CENode']" targetFinderExpression="aql:self.schema.colonnes->select(c | self.identifiantsColonnesEntree->exists(id | id.equals(c.identifiant)))">
@@ -42,6 +49,14 @@
         <edgeMappings name="LienEtranger" sourceMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CENode']" targetMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CBNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CENode']" targetFinderExpression="aql:self.schemaEntree.colonnes->select(c | self.nomColonneEtrangere.equals(c.nom))">
           <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="3" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="LienContrainte" sourceMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CNode']" targetMapping="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CBNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CCNode'] //@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CENode']" targetFinderExpression="aql:self.schema.colonnes->select(c | self.identifiantsColonnesEntree->exists(id | id.equals(c.identifiant)))">
+          <style sizeComputationExpression="3" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -179,6 +194,28 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="schemaEntree" valueExpression="aql:target.schema"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="nomColonneEtrangere" valueExpression="aql:target.nom"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="LienContrainte" edgeMappings="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@edgeMappings[name='LienContrainte']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="identifiantsColonnesEntree" valueExpression="aql:target.identifiant"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="CreationContraintes">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Contrainte" nodeMappings="//@ownedViewpoints[name='SchemaTableCrossViewpoint']/@ownedRepresentations[name='SchemaTableDiagram']/@defaultLayer/@nodeMappings[name='CNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="SchemaTable::Contrainte" referenceName="contraintes"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

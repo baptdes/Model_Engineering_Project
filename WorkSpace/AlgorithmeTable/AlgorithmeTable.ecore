@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeDonnees"
-        defaultValueLiteral="Flottant"/>
+        defaultValueLiteral="float"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
         eType="#//Algorithme" eOpposite="#//Algorithme/port"/>
@@ -41,9 +41,9 @@
     <eLiterals name="Sortie" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeDonnees">
-    <eLiterals name="Entier"/>
-    <eLiterals name="Flottant" value="1"/>
-    <eLiterals name="Texte" value="2"/>
-    <eLiterals name="Booleen" value="3"/>
+    <eLiterals name="int"/>
+    <eLiterals name="float" value="1"/>
+    <eLiterals name="str" value="2"/>
+    <eLiterals name="bool" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

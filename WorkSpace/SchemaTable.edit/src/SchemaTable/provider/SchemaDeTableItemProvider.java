@@ -126,6 +126,7 @@ public class SchemaDeTableItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES);
+			childrenFeatures.add(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__CONTRAINTES);
 		}
 		return childrenFeatures;
 	}
@@ -185,6 +186,7 @@ public class SchemaDeTableItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
+			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -216,6 +218,11 @@ public class SchemaDeTableItemProvider
 			(createChildParameter
 				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__COLONNES,
 				 SchemaTableFactory.eINSTANCE.createColonneEtrangere()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SchemaTablePackage.Literals.SCHEMA_DE_TABLE__CONTRAINTES,
+				 SchemaTableFactory.eINSTANCE.createContrainte()));
 	}
 
 	/**
