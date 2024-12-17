@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schematable:SchemaDeTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schematable="http://schematable" nom="histo_ventes" colonneLignes="//@colonnes.0">
+  <colonnes xsi:type="schematable:ColonneBrute" nom="id" identifiant="histo_ventes.id" typeDonnees="int"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="noms" identifiant="histo_ventes.noms" typeDonnees="str"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="nb_cartes" identifiant="histo_ventes.nb_cartes" typeDonnees="int"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="prix_vente" identifiant="histo_ventes.prix_vente"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="prix_achat" identifiant="histo_ventes.prix_achat"/>
+  <contraintes>
+    <algorithme href="catalogue1_algotable.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>histo_ventes.prix_vente</identifiantsColonnesEntree>
+  </contraintes>
+  <contraintes>
+    <algorithme href="catalogue1_algotable.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>histo_ventes.prix_achat</identifiantsColonnesEntree>
+  </contraintes>
+</schematable:SchemaDeTable>

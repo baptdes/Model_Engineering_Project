@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<algorithmeTable:Catalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:algorithmeTable="http://algorithme_table" nom="catalogue1">
+  <algorithme nom="estPositif" documentation="Indique si la valeur donnée est positive.">
+    <ressource Emplacement="est_positif"/>
+    <port nom="x"/>
+    <port nom="sortie" type="bool" direction="Sortie"/>
+  </algorithme>
+  <algorithme nom="benefice" documentation="La différence entre un prix d'achat et de vente donnés, pondéré par le nombre d'occurences vendues">
+    <ressource Emplacement="benefice"/>
+    <port nom="nombre_occurences" type="int"/>
+    <port nom="prix_achat"/>
+    <port nom="prix_vente"/>
+    <port nom="sortie" direction="Sortie"/>
+  </algorithme>
+</algorithmeTable:Catalogue>

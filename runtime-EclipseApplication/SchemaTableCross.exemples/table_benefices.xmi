@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schematable:SchemaDeTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schematable="http://schematable" nom="benefices" colonneLignes="//@colonnes.0">
+  <colonnes xsi:type="schematable:ColonneBrute" nom="id" identifiant="benefices.id" typeDonnees="int"/>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="pa" identifiant="benefices.pa" nomColonneEtrangere="prix_achat">
+    <schemaEntree href="histo_ventes.xmi#/"/>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="pv" identifiant="benefices.pv" nomColonneEtrangere="prix_vente">
+    <schemaEntree href="histo_ventes.xmi#/"/>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="nbc" identifiant="benefices.nbc" typeDonnees="int" nomColonneEtrangere="nb_cartes">
+    <schemaEntree href="histo_ventes.xmi#/"/>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="benef" identifiant="benefices.benef">
+    <algorithme href="catalogue1_algotable.xmi#//@algorithme.1"/>
+    <identifiantsColonnesEntree>benefices.nbc</identifiantsColonnesEntree>
+    <identifiantsColonnesEntree>benefices.pa</identifiantsColonnesEntree>
+    <identifiantsColonnesEntree>benefices.pv</identifiantsColonnesEntree>
+  </colonnes>
+</schematable:SchemaDeTable>

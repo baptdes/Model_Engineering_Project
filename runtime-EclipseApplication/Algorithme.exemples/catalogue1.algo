@@ -1,0 +1,21 @@
+catalogue catalogue1 {
+    algorithm estPositif {
+        documentation "Indique si la valeur donnée est positive."
+        ressource Python path "est_positif"
+        ports {
+            Entree x : float
+            Sortie sortie : bool
+        }
+    }
+
+    algorithm benefice {
+        documentation "La différence entre un prix d'achat et de vente donnés, pondéré par le nombre d'occurences vendues"
+        ressource Python path "benefice"
+        ports {
+            Entree nombre_occurences : int
+            Entree prix_achat : float
+            Entree prix_vente : float
+            Sortie sortie : float
+        }
+    }
+}

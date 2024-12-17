@@ -86,13 +86,6 @@
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
-                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:AlgorithmeTable::TypeDonnees.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
                     </groups>
                   </subModelOperations>
                 </subModelOperations>
@@ -122,13 +115,6 @@
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
-                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:AlgorithmeTable::TypeDonnees.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
                     </groups>
                   </subModelOperations>
                 </subModelOperations>
@@ -155,13 +141,6 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext">
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="identifiant" valueExpression="aql:self.schema.nom+'.'+newValue"/>
                             <subModelOperations xsi:type="tool_1:SetValue" featureName="nom" valueExpression="aql:newValue"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
-                      <controls xsi:type="properties:RadioDescription" name="Type" labelExpression="Type" valueExpression="aql:self.typeDonnees" candidatesExpression="aql:AlgorithmeTable::TypeDonnees.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="4">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="typeDonnees" valueExpression="aql:newValue.instance"/>
                           </firstModelOperations>
                         </initialOperation>
                       </controls>
