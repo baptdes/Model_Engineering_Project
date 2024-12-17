@@ -1,9 +1,5 @@
 package AlgorithmeTable.validation;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -12,8 +8,6 @@ import AlgorithmeTable.Port;
 import AlgorithmeTable.Catalogue;
 import AlgorithmeTable.Algorithme;
 import AlgorithmeTable.Ressource;
-import AlgorithmeTable.TypeDonnees;
-import AlgorithmeTable.TypeRessource;
 import AlgorithmeTable.util.AlgorithmeTableSwitch;
 
 /**
@@ -102,101 +96,67 @@ public class AlgorithmeTableValidator extends AlgorithmeTableSwitch<Boolean> {
 				object, 
 				"Le nom de l'algorithme ne respecte pas les conventions Java");
 		
+		this.result.recordIfFailed(
+				object.getCatalogue().getAlgorithme().stream()
+					.allMatch(a -> (a.equals(object) || !((Algorithme) a).getNom().contains(object.getNom()))),
+				object, 
+				"Le nom de l'algorithme (" + object.getNom() + ") n'est pas unique");
+		
 		// Visite
-		for (Algorithme a : object.getAlgorithme()) {
-			this.doSwitch(a);
+		for (Port p : object.getPort()) {
+			this.doSwitch(p);
 		}
+		
+		this.doSwitch(object.getRessource());
 		
 		return null;
 	}
 
 	/**
-	 * Méthode appelée lorsque l'objet visité est une Colonne (ou un sous type).
+	 * Méthode appelée lorsque l'objet visité est un Port.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean caseColonne(Colonne object) {
-		// Contraintes sur Colonne
+	public Boolean casePort(Port object) {
+		// Contraintes sur Port
 		this.result.recordIfFailed(
 				object.getNom() != null && object.getNom().matches(IDENT_REGEX), 
 				object, 
-				"Le nom de la colonne ne respecte pas les conventions Java");
+				"Le nom du port ne respecte pas les conventions Java");
 		
-		this.result.recordIfFailed(
-				object.getSchema().getColonnes().stream()
-					.allMatch(c -> (c.equals(object) || !((Colonne) c).getIdentifiant().contains(object.getIdentifiant()))),
-				object, 
-				"L'identifiant de la colonne (" + object.getNom() + ") n'est pas unique");
+	    if (object.isConstant()) {
+	        this.result.recordIfFailed(
+	                object.getDirection() == Direction.ENTREE,
+	                object,
+	                "Un port constant doit être une entrée."
+	        );
+	        
+	    }
 		
-		this.result.recordIfFailed(
-				object.getIdentifiant().equals(object.getSchema().getNom() + '.' + object.getNom()),
-				object, 
-				"L'identifiant de la colonne (" + object.getIdentifiant() + ") ne respecte pas la convention sur les identifiants (nom_table.nom_colonne).");
-		
-		this.result.recordIfFailed(
-				object.getContraintes().stream()
-					.allMatch(contrainte -> contrainte.getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOLEEN).count() == 1),
-				object, 
-				"Une des contraintes n'a pas exactement une sortie booléenne.");
 		
 		return null;
 	}
 
 	/**
-	 * Méthode appelée lorsque l'objet visité est une ColonneBrute.
+	 * Méthode appelée lorsque l'objet visité est une Ressource.
 	 * @param object élément visité
 	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
 	 * vers les classes parentes, le cas échéant)
 	 */
 	@Override
-	public Boolean caseColonneBrute(ColonneBrute object) {
-		// Contraintes sur ColonneBrute
+	public Boolean caseRessource(Ressource object) {
+		// Contraintes sur Ressource
+		this.result.recordIfFailed(
+				object.getEmplacement() != null && object.getEmplacement().matches(IDENT_REGEX), 
+				object, 
+				"Le nom de la ressource ne respecte pas les conventions Java");
+		
 		
 		return null;
 	}
 	
-	/**
-	 * Méthode appelée lorsque l'objet visité est une ColonneCalculee.
-	 * @param object élément visité
-	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
-	 * vers les classes parentes, le cas échéant)
-	 */
-	@Override
-	public Boolean caseColonneCalculee(ColonneCalculee object) {
-		// Contraintes sur ColonneCalculee
-		this.result.recordIfFailed(
-				object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().containsAll(object.getIdentifiantsColonnesEntree()),
-				object, 
-				"Une des colonnes d'entrée n'existe pas dans cette table");
-		
-		/** Ne fonctionne pas
-		*	this.result.recordIfFailed(
-		*		object.getAlgorithme().getPort().stream().filter(port -> port.getDirection().getValue() == AlgorithmeTable.Direction.SORTIE_VALUE && port.getType().equals(object.getTypeDonnees())).count() == 1,
-		*		object, 
-		*		"L'algorithme n'a pas un type de sortie compatible avec la colonne");
-		*/
-
-		return null;
-	}
-
-	/**
-	 * Méthode appelée lorsque l'objet visité est une ColonneEtrangere.
-	 * @param object élément visité
-	 * @return résultat de validation (null ici, ce qui permet de poursuivre la visite
-	 * vers les classes parentes, le cas échéant)
-	 */
-	@Override
-	public Boolean caseColonneEtrangere(ColonneEtrangere object) {
-		// Contraintes sur ColonneEtrangere
-		this.result.recordIfFailed(
-				!object.getSchema().getNom().equals(object.getSchemaEntree().getNom()),
-				object, 
-				"La colonne doit provenir d'une autre table");
-		
-		return null;
-	}
 	/**
 	 * Cas par défaut, lorsque l'objet visité ne correspond pas à un des autres cas.
 	 * Cette méthode est aussi appelée lorsqu'une méthode renvoie null (comme une sorte de
@@ -215,3 +175,5 @@ public class AlgorithmeTableValidator extends AlgorithmeTableSwitch<Boolean> {
 	
 	
 }
+
+

@@ -3,7 +3,7 @@
   <algorithme nom="PremierAlgo" documentation="Ceci est un exemple d'algorithme.">
     <ressource Emplacement="scripts/mon_script.py"/>
     <port nom="port1" type="int"/>
-    <port nom="port2" type="float" direction="Sortie"/>
+    <port nom="port2" direction="Sortie"/>
   </algorithme>
   <algorithme nom="SecondAlgo" documentation="Un algorithme de taxe.">
     <ressource Emplacement="scripts/second_script.py"/>
