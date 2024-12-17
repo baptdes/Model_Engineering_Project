@@ -77,6 +77,8 @@
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_jJiacbJKEe-bstv9bL0qMQ"/>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jkgYLJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -84,10 +86,10 @@
         <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
-      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugLJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -95,10 +97,10 @@
         <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-      <target xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
-      <semanticElements xmi:type="script:Argument" href="exemple-addition.xmi#//@arguments.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugbJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -106,10 +108,10 @@
         <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
-      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlugrJKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -117,10 +119,10 @@
         <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-      <target xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
-      <semanticElements xmi:type="script:Argument" href="exemple-complet.xmi#//@arguments.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_7jlug7JKEe-bstv9bL0qMQ" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
+      <semanticElements xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -128,8 +130,6 @@
         <description xmi:type="style:SquareDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']/@defaultLayer/@nodeMappings[name='ArgNode']"/>
-      <target xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
-      <semanticElements xmi:type="script:Argument" href="exemple-fonction-exp.xmi#//@arguments.0"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/script.design/description/script.odesign#//@ownedViewpoints[name='scriptViewpoint']/@ownedRepresentations[name='Script']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_jJQGkLJKEe-bstv9bL0qMQ"/>

@@ -62,7 +62,7 @@ class colonne:
 
 
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
+[for (cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]asSet()
 
 class [cb.schemaEntree.nom/]:
 
@@ -194,6 +194,7 @@ class [cb.schemaEntree.nom/]:
 
 [/for]
 [/let]
+
 
 
 
