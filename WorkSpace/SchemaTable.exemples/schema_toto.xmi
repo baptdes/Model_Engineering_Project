@@ -9,11 +9,14 @@
   <colonnes
       xsi:type="schematable:ColonneBrute"
       nom="lignes"
-      identifiant="toto.lignes"/>
+      identifiant="toto.lignes"
+      typeDonnees="Entier"/>
   <colonnes
       xsi:type="schematable:ColonneCalculee"
       nom="col2"
       identifiant="toto.col2">
+    <contraintes
+        href="contrainte_test.xmi#/"/>
     <algorithme
         href="algo_test.xmi#/"/>
     <identifiantsColonnesEntree>toto.lignes</identifiantsColonnesEntree>
@@ -22,10 +25,4 @@
       xsi:type="schematable:ColonneBrute"
       nom="col1"
       identifiant="toto.col1"/>
-  <contraintes>
-    <algorithme
-        href="contrainte_test.xmi#/"/>
-    <identifiantsColonnesEntree>toto.lignes</identifiantsColonnesEntree>
-    <identifiantsColonnesEntree>toto.col2</identifiantsColonnesEntree>
-  </contraintes>
 </schematable:SchemaDeTable>

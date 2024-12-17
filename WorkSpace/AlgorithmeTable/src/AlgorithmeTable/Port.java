@@ -72,7 +72,7 @@ public interface Port extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The default value is <code>"float"</code>.
+	 * The default value is <code>"Flottant"</code>.
 	 * The literals are from the enumeration {@link AlgorithmeTable.TypeDonnees}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,7 +80,7 @@ public interface Port extends EObject {
 	 * @see AlgorithmeTable.TypeDonnees
 	 * @see #setType(TypeDonnees)
 	 * @see AlgorithmeTable.AlgorithmeTablePackage#getPort_Type()
-	 * @model default="float"
+	 * @model default="Flottant"
 	 * @generated
 	 */
 	TypeDonnees getType();

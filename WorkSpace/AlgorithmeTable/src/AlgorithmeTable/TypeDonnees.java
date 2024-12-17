@@ -19,82 +19,88 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum TypeDonnees implements Enumerator {
 	/**
-	 * The '<em><b>Int</b></em>' literal object.
+	 * The '<em><b>Entier</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INT_VALUE
+	 * @see #ENTIER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	INT(0, "int", "int"), /**
-	 * The '<em><b>Float</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FLOAT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	FLOAT(1, "float", "float"), /**
-	 * The '<em><b>Str</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #STR_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	STR(2, "str", "str"), /**
-	 * The '<em><b>Bool</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BOOL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	BOOL(3, "bool", "bool");
+	ENTIER(0, "Entier", "Entier"),
 
 	/**
-	 * The '<em><b>Int</b></em>' literal value.
+	 * The '<em><b>Flottant</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INT
-	 * @model name="int"
+	 * @see #FLOTTANT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INT_VALUE = 0;
+	FLOTTANT(1, "Flottant", "Flottant"),
 
 	/**
-	 * The '<em><b>Float</b></em>' literal value.
+	 * The '<em><b>Texte</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FLOAT
-	 * @model name="float"
+	 * @see #TEXTE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FLOAT_VALUE = 1;
+	TEXTE(2, "Texte", "Texte"),
 
 	/**
-	 * The '<em><b>Str</b></em>' literal value.
+	 * The '<em><b>Booleen</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #STR
-	 * @model name="str"
+	 * @see #BOOLEEN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STR_VALUE = 2;
+	BOOLEEN(3, "Booleen", "Booleen");
 
 	/**
-	 * The '<em><b>Bool</b></em>' literal value.
+	 * The '<em><b>Entier</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BOOL
-	 * @model name="bool"
+	 * @see #ENTIER
+	 * @model name="Entier"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOL_VALUE = 3;
+	public static final int ENTIER_VALUE = 0;
+
+	/**
+	 * The '<em><b>Flottant</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FLOTTANT
+	 * @model name="Flottant"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FLOTTANT_VALUE = 1;
+
+	/**
+	 * The '<em><b>Texte</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TEXTE
+	 * @model name="Texte"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TEXTE_VALUE = 2;
+
+	/**
+	 * The '<em><b>Booleen</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEEN
+	 * @model name="Booleen"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOOLEEN_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Type Donnees</b></em>' enumerators.
@@ -104,10 +110,10 @@ public enum TypeDonnees implements Enumerator {
 	 */
 	private static final TypeDonnees[] VALUES_ARRAY =
 		new TypeDonnees[] {
-			INT,
-			FLOAT,
-			STR,
-			BOOL,
+			ENTIER,
+			FLOTTANT,
+			TEXTE,
+			BOOLEEN,
 		};
 
 	/**
@@ -164,10 +170,10 @@ public enum TypeDonnees implements Enumerator {
 	 */
 	public static TypeDonnees get(int value) {
 		switch (value) {
-			case INT_VALUE: return INT;
-			case FLOAT_VALUE: return FLOAT;
-			case STR_VALUE: return STR;
-			case BOOL_VALUE: return BOOL;
+			case ENTIER_VALUE: return ENTIER;
+			case FLOTTANT_VALUE: return FLOTTANT;
+			case TEXTE_VALUE: return TEXTE;
+			case BOOLEEN_VALUE: return BOOLEEN;
 		}
 		return null;
 	}
