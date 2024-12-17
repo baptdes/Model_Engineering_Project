@@ -1,0 +1,19 @@
+catalogue MyCatalogue {
+    algorithm PremierAlgo {
+        documentation "Ceci est un exemple d'algorithme."
+        ressource Python path "scripts/mon_script.py"
+        ports {
+            Entree constant port1 : Entier
+            Sortie port2 : Flottant
+        }
+    }
+
+    algorithm SecondAlgo {
+        documentation "Un algorithme de taxe."
+        ressource Python path "scripts/second_script.py"
+        ports {
+            Entree port3 : Texte
+            Sortie port4 : Booleen
+        }
+    }
+}
