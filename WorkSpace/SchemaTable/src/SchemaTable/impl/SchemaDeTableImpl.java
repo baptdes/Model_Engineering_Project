@@ -3,7 +3,6 @@
 package SchemaTable.impl;
 
 import SchemaTable.Colonne;
-import SchemaTable.Contrainte;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
 
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getColonnes <em>Colonnes</em>}</li>
  *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getColonneLignes <em>Colonne Lignes</em>}</li>
- *   <li>{@link SchemaTable.impl.SchemaDeTableImpl#getContraintes <em>Contraintes</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,16 +77,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	 * @ordered
 	 */
 	protected Colonne colonneLignes;
-
-	/**
-	 * The cached value of the '{@link #getContraintes() <em>Contraintes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContraintes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Contrainte> contraintes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,27 +178,12 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<Contrainte> getContraintes() {
-		if (contraintes == null) {
-			contraintes = new EObjectContainmentWithInverseEList<Contrainte>(Contrainte.class, this, SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES, SchemaTablePackage.CONTRAINTE__SCHEMA);
-		}
-		return contraintes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColonnes()).basicAdd(otherEnd, msgs);
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContraintes()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -225,8 +198,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 		switch (featureID) {
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNES:
 				return ((InternalEList<?>)getColonnes()).basicRemove(otherEnd, msgs);
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				return ((InternalEList<?>)getContraintes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -246,8 +217,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
 				if (resolve) return getColonneLignes();
 				return basicGetColonneLignes();
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				return getContraintes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,10 +240,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
 				setColonneLignes((Colonne)newValue);
 				return;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				getContraintes().clear();
-				getContraintes().addAll((Collection<? extends Contrainte>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -296,9 +261,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
 				setColonneLignes((Colonne)null);
 				return;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				getContraintes().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,8 +279,6 @@ public class SchemaDeTableImpl extends MinimalEObjectImpl.Container implements S
 				return colonnes != null && !colonnes.isEmpty();
 			case SchemaTablePackage.SCHEMA_DE_TABLE__COLONNE_LIGNES:
 				return colonneLignes != null;
-			case SchemaTablePackage.SCHEMA_DE_TABLE__CONTRAINTES:
-				return contraintes != null && !contraintes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

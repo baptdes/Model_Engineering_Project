@@ -85,7 +85,7 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TypeDonnees TYPE_EDEFAULT = TypeDonnees.FLOAT;
+	protected static final TypeDonnees TYPE_EDEFAULT = TypeDonnees.FLOTTANT;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

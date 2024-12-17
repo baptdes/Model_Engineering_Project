@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="ToVisualisationPython" name="SchemaTable.ToVisualisationPython">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->

@@ -49,7 +49,6 @@ public class ValidateSchemaTable {
 	 */
 	private static void afficherResultat(ValidationResult resultat) {
 		afficherErreurs("- SchemaDeTable", resultat.getRecordedErrorsFor(SchemaTablePackage.SCHEMA_DE_TABLE));
-		afficherErreurs("- Contrainte", resultat.getRecordedErrorsFor(SchemaTablePackage.CONTRAINTE));
 		afficherErreurs("- ColonneBrute", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_BRUTE));
 		afficherErreurs("- ColonneCalculee", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_CALCULEE));
 		afficherErreurs("- ColonneEtrangere", resultat.getRecordedErrorsFor(SchemaTablePackage.COLONNE_ETRANGERE));

@@ -4,7 +4,7 @@
     <semanticResources>AlgorithmeTable.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Gbb9YLpEEe-rYcBzpYMV4w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_G5r_oLpEEe-rYcBzpYMV4w" name="AlgorithmeTable class diagram" repPath="#_G5nHILpEEe-rYcBzpYMV4w" changeId="1734351496181">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_G5r_oLpEEe-rYcBzpYMV4w" name="AlgorithmeTable class diagram" repPath="#_G5nHILpEEe-rYcBzpYMV4w" changeId="1734352888001">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="AlgorithmeTable.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -75,7 +75,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_HJiZkbpEEe-rYcBzpYMV4w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_HJiZjLpEEe-rYcBzpYMV4w" fontName="Ubuntu" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJiZjbpEEe-rYcBzpYMV4w" x="308" y="245"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJiZjbpEEe-rYcBzpYMV4w" x="300" y="245"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_HJiZkrpEEe-rYcBzpYMV4w" type="2003" element="_HJZPkLpEEe-rYcBzpYMV4w">
           <children xmi:type="notation:Node" xmi:id="_HJiZlbpEEe-rYcBzpYMV4w" type="5007"/>
@@ -101,9 +101,9 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_HJjnobpEEe-rYcBzpYMV4w" fontName="Ubuntu" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_HJjnorpEEe-rYcBzpYMV4w"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_dytlgLunEe-plZJ3R_FdxQ" type="3010" element="_dyp7IbunEe-plZJ3R_FdxQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_dytlgbunEe-plZJ3R_FdxQ" fontName="Ubuntu" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_dytlgrunEe-plZJ3R_FdxQ"/>
+            <children xmi:type="notation:Node" xmi:id="_EYqQMLurEe-kncn7OpKOtw" type="3010" element="_EYhtU7urEe-kncn7OpKOtw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_EYqQMburEe-kncn7OpKOtw" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_EYqQMrurEe-kncn7OpKOtw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_HJiZnrpEEe-rYcBzpYMV4w"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_HJiZn7pEEe-rYcBzpYMV4w"/>
@@ -151,7 +151,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_HJiZrbpEEe-rYcBzpYMV4w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_HJiZqLpEEe-rYcBzpYMV4w" fontName="Ubuntu" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJiZqbpEEe-rYcBzpYMV4w" x="136" y="245"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJiZqbpEEe-rYcBzpYMV4w" x="152" y="250"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_G5smsrpEEe-rYcBzpYMV4w"/>
         <edges xmi:type="notation:Edge" xmi:id="_HJjnuLpEEe-rYcBzpYMV4w" type="4001" element="_HJgkVrpEEe-rYcBzpYMV4w" source="_HJhydrpEEe-rYcBzpYMV4w" target="_HJiZkrpEEe-rYcBzpYMV4w">
@@ -188,17 +188,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_HJkOvrpEEe-rYcBzpYMV4w" type="4001" element="_HJhLc7pEEe-rYcBzpYMV4w" source="_HJhydrpEEe-rYcBzpYMV4w" target="_HJiZi7pEEe-rYcBzpYMV4w">
           <children xmi:type="notation:Node" xmi:id="_HJkOwrpEEe-rYcBzpYMV4w" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOw7pEEe-rYcBzpYMV4w" y="-2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOw7pEEe-rYcBzpYMV4w" x="4" y="-2"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_HJkOxLpEEe-rYcBzpYMV4w" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOxbpEEe-rYcBzpYMV4w" x="1" y="-57"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOxbpEEe-rYcBzpYMV4w" x="-3" y="-57"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_HJkOxrpEEe-rYcBzpYMV4w" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOx7pEEe-rYcBzpYMV4w" x="-1" y="-45"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJkOx7pEEe-rYcBzpYMV4w" x="3" y="-45"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJkOv7pEEe-rYcBzpYMV4w" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_HJkOwLpEEe-rYcBzpYMV4w" fontName="Ubuntu" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJkOwbpEEe-rYcBzpYMV4w" points="[-14, 49, 7, -156]$[-14, 156, 7, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJkOwbpEEe-rYcBzpYMV4w" points="[-17, 49, 9, -156]$[-17, 156, 9, -49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJkOyLpEEe-rYcBzpYMV4w" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJkOybpEEe-rYcBzpYMV4w" id="(0.5,0.5)"/>
         </edges>
@@ -300,7 +300,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJevJLpEEe-rYcBzpYMV4w" name="type : TypeDonnees = float" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJevJLpEEe-rYcBzpYMV4w" name="type : TypeDonnees = Flottant" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="AlgorithmeTable.ecore#//Port/type"/>
         <semanticElements xmi:type="ecore:EAttribute" href="AlgorithmeTable.ecore#//Port/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HJevJbpEEe-rYcBzpYMV4w" labelAlignment="LEFT">
@@ -362,10 +362,10 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_dyp7IbunEe-plZJ3R_FdxQ" name="Script" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_EYhtU7urEe-kncn7OpKOtw" name="Script" tooltipText="">
         <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeRessource/Script"/>
         <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeRessource/Script"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_dyp7IrunEe-plZJ3R_FdxQ" labelAlignment="LEFT">
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_EYiUYLurEe-kncn7OpKOtw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
@@ -408,33 +408,33 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJf9TbpEEe-rYcBzpYMV4w" name="int" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/int"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/int"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJf9TbpEEe-rYcBzpYMV4w" name="Entier" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Entier"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Entier"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HJf9TrpEEe-rYcBzpYMV4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkULpEEe-rYcBzpYMV4w" name="float" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/float"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/float"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkULpEEe-rYcBzpYMV4w" name="Flottant" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Flottant"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Flottant"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HJgkUbpEEe-rYcBzpYMV4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkUrpEEe-rYcBzpYMV4w" name="str" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/str"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/str"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkUrpEEe-rYcBzpYMV4w" name="Texte" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Texte"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Texte"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HJgkU7pEEe-rYcBzpYMV4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkVLpEEe-rYcBzpYMV4w" name="bool" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/bool"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/bool"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HJgkVLpEEe-rYcBzpYMV4w" name="Booleen" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Booleen"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="AlgorithmeTable.ecore#//TypeDonnees/Booleen"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HJgkVbpEEe-rYcBzpYMV4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
