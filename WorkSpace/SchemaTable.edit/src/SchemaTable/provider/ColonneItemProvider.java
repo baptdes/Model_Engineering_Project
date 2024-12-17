@@ -63,6 +63,7 @@ public class ColonneItemProvider
 			addNomPropertyDescriptor(object);
 			addIdentifiantPropertyDescriptor(object);
 			addTypeDonneesPropertyDescriptor(object);
+			addContraintesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -129,6 +130,28 @@ public class ColonneItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Contraintes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContraintesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Colonne_contraintes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Colonne_contraintes_feature", "_UI_Colonne_type"),
+				 SchemaTablePackage.Literals.COLONNE__CONTRAINTES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

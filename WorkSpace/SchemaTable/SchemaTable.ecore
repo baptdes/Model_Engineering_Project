@@ -7,8 +7,6 @@
         upperBound="-1" eType="#//Colonne" containment="true" eOpposite="#//Colonne/schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="colonneLignes" lowerBound="1"
         eType="#//Colonne"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
-        eType="#//Contrainte" containment="true" eOpposite="#//Contrainte/schema"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Colonne" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -16,7 +14,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDonnees" lowerBound="1"
         eType="ecore:EEnum ../AlgorithmeTable/AlgorithmeTable.ecore#//TypeDonnees"
-        defaultValueLiteral="float"/>
+        defaultValueLiteral="Flottant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
+        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
         eType="#//SchemaDeTable" eOpposite="#//SchemaDeTable/colonnes"/>
   </eClassifiers>
@@ -32,13 +32,5 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaEntree" lowerBound="1"
         eType="#//SchemaDeTable"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contrainte">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
-        eType="ecore:EClass ../AlgorithmeTable/AlgorithmeTable.ecore#//Algorithme"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiantsColonnesEntree"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
-        eType="#//SchemaDeTable" eOpposite="#//SchemaDeTable/contraintes"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -11,12 +11,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//SchemaDeTable/nom"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//SchemaDeTable/colonnes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//SchemaDeTable/colonneLignes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//SchemaDeTable/contraintes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="SchemaTable.ecore#//Colonne">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/nom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/identifiant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Colonne/typeDonnees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//Colonne/contraintes"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SchemaTable.ecore#//Colonne/schema"/>
     </genClasses>
     <genClasses ecoreClass="SchemaTable.ecore#//ColonneBrute"/>
@@ -27,11 +27,6 @@
     <genClasses ecoreClass="SchemaTable.ecore#//ColonneEtrangere">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//ColonneEtrangere/nomColonneEtrangere"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//ColonneEtrangere/schemaEntree"/>
-    </genClasses>
-    <genClasses ecoreClass="SchemaTable.ecore#//Contrainte">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SchemaTable.ecore#//Contrainte/algorithme"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchemaTable.ecore#//Contrainte/identifiantsColonnesEntree"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SchemaTable.ecore#//Contrainte/schema"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

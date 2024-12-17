@@ -94,22 +94,13 @@ public interface SchemaTablePackage extends EPackage {
 	int SCHEMA_DE_TABLE__COLONNE_LIGNES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Contraintes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA_DE_TABLE__CONTRAINTES = 3;
-
-	/**
 	 * The number of structural features of the '<em>Schema De Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_DE_TABLE_FEATURE_COUNT = 4;
+	int SCHEMA_DE_TABLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Schema De Table</em>' class.
@@ -158,13 +149,22 @@ public interface SchemaTablePackage extends EPackage {
 	int COLONNE__TYPE_DONNEES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Contraintes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLONNE__CONTRAINTES = 3;
+
+	/**
 	 * The feature id for the '<em><b>Schema</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLONNE__SCHEMA = 3;
+	int COLONNE__SCHEMA = 4;
 
 	/**
 	 * The number of structural features of the '<em>Colonne</em>' class.
@@ -173,7 +173,7 @@ public interface SchemaTablePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLONNE_FEATURE_COUNT = 4;
+	int COLONNE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Colonne</em>' class.
@@ -220,6 +220,15 @@ public interface SchemaTablePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLONNE_BRUTE__TYPE_DONNEES = COLONNE__TYPE_DONNEES;
+
+	/**
+	 * The feature id for the '<em><b>Contraintes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLONNE_BRUTE__CONTRAINTES = COLONNE__CONTRAINTES;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' container reference.
@@ -284,6 +293,15 @@ public interface SchemaTablePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLONNE_CALCULEE__TYPE_DONNEES = COLONNE__TYPE_DONNEES;
+
+	/**
+	 * The feature id for the '<em><b>Contraintes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLONNE_CALCULEE__CONTRAINTES = COLONNE__CONTRAINTES;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' container reference.
@@ -368,6 +386,15 @@ public interface SchemaTablePackage extends EPackage {
 	int COLONNE_ETRANGERE__TYPE_DONNEES = COLONNE__TYPE_DONNEES;
 
 	/**
+	 * The feature id for the '<em><b>Contraintes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLONNE_ETRANGERE__CONTRAINTES = COLONNE__CONTRAINTES;
+
+	/**
 	 * The feature id for the '<em><b>Schema</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,61 +440,6 @@ public interface SchemaTablePackage extends EPackage {
 	int COLONNE_ETRANGERE_OPERATION_COUNT = COLONNE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link SchemaTable.impl.ContrainteImpl <em>Contrainte</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see SchemaTable.impl.ContrainteImpl
-	 * @see SchemaTable.impl.SchemaTablePackageImpl#getContrainte()
-	 * @generated
-	 */
-	int CONTRAINTE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Algorithme</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRAINTE__ALGORITHME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Identifiants Colonnes Entree</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRAINTE__IDENTIFIANTS_COLONNES_ENTREE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Schema</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRAINTE__SCHEMA = 2;
-
-	/**
-	 * The number of structural features of the '<em>Contrainte</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRAINTE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Contrainte</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRAINTE_OPERATION_COUNT = 0;
-
-	/**
 	 * Returns the meta object for class '{@link SchemaTable.SchemaDeTable <em>Schema De Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,17 +481,6 @@ public interface SchemaTablePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchemaDeTable_ColonneLignes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link SchemaTable.SchemaDeTable#getContraintes <em>Contraintes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contraintes</em>'.
-	 * @see SchemaTable.SchemaDeTable#getContraintes()
-	 * @see #getSchemaDeTable()
-	 * @generated
-	 */
-	EReference getSchemaDeTable_Contraintes();
 
 	/**
 	 * Returns the meta object for class '{@link SchemaTable.Colonne <em>Colonne</em>}'.
@@ -574,6 +535,17 @@ public interface SchemaTablePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColonne_TypeDonnees();
+
+	/**
+	 * Returns the meta object for the reference list '{@link SchemaTable.Colonne#getContraintes <em>Contraintes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contraintes</em>'.
+	 * @see SchemaTable.Colonne#getContraintes()
+	 * @see #getColonne()
+	 * @generated
+	 */
+	EReference getColonne_Contraintes();
 
 	/**
 	 * Returns the meta object for class '{@link SchemaTable.ColonneBrute <em>Colonne Brute</em>}'.
@@ -650,49 +622,6 @@ public interface SchemaTablePackage extends EPackage {
 	EReference getColonneEtrangere_SchemaEntree();
 
 	/**
-	 * Returns the meta object for class '{@link SchemaTable.Contrainte <em>Contrainte</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Contrainte</em>'.
-	 * @see SchemaTable.Contrainte
-	 * @generated
-	 */
-	EClass getContrainte();
-
-	/**
-	 * Returns the meta object for the reference '{@link SchemaTable.Contrainte#getAlgorithme <em>Algorithme</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Algorithme</em>'.
-	 * @see SchemaTable.Contrainte#getAlgorithme()
-	 * @see #getContrainte()
-	 * @generated
-	 */
-	EReference getContrainte_Algorithme();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link SchemaTable.Contrainte#getIdentifiantsColonnesEntree <em>Identifiants Colonnes Entree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Identifiants Colonnes Entree</em>'.
-	 * @see SchemaTable.Contrainte#getIdentifiantsColonnesEntree()
-	 * @see #getContrainte()
-	 * @generated
-	 */
-	EAttribute getContrainte_IdentifiantsColonnesEntree();
-
-	/**
-	 * Returns the meta object for the container reference '{@link SchemaTable.Contrainte#getSchema <em>Schema</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Schema</em>'.
-	 * @see SchemaTable.Contrainte#getSchema()
-	 * @see #getContrainte()
-	 * @generated
-	 */
-	EReference getContrainte_Schema();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -750,14 +679,6 @@ public interface SchemaTablePackage extends EPackage {
 		EReference SCHEMA_DE_TABLE__COLONNE_LIGNES = eINSTANCE.getSchemaDeTable_ColonneLignes();
 
 		/**
-		 * The meta object literal for the '<em><b>Contraintes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEMA_DE_TABLE__CONTRAINTES = eINSTANCE.getSchemaDeTable_Contraintes();
-
-		/**
 		 * The meta object literal for the '{@link SchemaTable.impl.ColonneImpl <em>Colonne</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -798,6 +719,14 @@ public interface SchemaTablePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLONNE__TYPE_DONNEES = eINSTANCE.getColonne_TypeDonnees();
+
+		/**
+		 * The meta object literal for the '<em><b>Contraintes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLONNE__CONTRAINTES = eINSTANCE.getColonne_Contraintes();
 
 		/**
 		 * The meta object literal for the '{@link SchemaTable.impl.ColonneBruteImpl <em>Colonne Brute</em>}' class.
@@ -860,40 +789,6 @@ public interface SchemaTablePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLONNE_ETRANGERE__SCHEMA_ENTREE = eINSTANCE.getColonneEtrangere_SchemaEntree();
-
-		/**
-		 * The meta object literal for the '{@link SchemaTable.impl.ContrainteImpl <em>Contrainte</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see SchemaTable.impl.ContrainteImpl
-		 * @see SchemaTable.impl.SchemaTablePackageImpl#getContrainte()
-		 * @generated
-		 */
-		EClass CONTRAINTE = eINSTANCE.getContrainte();
-
-		/**
-		 * The meta object literal for the '<em><b>Algorithme</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTRAINTE__ALGORITHME = eINSTANCE.getContrainte_Algorithme();
-
-		/**
-		 * The meta object literal for the '<em><b>Identifiants Colonnes Entree</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONTRAINTE__IDENTIFIANTS_COLONNES_ENTREE = eINSTANCE.getContrainte_IdentifiantsColonnesEntree();
-
-		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTRAINTE__SCHEMA = eINSTANCE.getContrainte_Schema();
 
 	}
 

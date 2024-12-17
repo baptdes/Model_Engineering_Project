@@ -1,0 +1,51 @@
+module AlgoToAlgorithmeTable;
+create OUT : AlgorithmeTable from IN : Algo;
+
+-- Définition des règles
+
+-- Transformation d'un Catalogue en Table principale
+rule CatalogueToTable {
+    from
+        src : Algo!Catalogue
+    to
+        tgt : AlgorithmeTable!Catalogue (
+            nom <- src.nom,
+            algorithme <- src.algorithmes
+        )
+}
+
+-- Transformation d'un Algorithme en AlgorithmeTable::Algorithme
+rule AlgorithmeToAlgorithme {
+    from
+        src : Algo!Algorithme
+    to
+        tgt : AlgorithmeTable!Algorithme (
+            nom <- src.nom,
+            documentation <- src.documentation,
+			port <- src.port,
+			ressource <- src.ressource
+        )
+}
+
+-- Transformation d'une Ressource en AlgorithmeTable::Ressource
+rule RessourceToRessource {
+    from
+        src : Algo!Ressource
+    to
+        tgt : AlgorithmeTable!Ressource (
+            Type <- src.type,
+            Emplacement <- src.emplacement
+        )
+}
+
+-- Transformation d'un Port en AlgorithmeTable::Port
+rule PortToPort {
+    from
+        src : Algo!Port
+    to
+        tgt : AlgorithmeTable!Port (
+            nom <- src.nom,
+            type <- src.type,
+            direction <- src.direction
+        )
+}

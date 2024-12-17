@@ -2,17 +2,25 @@
  */
 package SchemaTable.impl;
 
+import AlgorithmeTable.Algorithme;
 import AlgorithmeTable.TypeDonnees;
 import SchemaTable.Colonne;
 import SchemaTable.SchemaDeTable;
 import SchemaTable.SchemaTablePackage;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -26,6 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link SchemaTable.impl.ColonneImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link SchemaTable.impl.ColonneImpl#getIdentifiant <em>Identifiant</em>}</li>
  *   <li>{@link SchemaTable.impl.ColonneImpl#getTypeDonnees <em>Type Donnees</em>}</li>
+ *   <li>{@link SchemaTable.impl.ColonneImpl#getContraintes <em>Contraintes</em>}</li>
  *   <li>{@link SchemaTable.impl.ColonneImpl#getSchema <em>Schema</em>}</li>
  * </ul>
  *
@@ -80,7 +89,7 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TypeDonnees TYPE_DONNEES_EDEFAULT = TypeDonnees.FLOAT;
+	protected static final TypeDonnees TYPE_DONNEES_EDEFAULT = TypeDonnees.FLOTTANT;
 
 	/**
 	 * The cached value of the '{@link #getTypeDonnees() <em>Type Donnees</em>}' attribute.
@@ -91,6 +100,16 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected TypeDonnees typeDonnees = TYPE_DONNEES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getContraintes() <em>Contraintes</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContraintes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Algorithme> contraintes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -229,6 +248,19 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	public EList<Algorithme> getContraintes() {
+		if (contraintes == null) {
+			contraintes = new EObjectResolvingEList<Algorithme>(Algorithme.class, this, SchemaTablePackage.COLONNE__CONTRAINTES);
+		}
+		return contraintes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SchemaTablePackage.COLONNE__SCHEMA:
@@ -281,6 +313,8 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 				return getIdentifiant();
 			case SchemaTablePackage.COLONNE__TYPE_DONNEES:
 				return getTypeDonnees();
+			case SchemaTablePackage.COLONNE__CONTRAINTES:
+				return getContraintes();
 			case SchemaTablePackage.COLONNE__SCHEMA:
 				return getSchema();
 		}
@@ -304,6 +338,10 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case SchemaTablePackage.COLONNE__TYPE_DONNEES:
 				setTypeDonnees((TypeDonnees)newValue);
+				return;
+			case SchemaTablePackage.COLONNE__CONTRAINTES:
+				getContraintes().clear();
+				getContraintes().addAll((Collection<? extends Algorithme>)newValue);
 				return;
 			case SchemaTablePackage.COLONNE__SCHEMA:
 				setSchema((SchemaDeTable)newValue);
@@ -329,6 +367,9 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 			case SchemaTablePackage.COLONNE__TYPE_DONNEES:
 				setTypeDonnees(TYPE_DONNEES_EDEFAULT);
 				return;
+			case SchemaTablePackage.COLONNE__CONTRAINTES:
+				getContraintes().clear();
+				return;
 			case SchemaTablePackage.COLONNE__SCHEMA:
 				setSchema((SchemaDeTable)null);
 				return;
@@ -350,6 +391,8 @@ public abstract class ColonneImpl extends MinimalEObjectImpl.Container implement
 				return IDENTIFIANT_EDEFAULT == null ? identifiant != null : !IDENTIFIANT_EDEFAULT.equals(identifiant);
 			case SchemaTablePackage.COLONNE__TYPE_DONNEES:
 				return typeDonnees != TYPE_DONNEES_EDEFAULT;
+			case SchemaTablePackage.COLONNE__CONTRAINTES:
+				return contraintes != null && !contraintes.isEmpty();
 			case SchemaTablePackage.COLONNE__SCHEMA:
 				return getSchema() != null;
 		}
