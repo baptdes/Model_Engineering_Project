@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<script:Script xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:script="http://www.example.org/script">
+<script:Script xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:script="http://www.example.org/script" nom="benefice">
   <arguments nom="nbCartes">
     <sortie entree="//@blocs.2/@entree.0"/>
   </arguments>
@@ -8,6 +8,9 @@
   </arguments>
   <arguments nom="prixVente">
     <sortie entree="//@blocs.0/@entree.1"/>
+  </arguments>
+  <arguments>
+    <sortie entree="//@blocs.3/@entree.0"/>
   </arguments>
   <resultat nom="benef">
     <entree sortie="//@blocs.2/@sortie"/>
@@ -25,5 +28,10 @@
     <entree sortie="//@arguments.0/@sortie"/>
     <entree sortie="//@blocs.0/@sortie"/>
     <sortie entree="//@resultat.0/@entree"/>
+  </blocs>
+  <blocs xsi:type="script:OperationBinaire">
+    <entree sortie="//@arguments.3/@sortie"/>
+    <entree sortie="//@blocs.3/@sortie"/>
+    <sortie entree="//@blocs.3/@entree.1"/>
   </blocs>
 </script:Script>
