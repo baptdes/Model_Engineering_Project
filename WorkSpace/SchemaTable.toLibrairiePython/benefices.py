@@ -42,6 +42,315 @@ class colonne:
 
 
 
+class histo_ventes:
+
+
+    colonnes = []
+    
+
+    def getColonne(self,idColonne):
+        for colonne in self.colonnes:
+            if (idColonne == colonne.id):
+                return colonne
+    
+
+    def __init__(self):
+        self.colonnes = [
+            colonne("id","int","histo_ventes.id", True ), colonne("noms","str","histo_ventes.noms", True ), colonne("nb_cartes","int","histo_ventes.nb_cartes", True ), colonne("prix_vente","float","histo_ventes.prix_vente", True ), colonne("prix_achat","float","histo_ventes.prix_achat", True )]
+        
+
+ # permet de vérifier que la matrice est conforme
+    # argument : - self classe
+    # sortie : booléen, retourne true si le fichier a bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'erreurs 
+    def verificationImport(self, contenue):  
+        # vérification
+        for ligne in range(1, len(contenue)):
+            a = 0
+            for colonne in range(0, len(self.colonnes)):
+                if self.colonnes[colonne].Isimport:
+                    
+                    # vérification de type
+                    contenue[ligne][a] = eval(self.colonnes[a].type + "(\"" + contenue[ligne][a] + "\")")    
+                    
+                    # ajout de la valeur dans le tableau 
+                    self.colonnes[a].valeur.append(contenue[ligne][a])  
+                    a += 1            
+                        
+        return True
+
+
+    
+    
+
+    #permet d'importer in fichier CSV
+    #argument : - self classe
+    #           - fichierCSV : chemin du fichier CSV que l'on veut importer
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    def importationCSV(self,fichierCSV):
+            with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
+                    fichierCSV = fichier
+                    lecteur_csv = csv.reader(fichier)
+                    contenue = [ligne for ligne in lecteur_csv]
+                            #verification que la matrice importer est conforme aux contraintes et aux types
+                    if not(self.verificationImport(contenue)):
+                            print("retour false Calcul")                                                 
+
+
+
+        
+    def AjoutColonneReference(self, addresseTabRef):
+        
+        
+        
+        print("Ajout Colonne Référence")
+
+
+
+    def calcul(self):
+        
+        print("calcul des colonnes")
+        
+
+
+
+    #permet de vérifier que les calculs sont les bons
+    #argument : - self classe
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'éreurs 
+    def verificationFinal(self):  
+        #vérification des contraintes 
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_vente\").valeur[i]   ))" ):
+                return False  
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_achat\").valeur[i]   ))" ):
+                return False  
+        print("vérification")
+        return True
+        
+
+
+class histo_ventes:
+
+
+    colonnes = []
+    
+
+    def getColonne(self,idColonne):
+        for colonne in self.colonnes:
+            if (idColonne == colonne.id):
+                return colonne
+    
+
+    def __init__(self):
+        self.colonnes = [
+            colonne("id","int","histo_ventes.id", True ), colonne("noms","str","histo_ventes.noms", True ), colonne("nb_cartes","int","histo_ventes.nb_cartes", True ), colonne("prix_vente","float","histo_ventes.prix_vente", True ), colonne("prix_achat","float","histo_ventes.prix_achat", True )]
+        
+
+ # permet de vérifier que la matrice est conforme
+    # argument : - self classe
+    # sortie : booléen, retourne true si le fichier a bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'erreurs 
+    def verificationImport(self, contenue):  
+        # vérification
+        for ligne in range(1, len(contenue)):
+            a = 0
+            for colonne in range(0, len(self.colonnes)):
+                if self.colonnes[colonne].Isimport:
+                    
+                    # vérification de type
+                    contenue[ligne][a] = eval(self.colonnes[a].type + "(\"" + contenue[ligne][a] + "\")")    
+                    
+                    # ajout de la valeur dans le tableau 
+                    self.colonnes[a].valeur.append(contenue[ligne][a])  
+                    a += 1            
+                        
+        return True
+
+
+    
+    
+
+    #permet d'importer in fichier CSV
+    #argument : - self classe
+    #           - fichierCSV : chemin du fichier CSV que l'on veut importer
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    def importationCSV(self,fichierCSV):
+            with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
+                    fichierCSV = fichier
+                    lecteur_csv = csv.reader(fichier)
+                    contenue = [ligne for ligne in lecteur_csv]
+                            #verification que la matrice importer est conforme aux contraintes et aux types
+                    if not(self.verificationImport(contenue)):
+                            print("retour false Calcul")                                                 
+
+
+
+        
+    def AjoutColonneReference(self, addresseTabRef):
+        
+        
+        
+        print("Ajout Colonne Référence")
+
+
+
+    def calcul(self):
+        
+        print("calcul des colonnes")
+        
+
+
+
+    #permet de vérifier que les calculs sont les bons
+    #argument : - self classe
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'éreurs 
+    def verificationFinal(self):  
+        #vérification des contraintes 
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_vente\").valeur[i]   ))" ):
+                return False  
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_achat\").valeur[i]   ))" ):
+                return False  
+        print("vérification")
+        return True
+        
+
+
+class histo_ventes:
+
+
+    colonnes = []
+    
+
+    def getColonne(self,idColonne):
+        for colonne in self.colonnes:
+            if (idColonne == colonne.id):
+                return colonne
+    
+
+    def __init__(self):
+        self.colonnes = [
+            colonne("id","int","histo_ventes.id", True ), colonne("noms","str","histo_ventes.noms", True ), colonne("nb_cartes","int","histo_ventes.nb_cartes", True ), colonne("prix_vente","float","histo_ventes.prix_vente", True ), colonne("prix_achat","float","histo_ventes.prix_achat", True )]
+        
+
+ # permet de vérifier que la matrice est conforme
+    # argument : - self classe
+    # sortie : booléen, retourne true si le fichier a bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'erreurs 
+    def verificationImport(self, contenue):  
+        # vérification
+        for ligne in range(1, len(contenue)):
+            a = 0
+            for colonne in range(0, len(self.colonnes)):
+                if self.colonnes[colonne].Isimport:
+                    
+                    # vérification de type
+                    contenue[ligne][a] = eval(self.colonnes[a].type + "(\"" + contenue[ligne][a] + "\")")    
+                    
+                    # ajout de la valeur dans le tableau 
+                    self.colonnes[a].valeur.append(contenue[ligne][a])  
+                    a += 1            
+                        
+        return True
+
+
+    
+    
+
+    #permet d'importer in fichier CSV
+    #argument : - self classe
+    #           - fichierCSV : chemin du fichier CSV que l'on veut importer
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    def importationCSV(self,fichierCSV):
+            with open(fichierCSV, mode='r', encoding='utf-8') as fichier:
+                    fichierCSV = fichier
+                    lecteur_csv = csv.reader(fichier)
+                    contenue = [ligne for ligne in lecteur_csv]
+                            #verification que la matrice importer est conforme aux contraintes et aux types
+                    if not(self.verificationImport(contenue)):
+                            print("retour false Calcul")                                                 
+
+
+
+        
+    def AjoutColonneReference(self, addresseTabRef):
+        
+        
+        
+        print("Ajout Colonne Référence")
+
+
+
+    def calcul(self):
+        
+        print("calcul des colonnes")
+        
+
+
+
+    #permet de vérifier que les calculs sont les bons
+    #argument : - self classe
+    #sortie : booléen, retourne true si le fichier à bien été importé et false sinon
+    # affiche les messages d'avertissements ou d'éreurs 
+    def verificationFinal(self):  
+        #vérification des contraintes 
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_vente\").valeur[i]   ))" ):
+                return False  
+        
+        #faire de l'introspection pour récupérer le nom de la fonction
+        methodes = [name for name, obj in inspect.getmembers(estPositif, inspect.isfunction)]
+        #si il y a plusieurs méthode fini 
+        if len(methodes) > 1:
+            raise Exception("L'algo " + "est_positif" + "a trop de fonction alors que nous en voulons qu'une")
+        for i in range(0,len(self.colonnes[0].valeur)):
+            #Il faut ajouter le nom du dossier de la fonction importer
+            if eval("not(estPositif." + str(methodes[0]) + "(  self.getColonne(\"histo_ventes.prix_achat\").valeur[i]   ))" ):
+                return False  
+        print("vérification")
+        return True
+        
+
+
 
 
 
@@ -152,7 +461,7 @@ class benefices:
             raise Exception("L'algo " + "benefice" + "a trop de fonction alors que nous en voulons qu'une")
         for i in range(0,len(self.colonnes[0].valeur)):
             #Il faut ajouter le nom du dossier de la fonction importer
-            intermediaire.append(eval("benefice." + str(methodes[0]) + "(  self.getColonne(\"benefices.nbc\").valeur[i] ,  self.getColonne(\"benefices.pa\").valeur[i] ,  self.getColonne(\"benefices.pv\").valeur[i]  )" )
+            intermediaire.append(eval("benefice." + str(methodes[0]) + "(  self.getColonne(\"benefices.nbc\").valeur[i] ,  self.getColonne(\"benefices.pa\").valeur[i] ,  self.getColonne(\"benefices.pv\").valeur[i]  )" ))
         self.getColonne("benefices.benef").valeur = intermediaire
         print("calcul des colonnes")
         

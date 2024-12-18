@@ -19,18 +19,18 @@ from enum import Enum
 #         - valeurs en entrée 
 #sortie ; - valeurs en sortie
 [let conts : OrderedSet(Contrainte) = aSchemaDeTable.contraintes]
-[for (  cont : Contrainte | conts) ]
+[for (  cont : Contrainte | conts->asSet()) ]
 import [cont.algorithme.ressource.Emplacement/] as [cont.algorithme.nom/]
 [/for]
 [/let]
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
+[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))->asSet()) ]
 import [cb.algorithme.ressource.Emplacement/] as [cb.algorithme.nom/]
 [/for]
 [/let]
 
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]
+[for (  cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))->asSet()) ]
 
 [let conts : OrderedSet(Contrainte) = cb.schemaEntree.contraintes]
 [for (  cont : Contrainte | conts) ]
@@ -38,7 +38,7 @@ import [cont.algorithme.ressource.Emplacement/] as [cont.algorithme.nom/]
 [/for]
 [/let]
 [let cbs : OrderedSet(Colonne) = cb.schemaEntree.colonnes]
-[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))) ]
+[for (  cb : ColonneCalculee | cbs -> select(e | e.oclIsKindOf(ColonneCalculee))->asSet()) ]
 import [cb.algorithme.ressource.Emplacement/] as [cb.algorithme.nom/]
 [/for]
 [/let]
@@ -62,7 +62,7 @@ class colonne:
 
 
 [let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (cb : ColonneEtrangere | cbs -> select(e | e.oclIsKindOf(ColonneEtrangere))) ]asSet()
+[for (cb : ColonneEtrangere | cbs->select(e | e.oclIsKindOf(ColonneEtrangere))->collect(e | e.oclAsType(ColonneEtrangere))->asSet())]
 
 class [cb.schemaEntree.nom/]:
 
@@ -299,7 +299,7 @@ class [aSchemaDeTable.nom/]:
             raise Exception("L'algo " + "[cb.algorithme.ressource.Emplacement/]" + "a trop de fonction alors que nous en voulons qu'une")
         for i in range(0,len(self.colonnes['['/]0[']'/].valeur)):
             #Il faut ajouter le nom du dossier de la fonction importer
-            intermediaire.append(eval("[cb.algorithme.nom/]." + str(methodes['['/]0[']'/]) + "( [for ( id : String | cb.identifiantsColonnesEntree ) separator(', ')] self.getColonne(\"[id/]\").valeur['['/]i[']'/] [/for] )" )
+            intermediaire.append(eval("[cb.algorithme.nom/]." + str(methodes['['/]0[']'/]) + "( [for ( id : String | cb.identifiantsColonnesEntree ) separator(', ')] self.getColonne(\"[id/]\").valeur['['/]i[']'/] [/for] )" ))
         self.getColonne("[cb.identifiant/]").valeur = intermediaire
         [/for]
         [/let]
