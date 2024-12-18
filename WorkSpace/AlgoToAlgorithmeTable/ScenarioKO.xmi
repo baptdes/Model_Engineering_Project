@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<algo:Catalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:algo="http://www.xtext.org/algorithme/algo/Algo" nom="PremiCatalogue">
+  <algorithmes nom="PremiAlgo" documentation="Ceci est un exemple d'algorithme.">
+    <ressource emplacement="scripts/mon_script.py"/>
+    <port direction="Sortie" constant="true" nom="port1"/>
+    <port nom="port2" type="float"/>
+  </algorithmes>
+  <algorithmes nom="PremiAlgo" documentation="Un algorithme de taxe.">
+    <ressource emplacement="scripts/second_script.py"/>
+    <port direction="Sortie" nom="port4" type="bool"/>
+  </algorithmes>
+</algo:Catalogue>

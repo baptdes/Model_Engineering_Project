@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<algorithmeTable:Catalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:algorithmeTable="http://algorithme_table" nom="cata_mauvais_schema">
+  <algorithme nom="identite_float">
+    <ressource Emplacement="identite_float"/>
+    <port nom="entree"/>
+    <port nom="sortie" direction="Sortie"/>
+  </algorithme>
+</algorithmeTable:Catalogue>

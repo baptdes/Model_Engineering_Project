@@ -1,0 +1,18 @@
+catalogue PremiCatalogue {
+    algorithm PremiAlgo {
+        documentation "Ceci est un exemple d'algorithme."
+        ressource Python path "scripts/mon_script.py"
+        ports {
+            Sortie constant port1 : int
+            Entree port2 : float
+        }
+    }
+
+    algorithm PremiAlgo {
+        documentation "Un algorithme de taxe."
+        ressource Python path "scripts/second_script.py"
+        ports {
+            Sortie port4 : bool
+        }
+    }
+}

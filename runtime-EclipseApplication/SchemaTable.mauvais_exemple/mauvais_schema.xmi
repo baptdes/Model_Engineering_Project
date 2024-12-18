@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schematable:SchemaDeTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schematable="http://schematable" nom="2">
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="boucle1" identifiant="2.boucle1">
+    <algorithme href="cata_mauvais_schema.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>2.boucle2</identifiantsColonnesEntree>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="boucle2" identifiant="2.boucle2">
+    <algorithme href="cata_mauvais_schema.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>2.boucle1</identifiantsColonnesEntree>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="2mauvais_nom" identifiant="2.2mauvais_nom"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="doublon" identifiant="2.doublon"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="doublon" identifiant="2.doublon"/>
+  <colonnes xsi:type="schematable:ColonneBrute" nom="mauvais_id" identifiant="2mauvais_id"/>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="colonne_pas_ici" identifiant="2.colonne_pas_ici">
+    <algorithme href="cata_mauvais_schema.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>3.colonne_pas_ici</identifiantsColonnesEntree>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneCalculee" nom="type_incompatible" identifiant="2.type_incompatible" typeDonnees="int">
+    <algorithme href="cata_mauvais_schema.xmi#//@algorithme.0"/>
+  </colonnes>
+  <colonnes xsi:type="schematable:ColonneEtrangere" nom="colonne_ici" identifiant="2.colonne_ici" nomColonneEtrangere="2mauvais_nom" schemaEntree="/"/>
+  <contraintes>
+    <algorithme href="cata_mauvais_schema.xmi#//@algorithme.0"/>
+    <identifiantsColonnesEntree>3.pas_dans_cette_table</identifiantsColonnesEntree>
+  </contraintes>
+</schematable:SchemaDeTable>

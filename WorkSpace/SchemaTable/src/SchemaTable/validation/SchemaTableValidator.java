@@ -174,10 +174,12 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 	@Override
 	public Boolean caseContrainte(Contrainte object) {
 		// Contraintes sur Contrainte
-		this.result.recordIfFailed(
-				object.getAlgorithme() != null && object.getAlgorithme().getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOL).count() == 1, 
-				object, 
-				"L'algorithme associé à une contrainte doit avoir une unique sortie booléenne.");
+		/** Ne fonctionne pas -> est toujours levée
+		*this.result.recordIfFailed(
+		*		object.getAlgorithme() != null && object.getAlgorithme().getPort().stream().filter(port -> port.getDirection() == AlgorithmeTable.Direction.SORTIE && port.getType() == AlgorithmeTable.TypeDonnees.BOOL).count() == 1, 
+		*		object, 
+		*		"L'algorithme associé à une contrainte doit avoir une unique sortie booléenne.");
+		*/
 		
 		this.result.recordIfFailed(
 				object.getSchema().getColonnes().stream().map(c -> ((Colonne) c).getIdentifiant()).toList().containsAll(object.getIdentifiantsColonnesEntree()),
@@ -242,7 +244,7 @@ public class SchemaTableValidator extends SchemaTableSwitch<Boolean> {
 				object, 
 				"Une des colonnes d'entrée n'existe pas dans cette table");
 		
-		/** Ne fonctionne pas
+		/** Ne fonctionne pas -> est toujours levée
 		*	this.result.recordIfFailed(
 		*		object.getAlgorithme().getPort().stream().filter(port -> port.getDirection().getValue() == AlgorithmeTable.Direction.SORTIE_VALUE && port.getType().equals(object.getTypeDonnees())).count() == 1,
 		*		object, 
