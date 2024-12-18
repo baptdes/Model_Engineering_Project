@@ -1,4 +1,4 @@
 id,nom,nb_cartes,prix_vente,prix_achat
-1,bulbizarre,5,15,12
+1,bulbizarre,5,-15,12
 2,salameche,30,6,4
 3,carapuce,6,26,20

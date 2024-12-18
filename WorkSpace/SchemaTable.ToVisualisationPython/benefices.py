@@ -1,17 +1,10 @@
-[comment encoding = UTF-8 /]
-[module ToVisualisationPython('http://schematable')]
-
-
-[template public toVisualisationPython(aSchemaDeTable : SchemaDeTable)]
-[comment @main/]
-[file (aSchemaDeTable.nom + '.py', false, 'UTF-8')]
 
 import csv
 from tkinter import * 
 from tkinter import filedialog
 from matplotlib import pyplot as plt 
-X=['['/][']'/]
-Y=['['/][']'/]
+X=[]
+Y=[]
 
 
 
@@ -44,7 +37,7 @@ def Estimporter() :
     global contenue
     chemin_fichier = filedialog.askopenfilename(
         title="Importer un fichier",
-        filetypes=['['/]("Tous les fichiers", "*.csv*")[']'/]
+        filetypes=[("Tous les fichiers", "*.csv*")]
     )
     if chemin_fichier:  
         labelConfirmationImportation.config(text=f"Fichier importé : {chemin_fichier}")
@@ -55,7 +48,7 @@ def Estimporter() :
         with open(chemin_fichier, mode='r', encoding='utf-8') as fichier:
                 fichierCSV = fichier
                 lecteur_csv = csv.reader(fichier)
-                contenue = ['['/]ligne for ligne in lecteur_csv[']'/]  
+                contenue = [ligne for ligne in lecteur_csv]  
     except Exception as e:
         labelConfirmationImportation.config(text="Erreur lors de la lecture du fichier.")
         print(f"Erreur : {e}") 
@@ -73,11 +66,11 @@ bouton.pack()
 labelX = Label(Frame3, text="Colonnes pour l'axe des abscisses")
 labelX.pack()
 listeX = Listbox(Frame3,  selectmode=SINGLE)
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : Colonne | cbs )]
-listeX.insert(END, "[cb.nom/]")
-[/for]
-[/let]
+listeX.insert(END, "id")
+listeX.insert(END, "pa")
+listeX.insert(END, "pv")
+listeX.insert(END, "nbc")
+listeX.insert(END, "benef")
 listeX.pack()
 
 def selectionX():
@@ -91,11 +84,11 @@ listeXBouton.pack()
 labelY = Label(Frame3, text="Colonnes pour l'axe des abscisses")
 labelY.pack()
 listeY = Listbox(Frame3,  selectmode=SINGLE)
-[let cbs : OrderedSet(Colonne) = aSchemaDeTable.colonnes]
-[for (  cb : Colonne | cbs )]
-listeY.insert(END, "[cb.nom/]")
-[/for]
-[/let]
+listeY.insert(END, "id")
+listeY.insert(END, "pa")
+listeY.insert(END, "pv")
+listeY.insert(END, "nbc")
+listeY.insert(END, "benef")
 listeY.pack()
 
 def selectionY():
@@ -108,10 +101,10 @@ listeYBouton.pack()
 # bouton de sortie
 def afficherGraph(): 
         for ligne in contenue :
-            X.append(ligne['['/]colonneX['['/]0[']'/][']'/])
-            Y.append(ligne['['/]colonneY['['/]0[']'/][']'/])
-            a=['['/]float(i) for i in X['['/]1:[']'/][']'/]
-            b=['['/]float(i) for i in Y['['/]1:[']'/][']'/]
+            X.append(ligne[colonneX[0]])
+            Y.append(ligne[colonneY[0]])
+            a=[float(i) for i in X[1:]]
+            b=[float(i) for i in Y[1:]]
         plt.plot(a,b)
         plt.show()
         fenetre.destroy()
@@ -123,5 +116,3 @@ boutonRepGraphique.pack()
 fenetre.mainloop()
 
 
-[/file]
-[/template]
