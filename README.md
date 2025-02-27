@@ -1,2 +1,2 @@
-# Projet-IDM
+# Model Engineering Project
 This model engineering project was carried out at ENSEEIHT. It involved creating a suite of tools on Eclipse Modeling to design an Excel template. The goal was to define the column structure while setting constraints and allowing certain columns to be automatically calculated. Once the template is created, users can generate Python code to import compatible data, which can then be exported in the new structure or visualized.
